@@ -1,7 +1,8 @@
 import firebase from './firebase';
 import { getDatabase, onValue, ref } from 'firebase/database';
 import { useEffect } from 'react';
-import "./App.scss";
+import './App.scss';
+import Loader from './components/Loader'
 
 function App() {
 
@@ -14,6 +15,17 @@ function App() {
     })
   }, []);
 
+  .then(response => {
+    
+    setLoading(false)
+    
+  })
+
+  return (
+    {
+      loading
+        ?<Loader />
+                    : <div className='podcast'>
   return (
     <div>
       <header>

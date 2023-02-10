@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.scss";
 import Loader from './components/Loader'
+import Playlist from "./components/Playlist";
 
 function App() {
   // Store user inputs as values to be passed as arguments for 2nd API call.
@@ -60,6 +61,7 @@ function App() {
       <header>
         <h1> Podcast Planner </h1>
       </header>
+      <Playlist playlist={playlist} />
     </div>
   );
 }

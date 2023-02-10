@@ -15,19 +15,10 @@ function App() {
     })
   }, []);
 
-  .then(response => {
-    
-    setLoading(false)
-    
-  })
-
-  return (
-    {
-      loading
-        ?<Loader />
-                    : <div className='podcast'>
+  
   return (
     <div>
+      <Loader />
       <header>
         <h1> Podcast Planner </h1>
       </header>

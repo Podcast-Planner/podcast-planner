@@ -3,8 +3,9 @@ import { getDatabase, onValue, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.scss";
-import Loader from './components/Loader'
+import Loader from './components/Loader';
 import Playlist from "./components/Playlist";
+import GenreApi from "./components/GenreApi";
 
 function App() {
   // Store user inputs as values to be passed as arguments for 2nd API call.
@@ -62,6 +63,8 @@ function App() {
         <h1> Podcast Planner </h1>
       </header>
       <Playlist playlist={playlist} />
+      <GenreApi />
+
     </div>
   );
 }

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Playlist from './Playlist';
 
- const GetGenre = () => {
+ const GenreApi = () => {
     const [genre, setGenre] = useState('');
-    console.log (genre);
    
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -21,7 +21,7 @@ import axios from 'axios';
                 }
             });
             console.log(response.data);
-            setGenre(response.data.name);
+            setGenre(response.data);
         } catch (err) {
             setError(err);
         } finally {
@@ -31,18 +31,20 @@ import axios from 'axios';
         fetchGenre();
     }, []);
 
+    console.log (genre);
+
     if (loading) return <p>Loading...</p>;
     if (error) return <p>An error occurred: {error.message}</p>;
 
   return (
     <div>
-        <p>Get Genre Component</p>
+        <Playlist data={genre} />
     </div>
   )
 
 }
 
-export default GetGenre;
+export default GenreApi;
 
 
 

@@ -21,7 +21,6 @@ const Form = () => {
     const handleFormSubmit = (event) => {
         event.preventDefault()
         setUserQuery(userQuery)
-
     }
 
     return (

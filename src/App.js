@@ -3,6 +3,7 @@ import { getDatabase, onValue, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.scss";
+import Form from "./components/Form";
 import Loader from './components/Loader'
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
 
   // Save playlist data from API call to stateful variable
   const [playlist, setPlaylist] = useState([]);
-
+    
   // Function to fetch data from API based on user inputs (will be called onSubmit & onClick)
   const getPlaylist = () => {
     // setLoading(true);
@@ -56,10 +57,14 @@ function App() {
   
   return (
     <div>
-      <Loader />
-      <header>
-        <h1> Podcast Planner </h1>
-      </header>
+      {/* <Loader /> */}
+
+        <header>
+          <Form />
+          <h1> Podcast Planner </h1>
+        </header>
+      
+      
     </div>
   );
 }

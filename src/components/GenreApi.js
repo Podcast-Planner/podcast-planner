@@ -20,7 +20,7 @@ import Playlist from './Playlist';
                     top_level_only: 1,
                 }
             });
-            console.log(response.data);
+            // console.log(response.data);
             setGenre(response.data);
         } catch (err) {
             setError(err);
@@ -31,14 +31,16 @@ import Playlist from './Playlist';
         fetchGenre();
     }, []);
 
-    console.log (genre);
+        console.log (genre);
+    
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>An error occurred: {error.message}</p>;
 
   return (
     <div>
-        <Playlist data={genre} />
+        {/* Pass the Genre list to the Select drop down list of genres */}
+        {/* <selectMenu data={genre} /> */}
     </div>
   )
 

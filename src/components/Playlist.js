@@ -1,6 +1,9 @@
 import { useState } from 'react';
+// import PlaylistApi from './PlaylistApi';
 
 const Playlist = ({playlist}) => {
+
+    console.log(playlist)
     const [playPodcast, setPlayPodcast] = useState('')
 
     return(

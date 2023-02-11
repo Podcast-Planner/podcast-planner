@@ -1,7 +1,6 @@
 import firebase from "./firebase";
 import { getDatabase, onValue, ref } from "firebase/database";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect } from "react";
 import "./App.scss";
 import Form from "./components/Form";
 import Loader from './components/Loader'
@@ -44,6 +43,13 @@ function App() {
       });
   };
 
+import Loader from './components/Loader';
+// import Playlist from "./components/Playlist";
+import GenreApi from "./components/GenreApi";
+import PlaylistApi from "./components/PlaylistApi";
+
+function App() {
+  
   // Pull data from firebase on component mount
   useEffect(() => {
     const database = getDatabase(firebase);
@@ -65,6 +71,15 @@ function App() {
         </header>
       
       
+      <Loader />
+      <header>
+        <h1> Podcast Planner </h1>
+      </header>
+      
+      {/* These are placeholders for when we have the data populating from the forms and Api's */}
+      <PlaylistApi />
+      <GenreApi />
+
     </div>
   );
 }

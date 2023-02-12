@@ -1,0 +1,39 @@
+ul {
+  list-style: none;
+  width: 95%;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.playlist {
+  display: flex;
+  flex-direction: column;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.mediaContainer {
+  cursor: pointer;
+  position: relative;
+  width: 40vw;
+  height: 40vw;
+}
+
+.playlistInfo {
+  flex-basis: 55%;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

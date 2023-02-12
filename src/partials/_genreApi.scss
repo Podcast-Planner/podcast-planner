@@ -1,0 +1,69 @@
+form {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #001e31;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    gap: 3%;
+    font-size: large;
+    color: rgb(2, 0, 0);
+}
+
+.box select {
+    padding: 10px;
+    width: 500px;
+    height: 75px;
+    border: none;
+    font-size: var(--fs-body--);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, .5);
+    outline: none;
+    cursor: pointer;
+    overflow: hidden;
+    line-height: 3;
+}
+
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-border-radius: 0;
+    text-align: center;
+}
+
+.dropdownMenu {
+    width: 150px;
+    text-align: center;
+    font-size: 2rem;
+    font-family: serif;
+    text-transform: uppercase;
+    padding: 10px;
+    background-color: #fff;
+    color: #001e31;
+}
+
+.dropdownMenu option {
+    margin: 40px;
+    background-color: #fff !important;
+    color: #001e31;
+    text-shadow: 0 1px 0;
+}
+
+.submit {
+    font-size: 1rem;
+    width: 25%;
+    background-color: #c2edd8;
+    border: 1px #c2edd8 solid;
+    color: #001e31;
+    text-transform: uppercase;
+    margin-right: 0;
+}
+
+.submit:hover {
+    background-color: #D3CFE6;
+    border: 1px #D3CFE6 solid;
+}

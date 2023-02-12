@@ -1,7 +1,7 @@
 // Methods
 import firebase from "./firebase";
 import { getDatabase, onValue, ref } from "firebase/database";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 
 // Components
@@ -9,6 +9,8 @@ import Loader from "./components/Loader";
 import SavedLists from "./components/SavedLists";
 import GenreApi from "./components/GenreApi";
 import PlaylistApi from "./components/PlaylistApi";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import ErrorPage from "./components/ErrorPage";
 
 // Assets
@@ -23,6 +25,9 @@ function App() {
 
   // All playlists saved by the user (pulled from firebase database)
   const [savedPlaylists, setSavedPlaylists] = useState([]);
+
+  // Create a reference point for ScrollToTop.js functionality
+  const headerRef = useRef(null);
 
   // Pull data from firebase on component mount & change in database
   useEffect(() => {
@@ -41,10 +46,9 @@ function App() {
   return (
     <div>
       {/* <Loader /> */}
-      <header>
-        <h1> Podcast Planner </h1>
-        <GenreApi />
-      </header>
+
+
+      <Header headerRef={headerRef} />
 
       {/* These are the links that create the slug so that the Routes can work properly */}
       <Link to='/'></Link>
@@ -53,15 +57,29 @@ function App() {
       <Link to='/playlists'></Link>
 
       <Routes>
-        <Route path="/" element='*** Placeholder for the Podcast minutes ***' />
+
+        <Route path="/" element="*** Placeholder for the Podcast minutes ***" />
         <Route path="/genre" element={<GenreApi />} />
-        <Route path="/new-playlist" element='*** Placeholder for the api query results ***' />
-        <Route path="/playlists" element={<SavedLists savedPlaylists={savedPlaylists} formValues={formValues} />} />
-        {/* <Route path="*" element={<ErrorPage />} /> */}
+        <Route
+          path="/new-playlist"
+          element="*** Placeholder for the api query results ***"
+        />
+        <Route
+          path="/playlists"
+          element={
+            <SavedLists
+              savedPlaylists={savedPlaylists}
+              formValues={formValues}
+              headerRef={headerRef}
+            />
+          }
+        />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
 
       {/* These are placeholders for when we have the data populating from the forms and Api's */}
       <PlaylistApi formValues={formValues} />
+      <Footer />
 
     </div>
   );

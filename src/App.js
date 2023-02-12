@@ -1,68 +1,23 @@
-// Methods
-import firebase from "./firebase";
-import { getDatabase, onValue, ref } from "firebase/database";
-import { useEffect, useState } from "react";
-import { Routes, Route, Link } from "react-router-dom";
-
-// Components
-import Loader from "./components/Loader";
-import SavedLists from "./components/SavedLists";
-import GenreApi from "./components/GenreApi";
-import PlaylistApi from "./components/PlaylistApi";
-import ErrorPage from "./components/ErrorPage";
-
-// Assets
-import "./App.scss";
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
-  // Store user inputs as values to be passed as arguments for 2nd API call.
-  const [formValues, setFormValues] = useState({
-    length: 0,
-    genre: "",
-  });
-
-  // All playlists saved by the user (pulled from firebase database)
-  const [savedPlaylists, setSavedPlaylists] = useState([]);
-
-  // Pull data from firebase on component mount & change in database
-  useEffect(() => {
-    const database = getDatabase(firebase);
-    const dbRef = ref(database);
-    onValue(dbRef, (res) => {
-      const data = res.val();
-      const newState = [];
-      for (let key in data) {
-        newState.push({ key: key, playlist: data[key] });
-      }
-      setSavedPlaylists(newState);
-    });
-  }, []);
-
   return (
-    <div>
-      {/* <Loader /> */}
-      <header>
-        <h1> Podcast Planner </h1>
-        <GenreApi />
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
       </header>
-
-      {/* These are the links that create the slug so that the Routes can work properly */}
-      <Link to='/'></Link>
-      <Link to='/genre'></Link>
-      <Link to='/new-playlist'></Link>
-      <Link to='/playlists'></Link>
-
-      <Routes>
-        <Route path="/" element='*** Placeholder for the Podcast minutes ***' />
-        <Route path="/genre" element={<GenreApi />} />
-        <Route path="/new-playlist" element='*** Placeholder for the api query results ***' />
-        <Route path="/playlists" element={<SavedLists savedPlaylists={savedPlaylists} formValues={formValues} />} />
-        {/* <Route path="*" element={<ErrorPage />} /> */}
-      </Routes>
-
-      {/* These are placeholders for when we have the data populating from the forms and Api's */}
-      <PlaylistApi formValues={formValues} />
-
     </div>
   );
 }

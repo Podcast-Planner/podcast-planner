@@ -1,34 +1,43 @@
-import { useState } from 'react';
+import { useState } from "react";
 // import PlaylistApi from './PlaylistApi';
 
-const Playlist = ({playlist}) => {
+const Playlist = ({ playlistObject, formValues }) => {
+  const [playPodcast, setPlayPodcast] = useState("");
 
-    console.log(playlist)
-    const [playPodcast, setPlayPodcast] = useState('')
-
-    return(
-        <div>
-            <h2>Your Walking Playlist</h2>
-            <ul className='playlist'>
-                {playlist.map(({audio, id, image, podcast_title_original, title_original}) => {
-                    return(
-                        <li key={id}>
-                            <button onClick={e => setPlayPodcast(e.currentTarget.id)} className='mediaContainer' id={id}>
-                                {id === playPodcast 
-                                ? <iframe src={audio} title={title_original}></iframe>
-                                :<img src={`${image}`} alt={`cover for ${podcast_title_original}`}></img>
-                                }
-                            </button>
-                            <div className='playlistInfo'>
-                                <h3>{title_original}</h3>
-                                <p>{podcast_title_original}</p>
-                            </div>
-                        </li>
-                    )
-                })}
-            </ul>
-        </div>
-    )
-}
+  return (
+    <div className="playlistContainer">
+      <h3>
+        {formValues.length} minutes of {formValues.genre}
+      </h3>
+      <ul className="playlist">
+        {playlistObject.map(
+          ({ audio, id, image, podcast_title_original, title_original }) => {
+            return (
+              <li key={id}>
+                <button
+                  onClick={(e) => setPlayPodcast(e.currentTarget.id)}
+                  className="mediaContainer"
+                  id={id}
+                >
+                  <img
+                    src={`${image}`}
+                    alt={`cover for ${podcast_title_original}`}
+                  ></img>
+                  {id === playPodcast ? (
+                    <iframe src={audio} title={title_original}></iframe>
+                  ) : undefined}
+                </button>
+                <div className="playlistInfo">
+                  <h4>{title_original}</h4>
+                  <h5>{podcast_title_original}</h5>
+                </div>
+              </li>
+            );
+          }
+        )}
+      </ul>
+    </div>
+  );
+};
 
 export default Playlist;

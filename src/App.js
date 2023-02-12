@@ -1,84 +1,67 @@
+// Methods
 import firebase from "./firebase";
 import { getDatabase, onValue, ref } from "firebase/database";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Routes, Route, Link } from "react-router-dom";
+
+// Components
+import Loader from "./components/Loader";
+import SavedLists from "./components/SavedLists";
+import GenreApi from "./components/GenreApi";
+import PlaylistApi from "./components/PlaylistApi";
+import ErrorPage from "./components/ErrorPage";
+
+// Assets
 import "./App.scss";
-import Form from "./components/Form";
-import Loader from './components/Loader'
 
 function App() {
   // Store user inputs as values to be passed as arguments for 2nd API call.
   const [formValues, setFormValues] = useState({
-    lenMin: 0,
-    lenMax: 0,
+    length: 0,
     genre: "",
   });
 
-  // Save playlist data from API call to stateful variable
-  const [playlist, setPlaylist] = useState([]);
-    
-  // Function to fetch data from API based on user inputs (will be called onSubmit & onClick)
-  const getPlaylist = () => {
-    // setLoading(true);
-    axios({
-      url: "https://listen-api.listennotes.com/api/v2/search",
-      headers: {
-        "X-ListenAPI-Key": "9a92e5d7fee14b86ad0d4bf6c532f35e",
-      },
-      params: {
-        q: "podcast",
-        type: "episode",
-        len_min: formValues.lenMin,
-        len_max: formValues.lenMax,
-        genre_ids: formValues.genre,
-        language: "English",
-      },
-    })
-      .then((res) => {
-        setPlaylist(res.data.results);
-        // setLoading(false);
-      })
-      .catch((err) => {
-        alert(err);
-        // setLoading(false);
-      });
-  };
+  // All playlists saved by the user (pulled from firebase database)
+  const [savedPlaylists, setSavedPlaylists] = useState([]);
 
-import Loader from './components/Loader';
-// import Playlist from "./components/Playlist";
-import GenreApi from "./components/GenreApi";
-import PlaylistApi from "./components/PlaylistApi";
-
-function App() {
-  
-  // Pull data from firebase on component mount
+  // Pull data from firebase on component mount & change in database
   useEffect(() => {
     const database = getDatabase(firebase);
     const dbRef = ref(database);
     onValue(dbRef, (res) => {
       const data = res.val();
-      console.log(data);
+      const newState = [];
+      for (let key in data) {
+        newState.push({ key: key, playlist: data[key] });
+      }
+      setSavedPlaylists(newState);
     });
   }, []);
 
-  
   return (
     <div>
       {/* <Loader /> */}
-
-        <header>
-          <Form />
-          <h1> Podcast Planner </h1>
-        </header>
-      
-      
-      <Loader />
       <header>
         <h1> Podcast Planner </h1>
+        <GenreApi />
       </header>
-      
+
+      {/* These are the links that create the slug so that the Routes can work properly */}
+      <Link to='/'></Link>
+      <Link to='/genre'></Link>
+      <Link to='/new-playlist'></Link>
+      <Link to='/playlists'></Link>
+
+      <Routes>
+        <Route path="/" element='*** Placeholder for the Podcast minutes ***' />
+        <Route path="/genre" element={<GenreApi />} />
+        <Route path="/new-playlist" element='*** Placeholder for the api query results ***' />
+        <Route path="/playlists" element={<SavedLists savedPlaylists={savedPlaylists} formValues={formValues} />} />
+        {/* <Route path="*" element={<ErrorPage />} /> */}
+      </Routes>
+
       {/* These are placeholders for when we have the data populating from the forms and Api's */}
-      <PlaylistApi />
-      <GenreApi />
+      <PlaylistApi formValues={formValues} />
 
     </div>
   );

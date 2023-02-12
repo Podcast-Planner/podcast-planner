@@ -1,11 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
 import { Plus, Playlist } from "phosphor-react";
 
-const Header = () => {
+const Header = ({ headerRef }) => {
   const pathName = useLocation().pathname;
 
   return (
-    <header>
+    <header ref={headerRef}>
       <h1> Podcast Planner </h1>
       <nav>
         <Link to={pathName === "/playlists" ? "/" : "/playlists"}>

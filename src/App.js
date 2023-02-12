@@ -1,7 +1,7 @@
 // Methods
 import firebase from "./firebase";
 import { getDatabase, onValue, ref } from "firebase/database";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 
 // Components
@@ -26,6 +26,9 @@ function App() {
   // All playlists saved by the user (pulled from firebase database)
   const [savedPlaylists, setSavedPlaylists] = useState([]);
 
+  // Create a reference point for ScrollToTop.js functionality
+  const headerRef = useRef(null);
+
   // Pull data from firebase on component mount & change in database
   useEffect(() => {
     const database = getDatabase(firebase);
@@ -44,7 +47,7 @@ function App() {
     <div>
       {/* <Loader /> */}
 
-      <Header />
+      <Header headerRef={headerRef} />
 
       {/* These are the links that create the slug so that the Routes can work properly */}
       <Link to="/"></Link>
@@ -65,6 +68,7 @@ function App() {
             <SavedLists
               savedPlaylists={savedPlaylists}
               formValues={formValues}
+              headerRef={headerRef}
             />
           }
         />

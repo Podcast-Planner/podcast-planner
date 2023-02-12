@@ -2,13 +2,14 @@
 import firebase from "./firebase";
 import { getDatabase, onValue, ref } from "firebase/database";
 import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 
 // Components
 import Loader from "./components/Loader";
 import SavedLists from "./components/SavedLists";
 import GenreApi from "./components/GenreApi";
 import PlaylistApi from "./components/PlaylistApi";
+import ErrorPage from "./components/ErrorPage";
 
 // Assets
 import "./App.scss";
@@ -44,21 +45,23 @@ function App() {
         <h1> Podcast Planner </h1>
       </header>
 
+      {/* These are the links that create the slug so that the Routes can work properly */}
+      <Link to='/'></Link>
+      <Link to='/genre'></Link>
+      <Link to='/new-playlist'></Link>
+      <Link to='/playlists'></Link>
+
       <Routes>
-        <Route
-          path="/playlists"
-          element={
-            <SavedLists
-              savedPlaylists={savedPlaylists}
-              formValues={formValues}
-            />
-          }
-        />
+        <Route path="/" element='*** Placeholder for the Podcast minutes ***' />
+        <Route path="/genre" element={<GenreApi />} />
+        <Route path="/new-playlist" element='*** Placeholder for the api query results ***' />
+        <Route path="/playlists" element={<SavedLists savedPlaylists={savedPlaylists} formValues={formValues}/>}/>
+        <Route path="*" element={ <ErrorPage /> } />
       </Routes>
 
       {/* These are placeholders for when we have the data populating from the forms and Api's */}
       <PlaylistApi formValues={formValues} />
-      <GenreApi />
+      
     </div>
   );
 }

@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Playlist from "./Playlist";
+import Loader from "./Loader";
 
 const PlaylistApi = ({ formValues }) => {
   // Save playlist data from API call to stateful variable
   const [newPlaylist, setNewPlaylist] = useState([]);
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
   useEffect(() => {
     // Function to fetch data from API based on user inputs (will be called onSubmit & onClick)
     const getPlaylist = () => {
-      // setLoading(true);
+      setLoading(true);
       axios({
         url: "https://listen-api.listennotes.com/api/v2/search",
         headers: {
@@ -26,15 +30,20 @@ const PlaylistApi = ({ formValues }) => {
       })
         .then((res) => {
           setNewPlaylist(res.data.results);
-          // setLoading(false);
+          setLoading(false);
         })
         .catch((err) => {
-          alert(err);
-          // setLoading(false);
+          setError(err)
+          setLoading(false);
         });
+
+
     };
     getPlaylist();
   }, []);
+
+    if (loading) return <Loader />;
+    if (error) return alert(`An error occurred: ${error.message}`);
 
   return (
     <div>

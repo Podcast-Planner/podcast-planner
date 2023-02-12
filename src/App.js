@@ -13,7 +13,11 @@ import PlaylistApi from "./components/PlaylistApi";
 // Assets
 import "./App.scss";
 
-function App() {
+const App = () => {
+
+  const [loading, setLoading] = useState(true);
+  const isLoading = isLoading => setLoading(isLoading)
+
   // Store user inputs as values to be passed as arguments for 2nd API call.
   const [formValues, setFormValues] = useState({
     length: 0,
@@ -39,11 +43,12 @@ function App() {
 
   return (
     <div>
-      {/* <Loader /> */}
+      {loading ? <Loader /> : null}
+      
       <header>
         <h1> Podcast Planner </h1>
       </header>
-
+    
       <Routes>
         <Route
           path="/playlists"
@@ -57,8 +62,8 @@ function App() {
       </Routes>
 
       {/* These are placeholders for when we have the data populating from the forms and Api's */}
-      <PlaylistApi formValues={formValues} />
-      <GenreApi />
+      <PlaylistApi formValues={formValues} isLoading={isLoading} />
+      <GenreApi isLoading={isLoading}/>
     </div>
   );
 }

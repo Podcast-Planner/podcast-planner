@@ -1,16 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Playlist from "./Playlist";
 
-const GenreApi = () => {
+
+const GenreApi = ({isLoading}) => {
   const [genre, setGenre] = useState("");
 
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchGenre = async () => {
-      setLoading(true);
       try {
         const response = await axios.get(
           "https://listen-api.listennotes.com/api/v2/genres",
@@ -28,14 +26,13 @@ const GenreApi = () => {
       } catch (err) {
         setError(err);
       } finally {
-        setLoading(false);
+        isLoading(false);
       }
     };
     fetchGenre();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>An error occurred: {error.message}</p>;
+
 
   return (
     <div>

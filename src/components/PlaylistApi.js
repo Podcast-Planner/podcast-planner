@@ -2,11 +2,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Playlist from "./Playlist";
 
-const PlaylistApi = ({ formValues }) => {
+const PlaylistApi = ({ formValues, isLoading }) => {
   // Save playlist data from API call to stateful variable
   const [newPlaylist, setNewPlaylist] = useState([]);
 
   useEffect(() => {
+    isLoading(true);
     // Function to fetch data from API based on user inputs (will be called onSubmit & onClick)
     const getPlaylist = () => {
       // setLoading(true);
@@ -26,11 +27,11 @@ const PlaylistApi = ({ formValues }) => {
       })
         .then((res) => {
           setNewPlaylist(res.data.results);
-          // setLoading(false);
+          isLoading(false);
         })
         .catch((err) => {
           alert(err);
-          // setLoading(false);
+          isLoading(false);
         });
     };
     getPlaylist();

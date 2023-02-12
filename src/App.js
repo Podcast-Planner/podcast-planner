@@ -47,15 +47,17 @@ function App() {
     <div>
       {/* <Loader /> */}
 
+
       <Header headerRef={headerRef} />
 
       {/* These are the links that create the slug so that the Routes can work properly */}
-      <Link to="/"></Link>
-      <Link to="/genre"></Link>
-      <Link to="/new-playlist"></Link>
-      <Link to="/playlists"></Link>
+      <Link to='/'></Link>
+      <Link to='/genre'></Link>
+      <Link to='/new-playlist'></Link>
+      <Link to='/playlists'></Link>
 
       <Routes>
+
         <Route path="/" element="*** Placeholder for the Podcast minutes ***" />
         <Route path="/genre" element={<GenreApi />} />
         <Route
@@ -77,8 +79,8 @@ function App() {
 
       {/* These are placeholders for when we have the data populating from the forms and Api's */}
       <PlaylistApi formValues={formValues} />
-
       <Footer />
+
     </div>
   );
 }

@@ -1,3 +1,6 @@
 @use "./partials/setup";
+@use "./partials/variables";
+@use "./partials/mainStyles";
 @use "./partials/loader";
 @use "./partials/playlist";
+@use "./partials/savedPlaylists";

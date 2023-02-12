@@ -56,3 +56,18 @@ h5,
 p {
   font-size: 0.9rem;
 }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  button {
+    margin: 10px;
+    cursor: pointer;
+  }
+}
+
+footer p {
+  text-align: center;
+}

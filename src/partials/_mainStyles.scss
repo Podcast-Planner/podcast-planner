@@ -4,6 +4,11 @@ html {
   font-size: 125%;
 }
 
+.body {
+  background-color: $primary;
+  color: $tertiary;
+}
+
 img {
   width: 100%;
   height: 100%;
@@ -15,19 +20,19 @@ li {
 
 a {
   text-decoration: none;
+  color: $quaternary;
 }
 
 h1,
 h2,
 h4 {
-  font-family: $sans;
+  @include bold;
 }
 
 h3,
 h5,
 p {
-  font-family: $serif;
-  font-weight: normal;
+  @include light;
 }
 
 h2,
@@ -77,4 +82,6 @@ header {
 
 footer p {
   text-align: center;
+  margin: 0;
+  padding: 18px 0;
 }

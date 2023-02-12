@@ -44,7 +44,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className="body">
       {/* <Loader /> */}
 
       <Header headerRef={headerRef} />

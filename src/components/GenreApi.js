@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Playlist from "./Playlist";
+import Loader from "./Loader";
 
 const GenreApi = () => {
   const [genre, setGenre] = useState("");
@@ -34,8 +35,9 @@ const GenreApi = () => {
     fetchGenre();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>An error occurred: {error.message}</p>;
+  if (loading) return <Loader />;
+  if (error) return alert(`An error occurred: ${error.message}`);
+  // console.log(error.message)
 
   return (
     <div>

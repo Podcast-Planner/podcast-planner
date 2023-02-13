@@ -1,3 +1,21 @@
+@use "./variables" as *;
+
+.subHeading {
+    font-size: 2rem;
+    color: $tertiary;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.newLine {
+    display: block;
+}
+
+.hidden {
+    padding-right: 1em;
+}
+
 form {
     height: 100vh;
     display: flex;
@@ -8,6 +26,7 @@ form {
 
 .box {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     gap: 3%;
     font-size: large;
@@ -16,15 +35,17 @@ form {
 
 .box select {
     padding: 10px;
-    width: 500px;
+    width: 100%;
     height: 75px;
     border: none;
-    font-size: var(--fs-body--);
+    font-size: 1rem;
+    font-family: 'serif';
     box-shadow: 0 5px 25px rgba(0, 0, 0, .5);
     outline: none;
     cursor: pointer;
     overflow: hidden;
     line-height: 3;
+    margin-bottom: 1em;
 }
 
 select {
@@ -42,28 +63,45 @@ select {
     font-family: serif;
     text-transform: uppercase;
     padding: 10px;
-    background-color: #fff;
+    background-color: $tertiary;
     color: #001e31;
 }
 
 .dropdownMenu option {
     margin: 40px;
-    background-color: #fff !important;
+    background-color: $tertiary !important;
     color: #001e31;
     text-shadow: 0 1px 0;
 }
 
-.submit {
+.back,
+.create {
     font-size: 1rem;
+    font-family: 'serif';
     width: 25%;
-    background-color: #c2edd8;
-    border: 1px #c2edd8 solid;
-    color: #001e31;
+    padding: 10px;
+    height: 75px;
+    border: 1px $primary solid;
+    color: $tertiary;
     text-transform: uppercase;
     margin-right: 0;
+    background-color: $primary;
 }
 
-.submit:hover {
-    background-color: #D3CFE6;
-    border: 1px #D3CFE6 solid;
+.back:hover,
+.back:focus,
+.create:hover,
+.create:focus {
+    background-color: $quaternary;
+    border: 1px $quaternary solid;
+    color: #001e31;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    align-items: center;
+    padding: 2em;
+
 }

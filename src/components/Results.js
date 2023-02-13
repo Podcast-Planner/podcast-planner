@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Playlist from "./Playlist";
 import Loader from "./Loader";
+import { Link } from "react-router-dom"
+import { HeartStraight, X } from "phosphor-react"
 
-const PlaylistApi = ({ formValues }) => {
+const Results = ({ formValues }) => {
   // Save playlist data from API call to stateful variable
   const [newPlaylist, setNewPlaylist] = useState([]);
 
@@ -45,11 +47,13 @@ const PlaylistApi = ({ formValues }) => {
 
   return (
     <div className="results">
-      <h2>Your Walking Playlist</h2>
-
       <Playlist playlistObject={newPlaylist} formValues={formValues} />
+      <div className='playlistButtons'>
+        <Link to='/playlists'><HeartStraight size={64} color="#d01116" weight="fill" /></Link>
+        <Link to='/'><X size={64} /></Link>
+      </div>
     </div>
   );
 };
 
-export default PlaylistApi;
+export default Results;

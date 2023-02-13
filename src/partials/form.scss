@@ -105,3 +105,60 @@ select {
     padding: 2em;
 
 }
+
+form {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #001e31;
+}
+
+label {
+    color: #ede7e3;
+    margin-bottom: 1em;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+    color: rgb(2, 0, 0);
+    text-align: center;
+}
+
+.box input {
+    padding: 10px;
+    width: 100%;
+    height: 75px;
+    border: none;
+    font-size: 1rem;
+    font-family: 'serif';
+    box-shadow: 0 5px 25px rgba(0, 0, 0, .5);
+    outline: none;
+    cursor: pointer;
+    overflow: hidden;
+    line-height: 3;
+    margin-bottom: 1em;
+}
+
+.next {
+    align-self: center;
+    font-size: 1rem;
+    font-family: 'serif';
+    width: 50%;
+    padding: 10px;
+    height: 75px;
+    border: 1px $primary solid;
+    color: $tertiary;
+    text-transform: uppercase;
+    margin-right: 0;
+    background-color: $primary;
+}
+
+.next:hover,
+.next:focus {
+    background-color: $quaternary;
+    border: 1px $quaternary solid;
+    color: #001e31;
+}

@@ -5,6 +5,7 @@ import { useEffect, useState, useRef } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 
 // Components
+import Input from "./components/Input";
 import Loader from "./components/Loader";
 import SavedLists from "./components/SavedLists";
 import GenreApi from "./components/GenreApi";
@@ -59,6 +60,7 @@ function App() {
       <Routes>
 
         <Route path="/" element="*** Placeholder for the Podcast minutes ***" />
+        <Route path="/input" element={<Input />} />
         <Route path="/genre" element={<GenreApi />} />
         <Route
           path="/new-playlist"

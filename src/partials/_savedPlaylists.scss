@@ -1,16 +1,37 @@
+@use "./variables" as *;
+
 .savedLists {
+  .playlists {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
   .playlistContainer {
-    height: 80vh;
+    height: 70vh;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px;
+    background-color: $primary;
   }
 
   .playlist {
-    height: 67vh;
+    height: 75%;
     overflow: auto;
-    border: 1px solid;
-    padding: 10px 20px;
+    border-radius: 10px;
   }
 
-  li {
-    gap: 20px;
+  .mediaContainer {
+    width: 30vw;
+    height: 30vw;
+  }
+
+  h3 {
+    border-radius: 10px;
+  }
+
+  h4,
+  h5 {
+    margin: 15px 0;
   }
 }

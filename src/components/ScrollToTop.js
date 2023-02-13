@@ -26,7 +26,7 @@ const ScrollToTop = ({ headerRef }) => {
       onClick={handleScrollToTop}
       style={visible ? { display: "inline" } : { display: "none" }}
     >
-      <CaretDoubleUp size={34} />
+      <CaretDoubleUp size={34} className="icon" />
     </button>
   );
 };

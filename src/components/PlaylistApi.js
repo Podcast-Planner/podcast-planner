@@ -33,20 +33,18 @@ const PlaylistApi = ({ formValues }) => {
           setLoading(false);
         })
         .catch((err) => {
-          setError(err)
+          setError(err);
           setLoading(false);
         });
-
-
     };
     getPlaylist();
   }, []);
 
-    if (loading) return <Loader />;
-    if (error) return alert(`An error occurred: ${error.message}`);
+  if (loading) return <Loader />;
+  if (error) return alert(`An error occurred: ${error.message}`);
 
   return (
-    <div>
+    <div className="results">
       <h2>Your Walking Playlist</h2>
 
       <Playlist playlistObject={newPlaylist} formValues={formValues} />

@@ -53,20 +53,25 @@ const GenreApi = () => {
 
 
     return (
+        <>
         <form onSubmit={handleFormSubmit}>
-            <label htmlFor='podcastSelector' className='visuallyhidden'>Podcast</label>
+            <label htmlFor='podcastSelector' className='hidden'>Podcast</label>
             <div className='box'>
-                <select className="dropdownMenu" onChange={handleFormChange}>
-                    <option value={userPlaylist}>--Select Podcast--</option>
+                <h2 className='subHeading'>Find your perfect <span class='newLine'>podcast playlist</span></h2>
+                <select className='dropdownMenu' onChange={handleFormChange}>
+                    <option value=''disabled selected> {userPlaylist}-- What genre? --</option>
                     {genresArray && genresArray.map((genreArray =>
                         <option key={genreArray.id} value={genreArray.id}>{genreArray.name}</option>
                     ))
                     }
                 </select>
-                <button className='submit'>Submit</button>
+                <div className='buttons'>
+                    <button className='back'>Back</button>
+                    <button className='create'>Create</button>
+                </div>
             </div>
         </form>
-
+        </>                
     );
 
 }

@@ -19,7 +19,8 @@ function App() {
   // Store user inputs as values to be passed as arguments for 2nd API call.
   const [formValues, setFormValues] = useState({
     length: 0,
-    genre: "",
+    genreId: "",
+    genre: ""
   });
 
   // All playlists saved by the user (pulled from firebase database)
@@ -36,7 +37,7 @@ function App() {
       const data = res.val();
       const newState = [];
       for (let key in data) {
-        newState.push({ key: key, playlist: data[key] });
+        newState.push({key: key, data: data[key] });
       }
       setSavedPlaylists(newState);
     });
@@ -49,7 +50,7 @@ function App() {
       <Header headerRef={headerRef} />
 
       <Routes>
-        <Route path="/" element={<Form />} />
+        <Route path="/" element={<Form formValues={formValues} setFormValues={setFormValues}/>} />
         <Route
           path="/new-playlist"
           element={<Results formValues={formValues} />}

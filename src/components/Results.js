@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import firebase from "../firebase";
+import { getDatabase, push, ref } from "firebase/database";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Playlist from "./Playlist";
 import Loader from "./Loader";
@@ -8,9 +11,10 @@ import { HeartStraight, X } from "phosphor-react"
 const Results = ({ formValues }) => {
   // Save playlist data from API call to stateful variable
   const [newPlaylist, setNewPlaylist] = useState([]);
-
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Function to fetch data from API based on user inputs (will be called onSubmit & onClick)
@@ -26,7 +30,7 @@ const Results = ({ formValues }) => {
           type: "episode",
           len_min: formValues.length,
           len_max: formValues.length + 1,
-          genre_ids: formValues.genre,
+          genre_ids: formValues.genreId,
           language: "English",
         },
       })
@@ -42,6 +46,15 @@ const Results = ({ formValues }) => {
     getPlaylist();
   }, []);
 
+
+  const handleClick = () => {
+    const database = getDatabase(firebase);
+    const dbRef = ref(database);
+    const firebaseObj = { playlist: newPlaylist, formValues: formValues }
+    push(dbRef, firebaseObj);
+    navigate('/playlists');
+  }
+
   if (loading) return <Loader />;
   if (error) return alert(`An error occurred: ${error.message}`);
 
@@ -49,7 +62,7 @@ const Results = ({ formValues }) => {
     <div className="results">
       <Playlist playlistObject={newPlaylist} formValues={formValues} />
       <div className='playlistButtons'>
-        <Link to='/playlists'><HeartStraight size={64} color="#d01116" weight="fill" /></Link>
+        <button onClick={handleClick}><HeartStraight size={64} color="#d01116" weight="fill" /></button>
         <Link to='/'><X size={64} /></Link>
       </div>
     </div>

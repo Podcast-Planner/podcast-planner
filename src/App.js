@@ -18,9 +18,9 @@ import "./App.scss";
 function App() {
   // Store user inputs as values to be passed as arguments for 2nd API call.
   const [formValues, setFormValues] = useState({
-    length: 0,
+    length: 5,
     genreId: "",
-    genre: ""
+    genre: "",
   });
 
   // All playlists saved by the user (pulled from firebase database)
@@ -37,7 +37,7 @@ function App() {
       const data = res.val();
       const newState = [];
       for (let key in data) {
-        newState.push({key: key, data: data[key] });
+        newState.push({ key: key, data: data[key] });
       }
       setSavedPlaylists(newState);
     });
@@ -45,12 +45,15 @@ function App() {
 
   return (
     <div className="body">
-
-
       <Header headerRef={headerRef} />
 
       <Routes>
-        <Route path="/" element={<Form formValues={formValues} setFormValues={setFormValues}/>} />
+        <Route
+          path="/"
+          element={
+            <Form formValues={formValues} setFormValues={setFormValues} />
+          }
+        />
         <Route
           path="/new-playlist"
           element={<Results formValues={formValues} />}
@@ -68,7 +71,6 @@ function App() {
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />
-
     </div>
   );
 }

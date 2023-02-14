@@ -19,10 +19,12 @@ const Playlist = ({ playlistObject, formValues }) => {
                   className="mediaContainer"
                   id={id}
                 >
-                  <img
-                    src={`${image}`}
-                    alt={`cover for ${podcast_title_original}`}
-                  ></img>
+                  <div className = 'flexImage fade'>
+                    <img
+                      src={`${image}`}
+                      alt={`cover for ${podcast_title_original}`}
+                    ></img>
+                  </div>
                   {id === playPodcast ? (
                     <iframe src={audio} title={title_original}></iframe>
                   ) : undefined}

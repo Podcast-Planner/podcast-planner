@@ -62,7 +62,7 @@ const Results = ({ formValues }) => {
     <div className="results">
       <Playlist playlistObject={newPlaylist} formValues={formValues} />
       <div className='playlistButtons'>
-        <button onClick={handleClick}><HeartStraight size={64} color="#d01116" weight="fill" /></button>
+        <button class='iconHeart' onClick={handleClick}><HeartStraight size={64} color="#d01116" weight="fill" /></button>
         <Link to='/'><X size={64} /></Link>
       </div>
     </div>

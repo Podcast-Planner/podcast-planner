@@ -82,16 +82,16 @@ const Form = ({formValues, setFormValues}) => {
                 </div>
             :
             <div className='box'id='input'>
-                <h2 className='subHeading'>Find your perfect <span
-                className='newLine'>podcast playlist</span></h2>
-                <div className='flex'>
+                {/* <div className='flex'> */}
+                    <h2 className='subHeading'>Find your perfect <span
+                    className='newLine'>podcast playlist</span></h2>
                     <label htmlFor='length'>length</label>
                     <input 
                     placeholder='How long is your walk?'
                     type='text'
                     id='length'
                     onChange={handleLengthInputChange} />
-                </div>
+                {/* </div> */}
                 <button className='next' onClick={handleNextClick}>Next</button>
             </div> 
             }

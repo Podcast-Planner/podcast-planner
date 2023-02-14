@@ -12,8 +12,16 @@
     display: block;
 }
 
-.hidden {
-    padding-right: 1em;
+
+input,
+.dropdownMenu {
+    border-radius: 50px;
+    background-color: $tertiary;
+    color: #001e31;
+}
+
+label {
+    visibility: hidden;
 }
 
 form {
@@ -24,22 +32,13 @@ form {
     background-color: #001e31;
 }
 
-.box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 3%;
-    font-size: large;
-    color: rgb(2, 0, 0);
-}
-
-.box select {
+.box select,
+.box input {
     padding: 10px;
     width: 100%;
     height: 75px;
     border: none;
     font-size: 1rem;
-    font-family: 'serif';
     box-shadow: 0 5px 25px rgba(0, 0, 0, .5);
     outline: none;
     cursor: pointer;
@@ -56,62 +55,12 @@ select {
     text-align: center;
 }
 
-.dropdownMenu {
-    width: 150px;
-    text-align: center;
-    font-size: 2rem;
-    font-family: serif;
-    text-transform: uppercase;
-    padding: 10px;
-    background-color: $tertiary;
-    color: #001e31;
-}
-
-.dropdownMenu option {
-    margin: 40px;
-    background-color: $tertiary !important;
-    color: #001e31;
-    text-shadow: 0 1px 0;
-}
-
-.back,
-.create {
-    font-size: 1rem;
-    font-family: 'serif';
-    width: 25%;
-    padding: 10px;
-    height: 75px;
-    border: 1px $primary solid;
-    color: $tertiary;
-    text-transform: uppercase;
-    margin-right: 0;
-    background-color: $primary;
-}
-
-.back:hover,
-.back:focus,
-.create:hover,
-.create:focus {
-    background-color: $quaternary;
-    border: 1px $quaternary solid;
-    color: #001e31;
-}
-
 .buttons {
     display: flex;
     justify-content: center;
     gap: 1em;
     align-items: center;
     padding: 2em;
-
-}
-
-form {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #001e31;
 }
 
 label {
@@ -127,38 +76,51 @@ label {
     text-align: center;
 }
 
-.box input {
-    padding: 10px;
-    width: 100%;
-    height: 75px;
-    border: none;
-    font-size: 1rem;
-    font-family: 'serif';
-    box-shadow: 0 5px 25px rgba(0, 0, 0, .5);
-    outline: none;
-    cursor: pointer;
-    overflow: hidden;
-    line-height: 3;
-    margin-bottom: 1em;
-}
 
+.back,
+.create,
 .next {
     align-self: center;
     font-size: 1rem;
-    font-family: 'serif';
-    width: 50%;
-    padding: 10px;
-    height: 75px;
-    border: 1px $primary solid;
-    color: $tertiary;
     text-transform: uppercase;
-    margin-right: 0;
-    background-color: $primary;
+    letter-spacing: 1px;
+    width: 160px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 55px;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
 }
 
+.back:hover,
+.create:hover,
 .next:hover,
+.back:focus,
+.create:focus,
 .next:focus {
     background-color: $quaternary;
-    border: 1px $quaternary solid;
-    color: #001e31;
+    border: 1px $tertiary solid;
+    color: $tertiary;
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.back,
+.create,
+.next {
+    background-image: linear-gradient(to right,
+            $primary, $secondary);
+    box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
 }

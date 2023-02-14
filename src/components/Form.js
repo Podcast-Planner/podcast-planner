@@ -82,7 +82,7 @@ const Form = () => {
         <>
         <form onSubmit={handleFormSubmit}>
             {queryLength?
-                <div className='box'>
+                <div className='box' id='dropdown'>
                     <label htmlFor='podcastSelector' className='hidden'>Podcast</label>
                     <h2 className='subHeading'>Find your perfect <span className='newLine'>podcast playlist</span></h2>
                     <select className='dropdownMenu' onChange={handleFormChange}>
@@ -98,16 +98,19 @@ const Form = () => {
                     </div>
                 </div>
             :
-            <div className='box'>
-                <label htmlFor='length'>length</label>
-                <input 
+            <div className='box'id='input'>
+                <h2 className='subHeading'>Find your perfect <span
+                className='newLine'>podcast playlist</span></h2>
+                <div className='flex'>
+                    <label htmlFor='length'>length</label>
+                    <input 
                     placeholder='How long is your walk?'
                     type='text'
                     id='length'
                     onChange={handleLengthInputChange}
-                    value={length}
-                />
-                <button className='next'onClick={handleLengthFormSubmit}>Next</button>
+                    value={length} />
+                </div>
+                <button className='next' onClick={handleLengthFormSubmit}>Next</button>
             </div> 
             }
 

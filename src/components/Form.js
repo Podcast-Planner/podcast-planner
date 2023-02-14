@@ -4,15 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import Loader from "./Loader";
 
 
-const Form = () => {
+const Form = ({formValues, setFormValues}) => {
     // Setting state with our application
     const [genres, setGenres] = useState([]);
-    const [userPlaylist, setUserPlaylist] = useState('');
-    const [userQuery, setUserQuery] = useState('');
+    const [next, setNext] = useState(false)
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [length, setLength] = useState('');
-    const [queryLength, setQueryLength] = useState();
+    
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -43,50 +41,35 @@ const Form = () => {
     // console.log(error.message);
     
     //grabbing the value typed in by the user
-    const handleLengthInputChange = (event) => {
-        setLength(event.target.value);
-    }
-    //updating the queryLength with value typed in by the user
-    const handleLengthFormSubmit = (event) => {
-        //stopping the default action of the form
-        event.preventDefault();
-        //removing the white space from the length text
-        const controlledLengthInput = length.trim();
-        //updating the queryLength state and clearing the input
-        setQueryLength(controlledLengthInput);
-        setLength('');
-    }
+    const handleLengthInputChange = e => {
+        setFormValues({...formValues, length: e.target.value});
+    }               
 
-    // grabbing the podcast selected by the user
-    const handleFormChange = (event) => {
-        setUserPlaylist(event.target.value)
-    }
-    // stopping the default action of the form
-    const handleFormSubmit = (event) => {
-        event.preventDefault()
-        setUserQuery(userQuery)
-        navigate('/new-playlist');
+    const handleFormChange = e => {
+        setFormValues({ ...formValues, genre: e.target.selectedOptions[0].innerText, genreId: e.target.value });
     }
     //  Array.from
-    console.log(genres);
     const genresArray = genres.genres;
 
     const handleBackClick = e =>{
         e.preventDefault();
         navigate('/');
-        setQueryLength('')
     }
 
+    const handleNextClick = e =>{
+        e.preventDefault();
+        setNext(true);
+    }
 
     return (
         <>
-        <form onSubmit={handleFormSubmit}>
-            {queryLength?
+        <form>
+            {next?
                 <div className='box' id='dropdown'>
                     <label htmlFor='podcastSelector' className='hidden'>Podcast</label>
                     <h2 className='subHeading'>Find your perfect <span className='newLine'>podcast playlist</span></h2>
-                    <select className='dropdownMenu' onChange={handleFormChange}>
-                        <option value='' disabled selected> {userPlaylist}-- What genre? --</option>
+                    <select className='dropdownMenu' onChange={handleFormChange} defaultValue='' >
+                        <option value='' disabled> -- What genre? --</option>
                         {genresArray && genresArray.map((genreArray =>
                             <option key={genreArray.id} value={genreArray.id}>{genreArray.name}</option>
                         ))
@@ -94,7 +77,7 @@ const Form = () => {
                     </select>
                     <div className='buttons'>
                         <button className='back' onClick={handleBackClick}>Back</button>
-                        <button className='create' onClick={handleFormSubmit}>Create</button>
+                        <button className='create' onClick={() => navigate('/new-playlist')}>Create</button>
                     </div>
                 </div>
             :
@@ -107,10 +90,9 @@ const Form = () => {
                     placeholder='How long is your walk?'
                     type='text'
                     id='length'
-                    onChange={handleLengthInputChange}
-                    value={length} />
+                    onChange={handleLengthInputChange} />
                 </div>
-                <button className='next' onClick={handleLengthFormSubmit}>Next</button>
+                <button className='next' onClick={handleNextClick}>Next</button>
             </div> 
             }
 

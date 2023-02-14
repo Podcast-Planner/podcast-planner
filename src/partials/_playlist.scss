@@ -85,16 +85,59 @@ iframe {
   right: 0;
 }
 
-.fade img {
-  opacity: 1;
-  transition: 1s ease;
+.flexImage {
+  overflow: hidden;
+  position: relative;
+  background-color: #000;
+  transition: all 0.45s ease;
 }
 
-.fade img:hover {
-  opacity: 0.3;
-  transition: 1s ease;
+.flexImage::before,
+.flexImage::after {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  transition: all 0.3s ease;
 }
 
-video:hover {
-  background-color: red;
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+  transition: .3s ease;
+  background-color: #001e31;
+  opacity: 0.7;
+
+}
+
+.flexImage {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.overlay:hover {
+  opacity: 0.7;
+  background-color: #001e31;
+
+}
+
+.playIcon {
+  color: #001e31;
+  background-color: white;
+  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  cursor: pointer;
+  width: 20%;
+  z-index: 2;
+
 }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Play } from "phosphor-react";
 // import PlaylistApi from './PlaylistApi';
 
 const Playlist = ({ playlistObject, formValues }) => {
@@ -19,11 +20,17 @@ const Playlist = ({ playlistObject, formValues }) => {
                   className="mediaContainer"
                   id={id}
                 >
-                  <div className = 'flexImage fade'>
+                  <div className = 'flexImage'>
                     <img
                       src={`${image}`}
                       alt={`cover for ${podcast_title_original}`}
                     ></img>
+                  <div className='darkOverlay'></div>
+                  </div>
+                  <div className="overlay">
+                    <button href="#" className="playIcon" title="Video Play">
+                      <Play size={32} />
+                    </button>
                   </div>
                   {id === playPodcast ? (
                     <iframe src={audio} title={title_original}></iframe>

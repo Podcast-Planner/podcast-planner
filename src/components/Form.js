@@ -9,6 +9,8 @@ const Form = ({ formValues, setFormValues }) => {
   const [next, setNext] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [isChecked, setIsChecked] = useState({});
+  const [genreSelections, setGenreSelections] = useState([]);
 
   const navigate = useNavigate();
 
@@ -48,11 +50,43 @@ const Form = ({ formValues, setFormValues }) => {
   };
 
   const handleFormChange = (e) => {
+    // Dupe of genreSelections array to update based on user selections, and pass in setGenreSelections
+    let newArray = genreSelections;
+    // Variable used to find selected ID in newArray and remove it if un-checked by user.
+    const index = newArray.indexOf(e.target.id);
+
+    // Change checkbox's checked state and update selected genres when you check and uncheck an input
+    if (!isChecked[e.target.id]) {
+      // If checkbox is not checked, set to checked and push genre ID to newArray
+      setIsChecked({
+        ...isChecked,
+        [e.target.id]: true,
+      });
+      newArray.push(e.target.id);
+    } else {
+      // If checkbox IS checked, set to !checked and remove genre ID from newArray if it has been previously checked.
+      setIsChecked({
+        ...isChecked,
+        [e.target.id]: false,
+      });
+      if (index > -1) {
+        newArray.splice(index, 1);
+      }
+    }
+
+    // Update user selections by passing newArray as argument
+    setGenreSelections(newArray);
+
+    // Update form values based on user selections
     setFormValues({
       ...formValues,
-      genre: e.target.selectedOptions[0].innerText,
-      genreId: e.target.value,
-      title: `${formValues.length} mintues of ${e.target.selectedOptions[0].innerText}`
+      // Change our array of user selections into a single comma-separated string to be read by the API
+      genreId: genreSelections.toString(),
+      // Go into our genre array and find the object that matches the first genreID in our user selection array. Once it is found, give us the name of the genre to be displayed in our title.
+      title: `${formValues.length} minutes of ${
+        genresArray.find((index) => index.id === parseInt(genreSelections[0]))
+          .name
+      }${genreSelections.length > 1 ? " & More" : ""}`,
     });
   };
   //  Array.from
@@ -63,41 +97,34 @@ const Form = ({ formValues, setFormValues }) => {
     navigate("/");
   };
 
-
   const handleNextClick = (e) => {
     e.preventDefault();
     setNext(true);
   };
 
-
   return (
     <>
-      <form className='form'>
+      <form className="form">
         {next ? (
           <div className="box" id="dropdown">
-            <label htmlFor="podcastSelector" className="hidden">
-              Podcast
-            </label>
             <h2 className="subHeading">
               Find your perfect{" "}
               <span className="newLine">podcast playlist.</span>
             </h2>
-            <select
-              className="dropdownMenu"
-              onChange={handleFormChange}
-              defaultValue=""
-            >
-              <option value="" disabled>
-                {" "}
-                -- What genre? --
-              </option>
-              {genresArray &&
-                genresArray.map((genreArray) => (
-                  <option key={genreArray.id} value={genreArray.id}>
-                    {genreArray.name}
-                  </option>
-                ))}
-            </select>
+            <label htmlFor="podcastSelector">Select Your Genres:</label>
+            {genresArray &&
+              genresArray.map((genreArray) => (
+                <div key={genreArray.id}>
+                  <label htmlFor={genreArray.id}>{genreArray.name}</label>
+                  <input
+                    id={genreArray.id}
+                    name={genreArray.name}
+                    type="checkbox"
+                    value={genreArray.id}
+                    onChange={handleFormChange}
+                  />
+                </div>
+              ))}
             <div className="buttons">
               <button className="back" onClick={handleBackClick}>
                 Back

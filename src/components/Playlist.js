@@ -26,6 +26,8 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
     }
   }
 
+  // console.log(playlistObject.length);
+
   return (
     <div className="playlistContainer">
       {editTitle

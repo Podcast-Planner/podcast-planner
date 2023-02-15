@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { NotePencil } from "phosphor-react";
+import { NotePencil, Play } from "phosphor-react";
 import firebase from "../firebase";
 import { getDatabase, update, ref } from "firebase/database";
+
+
 
 const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) => {
   const [playPodcast, setPlayPodcast] = useState("");
@@ -50,11 +52,17 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
                   className="mediaContainer"
                   id={id}
                 >
-                  <div className = 'flexImage fade'>
+                  <div className = 'flexImage'>
                     <img
                       src={`${image}`}
                       alt={`cover for ${podcast_title_original}`}
                     ></img>
+                  <div className='darkOverlay'></div>
+                  </div>
+                  <div className="overlay">
+                    <button href="#" className="playIcon" title="Video Play">
+                      <Play size={40} weight="fill" color='#0e444f' />
+                    </button>
                   </div>
                   {id === playPodcast ? (
                     <iframe src={audio} title={title_original}></iframe>

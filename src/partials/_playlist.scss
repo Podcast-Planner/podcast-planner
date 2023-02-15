@@ -85,21 +85,69 @@ iframe {
   right: 0;
 }
 
-.fade img {
-  opacity: 1;
-  transition: 1s ease;
+.flexImage {
+  overflow: hidden;
+  position: relative;
+  transition: all 0.45s ease;
 }
 
-.fade img:hover {
-  opacity: 0.3;
-  transition: 1s ease;
+.flexImage img {
+  border-radius: 10px;
 }
 
-video:hover {
-  background-color: red;
+.flexImage::before,
+.flexImage::after {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  transition: all 0.3s ease;
 }
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  opacity: 0.5;
+  transition: .3s ease;
+}
+
+.flexImage {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+
 
 .title{
   display: flex;
   background-color: $secondary;
+
+.overlay:hover {
+  opacity: 0.7;
+  background-color: #001e31;
+}
+
+.playIcon {
+  background: #fff;
+  border-radius: 50%;
+  border: 1px solid $primary;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 2;
+
 }

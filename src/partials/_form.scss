@@ -1,6 +1,7 @@
 @use "./variables" as *;
 
 .subHeading {
+
     font-size: 2rem;
     color: $tertiary;
     margin-bottom: 1em;
@@ -80,6 +81,7 @@ label {
 .back,
 .create,
 .next {
+
     align-self: center;
     font-size: 1rem;
     text-transform: uppercase;
@@ -99,6 +101,7 @@ label {
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
+
 }
 
 .back:hover,
@@ -107,6 +110,7 @@ label {
 .back:focus,
 .create:focus,
 .next:focus {
+
     background-color: $quaternary;
     border: 1px $tertiary solid;
     color: $tertiary;
@@ -115,12 +119,15 @@ label {
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
+
 }
 
 .back,
 .create,
 .next {
+
     background-image: linear-gradient(to right,
             $primary, $secondary);
     box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
 }
+

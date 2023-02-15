@@ -21,6 +21,7 @@ function App() {
     length: 5,
     genreId: "",
     genre: "",
+    title: "",
   });
 
   // All playlists saved by the user (pulled from firebase database)
@@ -56,7 +57,7 @@ function App() {
         />
         <Route
           path="/new-playlist"
-          element={<Results formValues={formValues} />}
+          element={<Results formValues={formValues} setFormValues={setFormValues} />}
         />
         <Route
           path="/playlists"
@@ -65,6 +66,7 @@ function App() {
               savedPlaylists={savedPlaylists}
               formValues={formValues}
               headerRef={headerRef}
+              setFormValues={setFormValues}
             />
           }
         />

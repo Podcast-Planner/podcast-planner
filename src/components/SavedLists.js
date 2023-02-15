@@ -1,7 +1,7 @@
 import Playlist from "./Playlist";
 import ScrollToTop from "./ScrollToTop";
 
-const SavedLists = ({ savedPlaylists, newPlaylist, formValues, headerRef }) => {
+const SavedLists = ({ savedPlaylists, newPlaylist, formValues, headerRef, setFormValues }) => {
   return (
     <section className="savedLists">
       <h2>Your Saved Playlists</h2>
@@ -12,7 +12,7 @@ const SavedLists = ({ savedPlaylists, newPlaylist, formValues, headerRef }) => {
           .map((obj) => {
             return (
               <ul key={obj.key}>
-                <Playlist playlistObject={obj.data.playlist} formValues={obj.data.formValues} />
+                <Playlist playlistObject={obj.data.playlist} formValues={obj.data.formValues} setFormValues={setFormValues} firebaseKey={obj.key} />
               </ul>
             );
           })}

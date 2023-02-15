@@ -98,3 +98,8 @@ iframe {
 video:hover {
   background-color: red;
 }
+
+.title{
+  display: flex;
+  background-color: $secondary;
+}

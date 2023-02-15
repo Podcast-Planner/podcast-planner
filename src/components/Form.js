@@ -62,10 +62,12 @@ const Form = ({ formValues, setFormValues }) => {
     navigate("/");
   };
 
+
   const handleNextClick = (e) => {
     e.preventDefault();
     setNext(true);
   };
+
 
   return (
     <>

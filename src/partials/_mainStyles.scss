@@ -16,6 +16,10 @@ img {
   object-fit: cover;
 }
 
+img hover {
+  background-color: rgba(14, 68, 79, 0.7);
+}
+
 li {
   list-style: none;
 }
@@ -84,7 +88,7 @@ header {
 }
 
 button {
-  background-color: $primary;
+  background-color: $tertiary;
   border: 2px solid $secondary;
   border-radius: 10px;
 }

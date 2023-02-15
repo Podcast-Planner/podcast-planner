@@ -1,133 +1,107 @@
 @use "./variables" as *;
 
 .subHeading {
-  font-size: 2rem;
-  color: $tertiary;
-  margin-bottom: 1em;
-  letter-spacing: 1px;
+
+    font-size: 2rem;
+    color: $tertiary;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .newLine {
-  display: block;
+    display: block;
 }
 
+
+input,
 .dropdownMenu {
-  border-radius: 50px;
-  background-color: $tertiary;
-  color: $quinary;
+    border-radius: 50px;
+    background-color: $tertiary;
+    color: #001e31;
+}
+
+label {
+    visibility: hidden;
 }
 
 form {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: $quinary;
-
-  p {
-    font-size: 1.8rem;
-  }
-
-  input {
-    // margin: 20px;
-  }
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #001e31;
 }
 
 .box select,
 .box input {
-  padding: 10px;
-  height: 75px;
-  border: none;
-  font-size: 1rem;
-  outline: none;
-  cursor: pointer;
-  overflow: hidden;
-  line-height: 3;
+    padding: 10px;
+    width: 100%;
+    height: 75px;
+    border: none;
+    font-size: 1rem;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, .5);
+    outline: none;
+    cursor: pointer;
+    overflow: hidden;
+    line-height: 3;
+    margin-bottom: 1em;
 }
 
 select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  -webkit-border-radius: 0;
-  text-align: center;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
-  width: 60%;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-border-radius: 0;
+    text-align: center;
 }
 
 .buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2em;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    align-items: center;
+    padding: 2em;
 }
 
 label {
-  color: #ede7e3;
-  margin-bottom: 1em;
-  font-size: 1rem;
+    color: #ede7e3;
+    margin-bottom: 1em;
 }
 
 .box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 10px;
-
-  input[type="range"] {
-    width: 100%;
-    -webkit-appearance: none;
-    background: transparent;
-    cursor: pointer;
-
-    &::-webkit-slider-runnable-track,
-    &::-moz-range-track {
-      background-color: $secondary;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
-      border-radius: 2px;
-    }
-
-    &::-webkit-slider-thumb,
-    &::-moz-range-thumb {
-      -webkit-appearance: none;
-      background-color: $secondary;
-      border: 3px solid $primary;
-      transition: all 0.4s ease-in-out;
-    }
-
-    &:hover,
-    &:focus {
-      &::-webkit-slider-thumb,
-      &::-moz-range-thumb {
-        background-color: $quaternary;
-      }
-    }
-  }
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+    color: rgb(2, 0, 0);
+    text-align: center;
 }
+
 
 .back,
 .create,
 .next {
-  align-self: center;
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  width: 160px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #fff;
-  cursor: pointer;
-  margin: 20px 10px;
-  height: 55px;
-  text-align: center;
-  border: none;
-  background-size: 300% 100%;
-  border-radius: 50px;
-  moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+
+    align-self: center;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 160px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 55px;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+
 }
 
 .back:hover,
@@ -136,23 +110,24 @@ label {
 .back:focus,
 .create:focus,
 .next:focus {
-  background-color: $quaternary;
-  border: 1px $tertiary solid;
-  color: $tertiary;
-  background-position: 100% 0;
-  moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+
+    background-color: $quaternary;
+    border: 1px $tertiary solid;
+    color: $tertiary;
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+
 }
 
 .back,
 .create,
 .next {
-  background-image: linear-gradient(to right, $primary, $secondary);
-  box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+
+    background-image: linear-gradient(to right,
+            $primary, $secondary);
+    box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
 }
 
-.hidden {
-  visibility: hidden;
-}

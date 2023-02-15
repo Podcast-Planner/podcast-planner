@@ -16,6 +16,29 @@ ul {
   }
 }
 
+button.icon {
+  display: flex;
+}
+
+.iconHeart {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 0;
+  height: 0;
+}
+
+.iconHeart svg,
+.playlistButtons a svg {
+  background-color: $tertiary;
+  border-radius: 10px;
+  border: 2px solid $tertiary;
+}
+
+.playlistButtons {
+  margin-bottom: 1em;
+}
+
 li {
   display: flex;
   justify-content: space-between;
@@ -25,6 +48,8 @@ li {
   gap: 20px;
   border-radius: 10px;
   border: 1px solid $secondary;
+  background-color: $tertiary;
+  color: $primary;
 }
 
 .results {
@@ -32,9 +57,9 @@ li {
     padding: 10px 0;
     background-color: $primary;
   }
+
   li {
     border-radius: 10px;
-    background-color: $primary;
   }
 }
 
@@ -58,4 +83,18 @@ iframe {
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.fade img {
+  opacity: 1;
+  transition: 1s ease;
+}
+
+.fade img:hover {
+  opacity: 0.3;
+  transition: 1s ease;
+}
+
+video:hover {
+  background-color: red;
 }

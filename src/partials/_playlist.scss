@@ -88,8 +88,11 @@ iframe {
 .flexImage {
   overflow: hidden;
   position: relative;
-  background-color: #000;
   transition: all 0.45s ease;
+}
+
+.flexImage img {
+  border-radius: 10px;
 }
 
 .flexImage::before,
@@ -107,11 +110,9 @@ iframe {
   right: 0;
   height: 100%;
   width: 100%;
+  background-color: #fff;
   opacity: 0.5;
   transition: .3s ease;
-  background-color: #001e31;
-  opacity: 0.7;
-
 }
 
 .flexImage {
@@ -124,20 +125,22 @@ iframe {
 .overlay:hover {
   opacity: 0.7;
   background-color: #001e31;
-
 }
 
 .playIcon {
-  color: #001e31;
-  background-color: white;
+  background: #fff;
+  border-radius: 50%;
+  border: 1px solid $primary;
   font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   cursor: pointer;
-  width: 20%;
   z-index: 2;
-
 }

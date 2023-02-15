@@ -29,7 +29,7 @@ const Playlist = ({ playlistObject, formValues }) => {
                   </div>
                   <div className="overlay">
                     <button href="#" className="playIcon" title="Video Play">
-                      <Play size={32} />
+                      <Play size={40} weight="fill" color='#0e444f' />
                     </button>
                   </div>
                   {id === playPodcast ? (

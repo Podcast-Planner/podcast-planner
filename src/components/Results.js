@@ -60,11 +60,17 @@ const Results = ({ formValues }) => {
 
   return (
     <div className="results">
-      <Playlist playlistObject={newPlaylist} formValues={formValues} />
-      <div className='playlistButtons'>
-        <button onClick={handleClick}><HeartStraight size={64} color="#d01116" weight="fill" /></button>
-        <Link to='/'><X size={64} /></Link>
-      </div>
+        {newPlaylist.length === 0 ? (<h2>Sorry, no podcasts were found in {formValues.genre} for the length of {formValues.length} minutes</h2>) : (
+          <div>
+            <Playlist playlistObject={newPlaylist} formValues={formValues} />
+            <div className='playlistButtons'>
+              <button onClick={handleClick}><HeartStraight size={64} color="#d01116" weight="fill" /></button>
+              <Link to='/'><X size={64} /></Link>
+            </div>
+          </div>
+        )
+        }
+
     </div>
   );
 };

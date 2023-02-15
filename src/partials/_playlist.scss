@@ -16,6 +16,29 @@ ul {
   }
 }
 
+button.icon {
+  display: flex;
+}
+
+.iconHeart {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 0;
+  height: 0;
+}
+
+.iconHeart svg,
+.playlistButtons a svg {
+  background-color: $tertiary;
+  border-radius: 10px;
+  border: 2px solid $tertiary;
+}
+
+.playlistButtons {
+  margin-bottom: 1em;
+}
+
 li {
   display: flex;
   justify-content: space-between;
@@ -25,6 +48,8 @@ li {
   gap: 20px;
   border-radius: 10px;
   border: 1px solid $secondary;
+  background-color: $tertiary;
+  color: $primary;
 }
 
 .results {
@@ -32,9 +57,9 @@ li {
     padding: 10px 0;
     background-color: $primary;
   }
+
   li {
     border-radius: 10px;
-    background-color: $primary;
   }
 }
 
@@ -58,4 +83,71 @@ iframe {
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.flexImage {
+  overflow: hidden;
+  position: relative;
+  transition: all 0.45s ease;
+}
+
+.flexImage img {
+  border-radius: 10px;
+}
+
+.flexImage::before,
+.flexImage::after {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  opacity: 0.5;
+  transition: .3s ease;
+}
+
+.flexImage {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+
+
+.title{
+  display: flex;
+  background-color: $secondary;
+}
+.overlay:hover {
+  opacity: 0.7;
+  background-color: #001e31;
+}
+
+.playIcon {
+  background: #fff;
+  border-radius: 50%;
+  border: 1px solid $primary;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 2;
+
 }

@@ -5,10 +5,10 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Playlist from "./Playlist";
 import Loader from "./Loader";
-import { Link } from "react-router-dom"
-import { HeartStraight, X } from "phosphor-react"
+import { Link } from "react-router-dom";
+import { HeartStraight, X } from "phosphor-react";
 
-const Results = ({ formValues }) => {
+const Results = ({ formValues, setFormValues }) => {
   // Save playlist data from API call to stateful variable
   const [newPlaylist, setNewPlaylist] = useState([]);
   const [loading, setLoading] = useState(false);

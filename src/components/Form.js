@@ -52,6 +52,7 @@ const Form = ({ formValues, setFormValues }) => {
       ...formValues,
       genre: e.target.selectedOptions[0].innerText,
       genreId: e.target.value,
+      title: `${formValues.length} mintues of ${e.target.selectedOptions[0].innerText}`
     });
   };
   //  Array.from
@@ -62,14 +63,16 @@ const Form = ({ formValues, setFormValues }) => {
     navigate("/");
   };
 
+
   const handleNextClick = (e) => {
     e.preventDefault();
     setNext(true);
   };
 
+
   return (
     <>
-      <form>
+      <form className='form'>
         {next ? (
           <div className="box" id="dropdown">
             <label htmlFor="podcastSelector" className="hidden">

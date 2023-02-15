@@ -1,0 +1,62 @@
+@use "variables" as *;
+
+@media (max-width:800px) {
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    .playlist {
+        text-align: center;
+    }
+
+    .box input,
+    .playlist li {
+        width: 90%;
+        align-self: center;
+    }
+
+    .playlist li {
+        min-height: 545.656px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .box select {
+        width: 70%;
+        align-self: center;
+    }
+
+    .subHeading {
+        font-size: 1.6rem;
+    }
+
+    .back,
+    .create,
+    .next {
+        width: 144px;
+        height: 60px;
+    }
+
+    .mediaContainer {
+        text-align: center;
+    }
+
+    img {
+        height: 280px;
+        width: 280px;
+    }
+
+    .mediaContainer {
+        height: 300px;
+        width: 300px;
+    }
+
+
+    .flexImage {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

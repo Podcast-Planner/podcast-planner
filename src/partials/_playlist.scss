@@ -122,6 +122,12 @@ iframe {
   margin: 0 auto;
 }
 
+
+
+.title{
+  display: flex;
+  background-color: $secondary;
+}
 .overlay:hover {
   opacity: 0.7;
   background-color: #001e31;
@@ -143,4 +149,5 @@ iframe {
   -ms-transform: translate(-50%, -50%);
   cursor: pointer;
   z-index: 2;
+
 }

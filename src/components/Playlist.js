@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { NotePencil, Play } from "phosphor-react";
 import firebase from "../firebase";
 import { getDatabase, update, ref } from "firebase/database";
@@ -9,7 +9,8 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
   const [playPodcast, setPlayPodcast] = useState("");
   const [editTitle, setEditTitle] = useState(false)
   const [newTitle ,setNewTitle] = useState('')
-
+  const [list, setList] = useState([...playlistObject]);
+ 
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -26,7 +27,28 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
     }
   }
 
-  // console.log(playlistObject.length);
+  const dragItem = useRef();
+  const dragOverItem = useRef();
+  
+  const dragStart = (e, position) => {
+    dragItem.current = position;
+    // console.log(e.target.innerHTML);
+  }
+
+  const dragEnter = (e, position) => {
+    dragOverItem.current = position;
+    // console.log(e.target.innerHTML);
+  }
+
+  const drop = (e) => {
+    const copyListItems = [...list];
+    const dragItemContent = copyListItems[dragItem.current];
+    copyListItems.splice(dragItem.current, 1);
+    copyListItems.splice(dragOverItem.current, 0, dragItemContent);
+    dragItem.current = null;
+    dragOverItem.current = null;
+    setList(copyListItems);
+  }
 
   return (
     <div className="playlistContainer">
@@ -45,10 +67,15 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
       
       
       <ul className="playlist">
-        {playlistObject.map(
-          ({ audio, id, image, podcast_title_original, title_original }) => {
+        {list.map(
+          ({ audio, id, image, podcast_title_original, title_original }, index) => {
             return (
-              <li key={id}>
+              <li key={id} 
+              draggable 
+              onDragStart={(e) => dragStart(e, index)}
+              onDragEnter={(e) => dragEnter(e, index)}
+              onDragEnd={drop}
+              >
                 <button
                   onClick={(e) => setPlayPodcast(e.currentTarget.id)}
                   className="mediaContainer"

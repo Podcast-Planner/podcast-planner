@@ -48,7 +48,7 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
         {playlistObject.map(
           ({ audio, id, image, podcast_title_original, title_original }) => {
             return (
-              <li key={id}>
+              <li className='podcastImage'key={id}>
                 <button
                   onClick={(e) => setPlayPodcast(e.currentTarget.id)}
                   className="mediaContainer"

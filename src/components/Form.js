@@ -91,7 +91,7 @@ const Form = ({ formValues, setFormValues }) => {
   };
   //  Array.from
   const genresArray = genres.genres;
-
+  
   const handleBackClick = (e) => {
     e.preventDefault();
     navigate("/");

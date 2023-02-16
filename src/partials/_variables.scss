@@ -18,3 +18,8 @@ $secondary: #001e31;
 // $secondary: #489fb5;
 $tertiary: #ede7e3;
 $quaternary: #ffa62b;
+//Gradients
+$orange-gradient: linear-gradient(to bottom right, #C90A6D, $quaternary);
+$blue1-gradient: linear-gradient(to bottom right, $secondary, #489fb5);
+$blue2-gradient: linear-gradient(to bottom right, $primary, $secondary);
+$shadow: 0 13px 26px rgba(#000, .2), 0 3px 6px rgba(#000, .2);

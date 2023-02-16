@@ -39,7 +39,7 @@ button.icon {
   margin-bottom: 1em;
 }
 
-li {
+.podcastImage {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -122,12 +122,11 @@ iframe {
   margin: 0 auto;
 }
 
-
-
-.title{
+.title {
   display: flex;
   background-color: $secondary;
 }
+
 .overlay:hover {
   opacity: 0.7;
   background-color: #001e31;

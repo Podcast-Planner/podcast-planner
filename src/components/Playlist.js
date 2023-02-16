@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
-import { NotePencil, Play } from "phosphor-react";
+import { NotePencil, Play, Trash } from "phosphor-react";
 import firebase from "../firebase";
-import { getDatabase, update, ref } from "firebase/database";
+import { getDatabase, update, remove, ref } from "firebase/database";
 
 
 
@@ -49,6 +49,13 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
     dragOverItem.current = null;
     setList(copyListItems);
   }
+  const handleTrash = e => {
+    e.preventDefault()
+    const database = getDatabase(firebase);
+    remove(ref(database, firebaseKey));
+  }
+
+  // console.log(playlistObject.length);
 
   return (
     <div className="playlistContainer">
@@ -62,15 +69,21 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
               {formValues.title}
             </h3>
             <button onClick={() => setEditTitle(true)}><NotePencil size={32} color="#000000" weight="fill" /></button>
-        </div>
+          {firebaseKey
+            ? <button onClick={handleTrash}><Trash size={32} weight="fill" /></button>
+            : null
+          }
+          </div>
       }
+
+      
       
       
       <ul className="playlist">
         {list.map(
           ({ audio, id, image, podcast_title_original, title_original }, index) => {
             return (
-              <li key={id} 
+              <li className='podcastImage' key={id} 
               draggable 
               onDragStart={(e) => dragStart(e, index)}
               onDragEnter={(e) => dragEnter(e, index)}

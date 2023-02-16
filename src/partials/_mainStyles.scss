@@ -9,14 +9,14 @@ html {
   color: $tertiary;
 }
 
-img {
+.flexImage img {
   width: 100%;
   height: 100%;
   border-radius: inherit;
   object-fit: cover;
 }
 
-img hover {
+.flexImage img hover {
   background-color: rgba(14, 68, 79, 0.7);
 }
 

@@ -97,7 +97,7 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
                   <div className='darkOverlay'></div>
                   </div>
                   <button href="#" className="playIcon" title="Video Play">
-                    <Play size={40} weight="fill" color='#0e444f' />
+                    <Play size={40} weight="fill" color='#ffa62b' />
                     </button>
                    <div className="overlay">
                    </div>

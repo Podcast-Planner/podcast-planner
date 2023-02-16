@@ -19,8 +19,8 @@ const About = () => {
                 <div className = 'cardWrapper'>
                     <ul className='profile'>
                         <li className='bioPic'><img src={bioOne} alt="Haley's Tibbet's Bio pic" /></li>
-                        <h3 class="name">Haley Tibbet</h3>
-                        <li className='bio'>Hi, I'm Haley. With a diverse background in film production, customer service, and retail management, I excel at helping clients (big and small!) stand out from the pack and make meaningful connections with their target demographic through complex problem solving, information analysis, teamwork, and a healthy dash of creativity.</li>
+                        <h3 class="name">Haley Tibbits</h3>
+                                <li className='bio'>Hi, I'm Haley! :wave: I'm a Front-End Web Developer with a passion for creating clean, accessible, and engaging user experiences. Coming from a background in film production and customer service management, I excel at bringing my strong communication and creative problem solving skills to every team I'm a part of.My Big Tech Dream™ is to break barriers, create space, and foster belonging in the industry for 2SLGBTQIA 🏳️‍🌈+ & neurodivergent folks.</li>
                         <div className="social-icons">
                             <div className="icon">
                                 <a href ='https://www.linkedin.com/in/haleytibbitts/' target="_blank" rel="noreferrer"><LinkedinLogo size={32}/></a>
@@ -39,7 +39,7 @@ const About = () => {
                     <ul className='profile'>
                         <li className='bioPic'><img src={bioFour} alt="Scott Cheong's Bio pic" /></li>
                         <h3 class="name">Scott Cheong</h3>
-                        <li className='bio'>Hello, I’m Scott. I am a Front-End Web Developer with a background of 10+ years working with multimedia web applications. In that time I developed a joy in working with the great people that produce web and mobile applications because Web Development is a team effort'</li>
+                                <li className='bio'>As a Web Developer, I strive to craft digital experiences that are not only technically sound, but also intuitive for users. I believe that a human-centered approach is key to creating truly impactful and delightful products. I am passionate about designing with the needs of the user in mind and am eager to be a part of a team that shares this philosophy and continuously pushes the boundaries of web development.</li>
                         <div className="social-icons">
                             <div className="icon">
                                 <a href='https://www.linkedin.com/in/scott-cheung/' target="_blank" rel="noreferrer"><LinkedinLogo size={32} /></a>
@@ -61,8 +61,7 @@ const About = () => {
                     <ul className='profile'>
                         <li className='bioPic'><img src={bioTwo} alt="Renata Reinartz's Bio pic" /></li>
                         <h3 className="name">Renata Reinartz</h3>
-                        <li className='bio'>Hi there, ✋ I'm Renata!
-                        I'm a front-end developer and wear many hats. I am a CPA (Chartered Professional Accountant), mother, certified yoga teacher, and travel enthusiast. For over ten years I created budgets and multi-currency forecasts for multinational companies. I am capable of coming up with creative solutions when problems arise.</li>
+                            <li className='bio'>Hi, 👋 I'm Renata, I'm a front-end developer. Providing end users with clean, well-written, SEO-friendly code is one of my greatest passions. Besides front-end development, I also wear many hats. I am a CPA (Chartered Professional Accountant), mother, 🧘‍♀️ yoga teacher, travel enthusiast, and advocate for people with special needs. For me, being able to provide accessible websites is also very meaningful.</li>
                         <div className="social-icons">
                             <div className="icon">
                                 <a href='https://www.linkedin.com/in/renata1026/' target="_blank" rel="noreferrer"><LinkedinLogo size={32} /></a>

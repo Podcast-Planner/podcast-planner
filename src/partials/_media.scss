@@ -1,5 +1,12 @@
 @use "variables" as *;
 
+@media (min-width:600px) {
+    .devWrapper {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
 @media (max-width:800px) {
 
     h3 {
@@ -59,4 +66,6 @@
         justify-content: center;
         align-items: center;
     }
+
+
 }

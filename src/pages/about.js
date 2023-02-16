@@ -19,7 +19,7 @@ const About = () => {
                 <div className = 'cardWrapper'>
                     <ul className='profile'>
                         <li className='bioPic'><img src={bioOne} alt="Haley's Tibbet's Bio pic" /></li>
-                        <h3 class="name">Haley Tibbits</h3>
+                        <h3 class="name">Haley Tibbitts</h3>
                                 <li className='bio'>Hi, I'm Haley! :wave: I'm a Front-End Web Developer with a passion for creating clean, accessible, and engaging user experiences. Coming from a background in film production and customer service management, I excel at bringing my strong communication and creative problem solving skills to every team I'm a part of.My Big Tech Dream™ is to break barriers, create space, and foster belonging in the industry for 2SLGBTQIA 🏳️‍🌈+ & neurodivergent folks.</li>
                         <div className="social-icons">
                             <div className="icon">
@@ -61,7 +61,7 @@ const About = () => {
                     <ul className='profile'>
                         <li className='bioPic'><img src={bioTwo} alt="Renata Reinartz's Bio pic" /></li>
                         <h3 className="name">Renata Reinartz</h3>
-                            <li className='bio'>Hi, 👋 I'm Renata, I'm a front-end developer. Providing end users with clean, well-written, SEO-friendly code is one of my greatest passions. Besides front-end development, I also wear many hats. I am a CPA (Chartered Professional Accountant), mother, 🧘‍♀️ yoga teacher, travel enthusiast, and advocate for people with special needs. For me, being able to provide accessible websites is also very meaningful.</li>
+                            <li className='bio'>Hi, 👋 I'm Renata, I'm a front-end developer. Providing end users with clean, well-written, SEO-friendly code is one of my greatest passions. Besides front-end development, I also wear many hats. I am a CPA (Chartered Professional Accountant), mother, 🧘‍♀️ yoga teacher, travel enthusiast, and advocate for children with special needs. For me, being able to provide accessible websites is also very meaningful.</li>
                         <div className="social-icons">
                             <div className="icon">
                                 <a href='https://www.linkedin.com/in/renata1026/' target="_blank" rel="noreferrer"><LinkedinLogo size={32} /></a>

@@ -1,9 +1,19 @@
 @use "variables" as *;
 
-@media (min-width:600px) {
+@media (min-width:800px) {
+    .cardWrapper {
+        width: 85%;
+    }
+}
+
+@media (min-width:1000px) {
     .devWrapper {
         display: flex;
         flex-direction: row;
+    }
+
+    .cardWrapper {
+        width: 90%;
     }
 }
 

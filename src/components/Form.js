@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Loader from "./Loader";
+import { LineSegments } from "phosphor-react";
 
 const Form = ({ formValues, setFormValues }) => {
   // Setting state with our application
@@ -91,11 +92,11 @@ const Form = ({ formValues, setFormValues }) => {
   };
   //  Array.from
   const genresArray = genres.genres;
-  
+
   const handleBackClick = (e) => {
     e.preventDefault();
     setNext(false);
-    setFormValues({ ...formValues, length: 5 })
+    setFormValues({ ...formValues, length: 5 });
   };
 
   const handleNextClick = (e) => {
@@ -107,25 +108,26 @@ const Form = ({ formValues, setFormValues }) => {
     <>
       <form className="form">
         {next ? (
-          <div className="box" id="dropdown">
-            <h2 className="subHeading">
-              Find your perfect{" "}
-              <span className="newLine">podcast playlist.</span>
-            </h2>
+          <div className="box" id="input">
+            <h2 className="subHeading">Find your perfect podcast playlist.</h2>
             <label htmlFor="podcastSelector">Select Your Genres:</label>
-            {genresArray &&
-              genresArray.map((genreArray) => (
-                <div key={genreArray.id}>
-                  <label htmlFor={genreArray.id}>{genreArray.name}</label>
-                  <input
-                    id={genreArray.id}
-                    name={genreArray.name}
-                    type="checkbox"
-                    value={genreArray.id}
-                    onChange={handleFormChange}
-                  />
-                </div>
-              ))}
+            <ul className="genreContainer">
+              {genresArray &&
+                genresArray.map((genreArray) => (
+                  <li key={genreArray.id}>
+                    <input
+                      id={genreArray.id}
+                      name={genreArray.name}
+                      type="checkbox"
+                      value={genreArray.id}
+                      onChange={handleFormChange}
+                    />
+                    <label htmlFor={genreArray.id} className="genre">
+                      {genreArray.name}
+                    </label>
+                  </li>
+                ))}
+            </ul>
             <div className="buttons">
               <button className="back" onClick={handleBackClick}>
                 Back
@@ -141,18 +143,16 @@ const Form = ({ formValues, setFormValues }) => {
         ) : (
           <div className="box" id="input">
             <h2 className="subHeading">Find your perfect podcast playlist.</h2>
-            <div className="flex">
-              <label htmlFor="length">How long will your walk be?</label>
-              <p>{formValues.length} Minutes</p>
-              <input
-                type="range"
-                id="length"
-                min="5"
-                max="60"
-                defaultValue="5"
-                onChange={handleLengthInputChange}
-              />
-            </div>
+            <label htmlFor="length">How long will your walk be?</label>
+            <p>{formValues.length} Minutes</p>
+            <input
+              type="range"
+              id="length"
+              min="5"
+              max="60"
+              defaultValue="5"
+              onChange={handleLengthInputChange}
+            />
             <button className="next" onClick={handleNextClick}>
               Next
             </button>

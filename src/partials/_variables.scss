@@ -15,11 +15,12 @@
 // Colour Palette
 $primary: #0e444f;
 $secondary: #001e31;
-// $secondary: #489fb5;
 $tertiary: #ede7e3;
 $quaternary: #ffa62b;
+$quinary: #489fb5;
+
 //Gradients
-$orange-gradient: linear-gradient(to bottom right, #C90A6D, $quaternary);
+$orange-gradient: linear-gradient(to bottom right, #c90a6d, $quaternary);
 $blue1-gradient: linear-gradient(to bottom right, $secondary, #489fb5);
 $blue2-gradient: linear-gradient(to bottom right, $primary, $secondary);
-$shadow: 0 13px 26px rgba(#000, .2), 0 3px 6px rgba(#000, .2);
+$shadow: 0 13px 26px rgba(#000, 0.2), 0 3px 6px rgba(#000, 0.2);

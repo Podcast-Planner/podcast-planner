@@ -81,6 +81,14 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
               onDragStart={(e) => dragStart(e, index)}
               onDragEnter={(e) => dragEnter(e, index)}
               onDragEnd={drop}
+              onTouchStart={(e) => {
+                dragStart(e.touches[0], index)}
+              }
+              onTouchMove={(e) => {
+                // e.preventDefault();
+                dragEnter(e.touches[0], index);
+               }}
+              onTouchEnd={drop}
               >
                 <button
                   onClick={(e) => setPlayPodcast(e.currentTarget.id)}

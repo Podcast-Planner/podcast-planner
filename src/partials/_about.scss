@@ -1,14 +1,13 @@
 @use "./variables" as *;
 
-html {
+html .about {
     height: 100vh;
     background-color: #001e31;
 }
 
-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.backButton {
+    margin-top: 1em;
+    color: $quaternary;
 }
 
 .team {
@@ -16,11 +15,12 @@ section {
     letter-spacing: 1px;
     color: $tertiary;
     font-size: 3rem;
-    margin: 1.2em;
+    // margin: 1.2em;
 }
 
 .devWrapper {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1em;
@@ -32,7 +32,7 @@ li.bioPic {
     padding: 10px;
     border-radius: 10px;
     gap: 25px;
-    margin: 20px 5%;
+    // margin: 20px 5%;
 }
 
 .bioPic {
@@ -43,7 +43,7 @@ li.bioPic {
 .bio {
     color: $primary;
     font-size: 1rem;
-    min-height: 350px;
+    min-height: 450px;
     text-align: center;
 }
 
@@ -59,7 +59,7 @@ li.bioPic {
 
 .cardWrapper {
     width: 300px;
-    height: 800px;
+    height: 900px;
     background: #FDFEFF;
     transition: background .6s ease;
     border-radius: 10px;

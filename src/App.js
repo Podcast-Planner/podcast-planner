@@ -20,7 +20,6 @@ function App() {
   const [formValues, setFormValues] = useState({
     length: 5,
     genreId: "",
-    genre: "",
     title: "",
   });
 
@@ -57,7 +56,9 @@ function App() {
         />
         <Route
           path="/new-playlist"
-          element={<Results formValues={formValues} setFormValues={setFormValues} />}
+          element={
+            <Results formValues={formValues} setFormValues={setFormValues} />
+          }
         />
         <Route
           path="/playlists"

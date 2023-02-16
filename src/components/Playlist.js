@@ -53,9 +53,6 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
           </div>
       }
 
-      
-      
-      
       <ul className="playlist">
         {playlistObject.map(
           ({ audio, id, image, podcast_title_original, title_original }) => {
@@ -73,11 +70,11 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
                     ></img>
                   <div className='darkOverlay'></div>
                   </div>
-                  <div className="overlay">
-                    <button href="#" className="playIcon" title="Video Play">
-                      <Play size={40} weight="fill" color='#0e444f' />
+                  <button href="#" className="playIcon" title="Video Play">
+                    <Play size={40} weight="fill" color='#0e444f' />
                     </button>
-                  </div>
+                   <div className="overlay">
+                   </div>
                   {id === playPodcast ? (
                     <iframe src={audio} title={title_original}></iframe>
                   ) : undefined}

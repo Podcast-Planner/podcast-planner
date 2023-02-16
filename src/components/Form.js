@@ -94,7 +94,8 @@ const Form = ({ formValues, setFormValues }) => {
 
   const handleBackClick = (e) => {
     e.preventDefault();
-    navigate("/");
+    setNext(false);
+    setFormValues({ ...formValues, length: 5 })
   };
 
   const handleNextClick = (e) => {

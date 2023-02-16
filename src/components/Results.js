@@ -6,13 +6,15 @@ import axios from "axios";
 import Playlist from "./Playlist";
 import Loader from "./Loader";
 import { Link } from "react-router-dom";
-import { HeartStraight, X } from "phosphor-react";
+import { ArrowsClockwise, HeartStraight, X } from "phosphor-react";
 
 const Results = ({ formValues, setFormValues }) => {
   // Save playlist data from API call to stateful variable
   const [newPlaylist, setNewPlaylist] = useState([]);
+  const [offset, setOffset] = useState(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [refresh, setRefresh] = useState(false);
 
   const navigate = useNavigate();
 
@@ -32,10 +34,13 @@ const Results = ({ formValues, setFormValues }) => {
           len_max: formValues.length + 1,
           genre_ids: formValues.genreId,
           language: "English",
+          offset: offset,
+          unique_podcasts: 1,
         },
       })
         .then((res) => {
           setNewPlaylist(res.data.results);
+          setOffset(res.data.next_offset);
           setLoading(false);
         })
         .catch((err) => {
@@ -44,8 +49,9 @@ const Results = ({ formValues, setFormValues }) => {
         });
     };
     getPlaylist();
-  }, []);
+  }, [refresh]);
 
+    
 
   const handleClick = () => {
     const database = getDatabase(firebase);
@@ -55,6 +61,10 @@ const Results = ({ formValues, setFormValues }) => {
     navigate('/playlists');
   }
 
+  const handleRefresh = () => {
+    refresh ? setRefresh(false) : setRefresh(true);
+  }
+
   if (loading) return <Loader />;
   if (error) return alert(`An error occurred: ${error.message}`);
 
@@ -62,9 +72,10 @@ const Results = ({ formValues, setFormValues }) => {
     <div className="results">
         {newPlaylist.length === 0 ? (<h2>Sorry, no podcasts were found in {formValues.genre} for the length of {formValues.length} minutes</h2>) : (
           <div>
-            <Playlist playlistObject={newPlaylist} formValues={formValues} />
+            <Playlist playlistObject={newPlaylist} formValues={formValues} setFormValues={setFormValues} />
             <div className='playlistButtons'>
               <button onClick={handleClick}><HeartStraight size={64} color="#d01116" weight="fill" /></button>
+              <button onClick={handleRefresh}><ArrowsClockwise size={64} weight="fill" /></button>
               <Link to='/'><X size={64} /></Link>
             </div>
           </div>

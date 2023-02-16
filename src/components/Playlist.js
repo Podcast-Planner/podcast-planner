@@ -3,15 +3,12 @@ import { NotePencil, Play, Trash } from "phosphor-react";
 import firebase from "../firebase";
 import { getDatabase, update, remove, ref } from "firebase/database";
 
-
-
 const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) => {
   const [playPodcast, setPlayPodcast] = useState("");
   const [editTitle, setEditTitle] = useState(false)
   const [newTitle ,setNewTitle] = useState('')
   const [list, setList] = useState([...playlistObject]);
  
-
   const handleSubmit = e => {
     e.preventDefault();
     
@@ -32,12 +29,11 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
   
   const dragStart = (e, position) => {
     dragItem.current = position;
-    // console.log(e.target.innerHTML);
   }
 
   const dragEnter = (e, position) => {
     dragOverItem.current = position;
-    // console.log(e.target.innerHTML);
+
   }
 
   const drop = (e) => {
@@ -49,13 +45,13 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
     dragOverItem.current = null;
     setList(copyListItems);
   }
+
   const handleTrash = e => {
     e.preventDefault()
     const database = getDatabase(firebase);
     remove(ref(database, firebaseKey));
   }
 
-  // console.log(playlistObject.length);
 
   return (
     <div className="playlistContainer">
@@ -75,9 +71,6 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
           }
           </div>
       }
-
-      
-      
       
       <ul className="playlist">
         {list.map(

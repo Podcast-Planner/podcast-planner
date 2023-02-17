@@ -56,10 +56,17 @@ const Results = ({ formValues, setFormValues }) => {
   const handleClick = () => {
     const database = getDatabase(firebase);
     const dbRef = ref(database);
-    const firebaseObj = { playlist: newPlaylist, formValues: formValues }
+    const firebaseObj = { playlist: userOrderPlaylist, formValues: formValues }
     push(dbRef, firebaseObj);
     navigate('/playlists');
   }
+
+  const [userOrderPlaylist, setUserOrderPlaylist] = useState([]);
+
+  const updatePlaylist = (newOrder) => {
+    setUserOrderPlaylist(newOrder);
+    console.log(newOrder);
+  };
 
   const handleRefresh = () => {
     refresh ? setRefresh(false) : setRefresh(true);
@@ -72,7 +79,7 @@ const Results = ({ formValues, setFormValues }) => {
     <div className="results">
         {newPlaylist.length === 0 ? (<h2>Sorry, no podcasts were found in {formValues.genre} for the length of {formValues.length} minutes</h2>) : (
           <div>
-            <Playlist playlistObject={newPlaylist} formValues={formValues} setFormValues={setFormValues} />
+            <Playlist playlistObject={newPlaylist} formValues={formValues} setFormValues={setFormValues} updatePlaylist={updatePlaylist}/>
             <div className='playlistButtons'>
               <button onClick={handleClick}><HeartStraight size={64} color="#d01116" weight="fill" /></button>
               <button onClick={handleRefresh}><ArrowsClockwise size={64} weight="fill" /></button>

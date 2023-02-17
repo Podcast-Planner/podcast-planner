@@ -8,7 +8,7 @@ import withReactContent from 'sweetalert2-react-content';
 const confirmDelete = withReactContent(Swal)
 
 
-const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) => {
+const Playlist = ({ playlistObject, formValues, setFormValues, updatePlaylist, firebaseKey }) => {
   const [playPodcast, setPlayPodcast] = useState("");
   const [editTitle, setEditTitle] = useState(false)
   const [newTitle ,setNewTitle] = useState('')
@@ -33,16 +33,13 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
   const dragItem = useRef();
   const dragOverItem = useRef();
 
-  
   const dragStart = (e, position) => {
     dragItem.current = position;
   }
 
   const dragEnter = (e, position) => {
     dragOverItem.current = position;
-
   }
-
 
   const drop = (e) => {
     const copyListItems = [...list];
@@ -52,7 +49,15 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
     dragItem.current = null;
     dragOverItem.current = null;
     setList(copyListItems);
+
+    updatePlaylist(copyListItems);
   }
+
+  const userListOrder = () => {
+    console.log(list)
+  }
+
+  userListOrder();
 
   const handleTrash = e => {
     e.preventDefault()
@@ -68,8 +73,6 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
         remove(ref(database, firebaseKey));
       }
     })
-    
-    
   }
 
 
@@ -92,8 +95,6 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
           </div>
       }
 
-
-
       <ul className="playlist">
         {list.map(
           ({ audio, id, image, podcast_title_original, title_original }, index) => {
@@ -103,7 +104,6 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
               onDragStart={(e) => dragStart(e, index)}
               onDragEnter={(e) => dragEnter(e, index)}
               onDragEnd={drop}
-              
               >
                 <button
                   onClick={(e) => setPlayPodcast(e.currentTarget.id)}

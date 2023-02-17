@@ -1,5 +1,6 @@
 @use "./variables" as *;
 
+//styling the playlist selections
 ul {
   list-style: none;
   width: 95%;
@@ -7,38 +8,17 @@ ul {
   margin: 0 auto;
 }
 
+//styling each podcast playlist item
 .playlist {
   display: flex;
   flex-direction: column;
 
-  button {
-    padding: 0;
-  }
+  // button {
+  //   padding: 0;
+  // }
 }
 
-button.icon {
-  display: flex;
-}
-
-.iconHeart {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  width: 0;
-  height: 0;
-}
-
-.iconHeart svg,
-.playlistButtons a svg {
-  background-color: $tertiary;
-  border-radius: 10px;
-  border: 2px solid $tertiary;
-}
-
-.playlistButtons {
-  margin-bottom: 1em;
-}
-
+//styling each podcast image
 .podcastImage {
   display: flex;
   justify-content: space-between;
@@ -52,6 +32,117 @@ button.icon {
   color: $primary;
 }
 
+.mediaContainer {
+  cursor: pointer;
+  position: relative;
+  width: 40vw;
+  height: 40vw;
+}
+
+//container for image
+.flexImage {
+  overflow: hidden;
+  position: relative;
+  transition: all 0.45s ease;
+}
+
+.flexImage {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.flexImage img {
+  border-radius: 10px;
+}
+
+//dark overlay on image container
+.flexImage::before,
+.flexImage::after {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.overlay {
+  position: absolute;
+  border-radius: 10px;
+  // top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  // width: 100%;
+  background-color: #fff;
+  opacity: 0.5;
+  transition: .3s ease;
+}
+
+button.icon {
+  display: flex;
+}
+
+//play icon on image
+.playIcon {
+  background: #fff;
+  border-radius: 50%;
+  border: 1px solid $primary;
+  // font-size: 2rem;
+  display: flex;
+  // justify-content: center;
+  // align-items: center;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 2;
+}
+
+//icons on the bottom of our playlist
+.playlistButtons {
+  margin-bottom: 1em;
+}
+
+.playlistInfo {
+  flex-basis: 55%;
+}
+
+.iconHeart {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 0;
+  height: 0;
+}
+
+.icon,
+.iconNav {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  height: 40px;
+  top: 0px;
+}
+
+.icon svg,
+.iconNav svg {
+  border: none;
+}
+
+// .iconHeart svg,
+.playlistButtons a svg,
+.playlistButtons button svg,
+.icon svg,
+.iconNav {
+  background-color: none;
+  border-radius: 10px;
+  border: 2px solid $tertiary;
+}
+
 .results {
   h3 {
     padding: 10px 0;
@@ -61,17 +152,6 @@ button.icon {
   li {
     border-radius: 10px;
   }
-}
-
-.mediaContainer {
-  cursor: pointer;
-  position: relative;
-  width: 40vw;
-  height: 40vw;
-}
-
-.playlistInfo {
-  flex-basis: 55%;
 }
 
 audio {
@@ -85,43 +165,6 @@ audio {
   right: 0;
 }
 
-.flexImage {
-  overflow: hidden;
-  position: relative;
-  transition: all 0.45s ease;
-}
-
-.flexImage img {
-  border-radius: 10px;
-}
-
-.flexImage::before,
-.flexImage::after {
-  background-color: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  transition: all 0.3s ease;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  background-color: #fff;
-  opacity: 0.5;
-  transition: .3s ease;
-}
-
-.flexImage {
-  position: relative;
-  width: 100%;
-  max-width: 450px;
-  margin: 0 auto;
-}
-
 .title {
   display: flex;
   background-color: $secondary;
@@ -130,23 +173,4 @@ audio {
 .overlay:hover {
   opacity: 0.7;
   background-color: #001e31;
-}
-
-.playIcon {
-  background: #fff;
-  border-radius: 50%;
-  border: 1px solid $primary;
-  font-size: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  cursor: pointer;
-  z-index: 2;
-
 }

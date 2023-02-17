@@ -51,39 +51,44 @@ const Results = ({ formValues, setFormValues }) => {
     getPlaylist();
   }, [refresh]);
 
-    
-
-  const handleClick = () => {
+    const handleClick = () => {
     const database = getDatabase(firebase);
     const dbRef = ref(database);
     const firebaseObj = { playlist: newPlaylist, formValues: formValues }
     push(dbRef, firebaseObj);
     navigate('/playlists');
   }
-
+ 
   const handleRefresh = () => {
     refresh ? setRefresh(false) : setRefresh(true);
+    
   }
 
   if (loading) return <Loader />;
   if (error) return alert(`An error occurred: ${error.message}`);
 
+  
   return (
-    <div className="results">
+    <>
+     <div className="results">
         {newPlaylist.length === 0 ? (<h2>Sorry, no podcasts were found in {formValues.genre} for the length of {formValues.length} minutes</h2>) : (
           <div>
             <Playlist playlistObject={newPlaylist} formValues={formValues} setFormValues={setFormValues} />
             <div className='playlistButtons'>
-              <button onClick={handleClick}><HeartStraight size={64} color="#d01116" weight="fill" /></button>
-              <button onClick={handleRefresh}><ArrowsClockwise size={64} weight="fill" /></button>
-              <Link to='/'><X size={64} /></Link>
+            <button className='icon' onClick={handleClick}><HeartStraight size={40} color="#ffa62b" weight="fill" style={{ backgroundColor:'#001e31'}} /></button>
+            <button className='icon' onClick={handleRefresh}><ArrowsClockwise size={40} color="#ffa62b" weight="fill" style={{ backgroundColor: '#001e31' }} /></button>
+              <Link to='/'><X size={40} /></Link>
+            
             </div>
           </div>
         )
         }
 
     </div>
+  
+    </>
   );
 };
+
 
 export default Results;

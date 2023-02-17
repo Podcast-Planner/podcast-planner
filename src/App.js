@@ -29,8 +29,7 @@ function App() {
 
   // Create a reference point for ScrollToTop.js functionality
   const headerRef = useRef(null);
-
-  // Pull data from firebase on component mount & change in database
+    // Pull data from firebase on component mount & change in database
   useEffect(() => {
     const database = getDatabase(firebase);
     const dbRef = ref(database);

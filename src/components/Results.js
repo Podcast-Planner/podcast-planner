@@ -4,11 +4,13 @@ import { getDatabase, push, ref } from "firebase/database";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Playlist from "./Playlist";
+import ScrollToTop from "./ScrollToTop";
+import PageFade from "./PageFade";
 import Loader from "./Loader";
 import { Link } from "react-router-dom";
 import { ArrowsClockwise, HeartStraight, X } from "phosphor-react";
 
-const Results = ({ formValues, setFormValues }) => {
+const Results = ({ formValues, setFormValues, headerRef }) => {
   // Save playlist data from API call to stateful variable
   const [newPlaylist, setNewPlaylist] = useState([]);
   const [offset, setOffset] = useState(0);
@@ -36,6 +38,7 @@ const Results = ({ formValues, setFormValues }) => {
           language: "English",
           offset: offset,
           unique_podcasts: 1,
+          safe_mode: 1,
         },
       })
         .then((res) => {
@@ -51,38 +54,52 @@ const Results = ({ formValues, setFormValues }) => {
     getPlaylist();
   }, [refresh]);
 
-    
-
   const handleClick = () => {
     const database = getDatabase(firebase);
     const dbRef = ref(database);
-    const firebaseObj = { playlist: newPlaylist, formValues: formValues }
+    const firebaseObj = { playlist: newPlaylist, formValues: formValues };
     push(dbRef, firebaseObj);
-    navigate('/playlists');
-  }
+    navigate("/playlists");
+  };
 
   const handleRefresh = () => {
     refresh ? setRefresh(false) : setRefresh(true);
-  }
+  };
 
   if (loading) return <Loader />;
   if (error) return alert(`An error occurred: ${error.message}`);
 
   return (
-    <div className="results">
-        {newPlaylist.length === 0 ? (<h2>Sorry, no podcasts were found in {formValues.genre} for the length of {formValues.length} minutes</h2>) : (
+    <PageFade>
+      <div className="results">
+        {newPlaylist.length === 0 ? (
+          <h2>
+            Sorry, no podcasts were found in {formValues.genre} for the length
+            of {formValues.length} minutes
+          </h2>
+        ) : (
           <div>
-            <Playlist playlistObject={newPlaylist} formValues={formValues} setFormValues={setFormValues} />
-            <div className='playlistButtons'>
-              <button onClick={handleClick}><HeartStraight size={64} color="#d01116" weight="fill" /></button>
-              <button onClick={handleRefresh}><ArrowsClockwise size={64} weight="fill" /></button>
-              <Link to='/'><X size={64} /></Link>
+            <Playlist
+              playlistObject={newPlaylist}
+              formValues={formValues}
+              setFormValues={setFormValues}
+            />
+            <div className="playlistButtons">
+              <button onClick={handleClick}>
+                <HeartStraight size={64} color="#d01116" weight="fill" />
+              </button>
+              <button onClick={handleRefresh}>
+                <ArrowsClockwise size={64} weight="fill" />
+              </button>
+              <Link to="/">
+                <X size={64} />
+              </Link>
             </div>
           </div>
-        )
-        }
-
-    </div>
+        )}
+        <ScrollToTop headerRef={headerRef} />
+      </div>
+    </PageFade>
   );
 };
 

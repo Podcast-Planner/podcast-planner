@@ -17,16 +17,18 @@
   justify-content: center;
   align-items: center;
   background-color: #001e31;
+
+  div {
+    width: 100%;
+  }
 }
 
 .box select,
 .box input {
   padding: 10px;
-  width: 100%;
   height: 75px;
   border: none;
   font-size: 1rem;
-  //   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
   outline: none;
   cursor: pointer;
   overflow: hidden;

@@ -2,9 +2,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Loader from "./Loader";
-import { LineSegments } from "phosphor-react";
+import ScrollToTop from "./ScrollToTop";
+import PageFade from "./PageFade";
+import Length from "./Length";
+import Genre from "./Genre";
 
-const Form = ({ formValues, setFormValues }) => {
+const Form = ({ formValues, setFormValues, headerRef }) => {
   // Setting state with our application
   const [genres, setGenres] = useState([]);
   const [next, setNext] = useState(false);
@@ -105,59 +108,25 @@ const Form = ({ formValues, setFormValues }) => {
   };
 
   return (
-    <>
+    <PageFade>
       <form className="form">
         {next ? (
-          <div className="box" id="input">
-            <h2 className="subHeading">Find your perfect podcast playlist.</h2>
-            <legend htmlFor="podcastSelector">Select Your Genres:</legend>
-            <ul className="genreContainer">
-              {genresArray &&
-                genresArray.map((genreArray) => (
-                  <li key={genreArray.id} className="genre">
-                    <input
-                      id={genreArray.id}
-                      name={genreArray.name}
-                      type="checkbox"
-                      value={genreArray.id}
-                      onChange={handleFormChange}
-                    />
-                    <label htmlFor={genreArray.id}>{genreArray.name}</label>
-                  </li>
-                ))}
-            </ul>
-            <div className="buttons">
-              <button className="back" onClick={handleBackClick}>
-                Back
-              </button>
-              <button
-                className="create"
-                onClick={() => navigate("/new-playlist")}
-              >
-                Create
-              </button>
-            </div>
-          </div>
+          <Genre
+            genresArray={genresArray}
+            handleFormChange={handleFormChange}
+            handleBackClick={handleBackClick}
+            navigate={navigate}
+          />
         ) : (
-          <div className="box lengthContainer">
-            <h2 className="subHeading">Find your perfect podcast playlist.</h2>
-            <legend>How long will your walk be?</legend>
-            <label>{formValues.length} Minutes</label>
-            <input
-              type="range"
-              id="length"
-              min="5"
-              max="60"
-              defaultValue="5"
-              onChange={handleLengthInputChange}
-            />
-            <button className="next" onClick={handleNextClick}>
-              Next
-            </button>
-          </div>
+          <Length
+            formValues={formValues}
+            handleLengthInputChange={handleLengthInputChange}
+            handleNextClick={handleNextClick}
+          />
         )}
       </form>
-    </>
+      <ScrollToTop headerRef={headerRef} />
+    </PageFade>
   );
 };
 

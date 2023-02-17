@@ -123,7 +123,8 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
                    <div className="overlay">
                    </div>
                   {id === playPodcast ? (
-                    <iframe src={audio} title={title_original}></iframe>
+                    <audio src={audio} title={title_original}
+                    controls></audio>
                   ) : undefined}
                 </button>
                 <div className="playlistInfo">

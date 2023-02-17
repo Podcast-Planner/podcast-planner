@@ -46,18 +46,27 @@ function App() {
   return (
     <div className="body">
       <Header headerRef={headerRef} />
+      <div className='wrapper'>
       <Routes>
-        <Route path='/about' element={<About />} />
+        <Route path="/about" element={<About />} />
         <Route
           path="/"
           element={
-            <Form formValues={formValues} setFormValues={setFormValues} />
+            <Form
+              formValues={formValues}
+              setFormValues={setFormValues}
+              headerRef={headerRef}
+            />
           }
         />
         <Route
           path="/new-playlist"
           element={
-            <Results formValues={formValues} setFormValues={setFormValues} />
+            <Results
+              formValues={formValues}
+              setFormValues={setFormValues}
+              headerRef={headerRef}
+            />
           }
         />
         <Route
@@ -73,6 +82,7 @@ function App() {
         />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
+      </div>
       <Footer />
     </div>
   );

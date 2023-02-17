@@ -7,7 +7,7 @@ const Header = ({ headerRef }) => {
   return (
     <header ref={headerRef}>
       <h1>
-        <Microphone size={40} className="iconNav" weight="fill" color='#ffa62b' style={{ backgroundColor:'#001e31' }} /> Podcast Planner
+        <Microphone size={32} className="iconNav" color='#ffa62b'/> Podcast Planner
       </h1>
       <nav>
         <Link to={pathName === "/playlists" ? "/" : "/playlists"}>

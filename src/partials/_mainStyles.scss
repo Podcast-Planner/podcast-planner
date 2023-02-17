@@ -4,6 +4,10 @@ html {
   font-size: 125%;
 }
 
+header {
+  padding: 0 1em;
+}
+
 .body {
   background-color: $secondary;
   color: $tertiary;
@@ -24,6 +28,11 @@ html {
 
 .flexImage img hover {
   background-color: rgba(14, 68, 79, 0.7);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
 }
 
 li {

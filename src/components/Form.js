@@ -110,11 +110,11 @@ const Form = ({ formValues, setFormValues }) => {
         {next ? (
           <div className="box" id="input">
             <h2 className="subHeading">Find your perfect podcast playlist.</h2>
-            <label htmlFor="podcastSelector">Select Your Genres:</label>
+            <legend htmlFor="podcastSelector">Select Your Genres:</legend>
             <ul className="genreContainer">
               {genresArray &&
                 genresArray.map((genreArray) => (
-                  <li key={genreArray.id}>
+                  <li key={genreArray.id} className="genre">
                     <input
                       id={genreArray.id}
                       name={genreArray.name}
@@ -122,9 +122,7 @@ const Form = ({ formValues, setFormValues }) => {
                       value={genreArray.id}
                       onChange={handleFormChange}
                     />
-                    <label htmlFor={genreArray.id} className="genre">
-                      {genreArray.name}
-                    </label>
+                    <label htmlFor={genreArray.id}>{genreArray.name}</label>
                   </li>
                 ))}
             </ul>
@@ -141,10 +139,10 @@ const Form = ({ formValues, setFormValues }) => {
             </div>
           </div>
         ) : (
-          <div className="box" id="input">
+          <div className="box lengthContainer">
             <h2 className="subHeading">Find your perfect podcast playlist.</h2>
-            <label htmlFor="length">How long will your walk be?</label>
-            <p>{formValues.length} Minutes</p>
+            <legend>How long will your walk be?</legend>
+            <label>{formValues.length} Minutes</label>
             <input
               type="range"
               id="length"

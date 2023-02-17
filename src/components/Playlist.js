@@ -2,6 +2,11 @@ import { useState, useRef } from "react";
 import { NotePencil, Play, Trash } from "phosphor-react";
 import firebase from "../firebase";
 import { getDatabase, update, remove, ref } from "firebase/database";
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
+const confirmDelete = withReactContent(Swal)
+
 
 const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) => {
   const [playPodcast, setPlayPodcast] = useState("");
@@ -49,7 +54,19 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
   const handleTrash = e => {
     e.preventDefault()
     const database = getDatabase(firebase);
-    remove(ref(database, firebaseKey));
+    confirmDelete.fire({
+      title: <h3>Are you sure you want to delete?</h3>,
+      showCancelButton: true,
+      confirmButtonColor: '#0e444f',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        remove(ref(database, firebaseKey));
+      }
+    })
+    
+    
   }
 
 

@@ -9,6 +9,7 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
   const [newTitle ,setNewTitle] = useState('')
   const [list, setList] = useState([...playlistObject]);
  
+ 
   const handleSubmit = e => {
     e.preventDefault();
     
@@ -26,6 +27,7 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
 
   const dragItem = useRef();
   const dragOverItem = useRef();
+
   
   const dragStart = (e, position) => {
     dragItem.current = position;
@@ -35,6 +37,7 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
     dragOverItem.current = position;
 
   }
+
 
   const drop = (e) => {
     const copyListItems = [...list];
@@ -83,14 +86,7 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
               onDragStart={(e) => dragStart(e, index)}
               onDragEnter={(e) => dragEnter(e, index)}
               onDragEnd={drop}
-              onTouchStart={(e) => {
-                dragStart(e.touches[0], index)}
-              }
-              onTouchMove={(e) => {
-                // e.preventDefault();
-                dragEnter(e.touches[0], index);
-               }}
-              onTouchEnd={drop}
+              
               >
                 <button
                   onClick={(e) => setPlayPodcast(e.currentTarget.id)}

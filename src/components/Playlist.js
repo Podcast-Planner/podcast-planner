@@ -81,15 +81,13 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
             <h3>
               {formValues.title}
             </h3>
-            <button onClick={() => setEditTitle(true)}><NotePencil size={32} color="#000000" weight="fill" /></button>
+            <button className ='icon'onClick={() => setEditTitle(true)}><NotePencil size={40} color="#ffa62b" weight="fill"style={{backgroundColor:'#001e31'}} /></button>
           {firebaseKey
-            ? <button onClick={handleTrash}><Trash size={32} weight="fill" /></button>
+            ? <button className ='icon'onClick={handleTrash}><Trash size={40} color="#ffa62b" weight="fill"style={{ backgroundColor: '#001e31' }} /></button>
             : null
           }
           </div>
       }
-
-
 
       <ul className="playlist">
         {list.map(

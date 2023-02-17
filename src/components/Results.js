@@ -53,15 +53,15 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
     };
     getPlaylist();
   }, [refresh]);
-
-  const handleClick = () => {
+    const handleClick = () => {
     const database = getDatabase(firebase);
     const dbRef = ref(database);
     const firebaseObj = { playlist: newPlaylist, formValues: formValues };
     push(dbRef, firebaseObj);
     navigate("/playlists");
   };
-
+ 
+  
   const handleRefresh = () => {
     refresh ? setRefresh(false) : setRefresh(true);
   };
@@ -69,7 +69,9 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
   if (loading) return <Loader />;
   if (error) return alert(`An error occurred: ${error.message}`);
 
+  
   return (
+    
     <PageFade>
       <div className="results">
         {newPlaylist.length === 0 ? (
@@ -78,22 +80,23 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
             of {formValues.length} minutes
           </h2>
         ) : (
-          <div>
+          <div className='iconContainer'>
             <Playlist
               playlistObject={newPlaylist}
               formValues={formValues}
               setFormValues={setFormValues}
             />
             <div className="playlistButtons">
-              <button onClick={handleClick}>
-                <HeartStraight size={64} color="#d01116" weight="fill" />
+            <button className='icon' onClick={handleClick}>
+                <HeartStraight size={40} color="#ffa62b" weight="fill" style={{ backgroundColor:'#001e31'}} />
               </button>
-              <button onClick={handleRefresh}>
-                <ArrowsClockwise size={64} weight="fill" />
+            <button className='icon' onClick={handleRefresh}>
+                <ArrowsClockwise size={40} color="#ffa62b" weight="fill" style={{ backgroundColor: '#001e31' }} />
               </button>
               <Link to="/">
-                <X size={64} />
+                <X size={40} />
               </Link>
+            
             </div>
           </div>
         )}
@@ -102,5 +105,6 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
     </PageFade>
   );
 };
+
 
 export default Results;

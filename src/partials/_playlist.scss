@@ -1,18 +1,18 @@
 @use "./variables" as *;
 
-ul {
-  list-style: none;
-  width: 95%;
-  padding: 0;
-  margin: 0 auto;
-}
-
 .playlist {
   display: flex;
   flex-direction: column;
 
   button {
     padding: 0;
+  }
+}
+
+.playlistContainer {
+  ul {
+    width: 95%;
+    margin: 0 auto;
   }
 }
 
@@ -112,7 +112,7 @@ audio {
   width: 100%;
   background-color: #fff;
   opacity: 0.5;
-  transition: .3s ease;
+  transition: 0.3s ease;
 }
 
 .flexImage {
@@ -148,5 +148,4 @@ audio {
   -ms-transform: translate(-50%, -50%);
   cursor: pointer;
   z-index: 2;
-
 }

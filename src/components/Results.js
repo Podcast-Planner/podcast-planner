@@ -15,6 +15,7 @@ const Results = ({ formValues, setFormValues }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [refresh, setRefresh] = useState(false);
+  const [userOrderPlaylist, setUserOrderPlaylist] = useState([]);
 
   const navigate = useNavigate();
 
@@ -61,7 +62,6 @@ const Results = ({ formValues, setFormValues }) => {
     navigate('/playlists');
   }
 
-  const [userOrderPlaylist, setUserOrderPlaylist] = useState([]);
 
   const updatePlaylist = (newOrder) => {
     setUserOrderPlaylist(newOrder);

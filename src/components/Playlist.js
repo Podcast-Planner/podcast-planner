@@ -13,7 +13,7 @@ const Playlist = ({ playlistObject, formValues, setFormValues, updatePlaylist, f
   const [editTitle, setEditTitle] = useState(false)
   const [newTitle ,setNewTitle] = useState('')
   const [list, setList] = useState([...playlistObject]);
- 
+  console.log(list);
  
   const handleSubmit = e => {
     e.preventDefault();
@@ -49,15 +49,11 @@ const Playlist = ({ playlistObject, formValues, setFormValues, updatePlaylist, f
     dragItem.current = null;
     dragOverItem.current = null;
     setList(copyListItems);
-
-    updatePlaylist(copyListItems);
+     updatePlaylist(copyListItems);
+ 
   }
 
-  const userListOrder = () => {
-    console.log(list)
-  }
-
-  userListOrder();
+    
 
   const handleTrash = e => {
     e.preventDefault()

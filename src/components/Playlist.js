@@ -7,15 +7,12 @@ import withReactContent from 'sweetalert2-react-content';
 
 const confirmDelete = withReactContent(Swal)
 
-
 const Playlist = ({ playlistObject, formValues, setFormValues, updatePlaylist, firebaseKey }) => {
   const [playPodcast, setPlayPodcast] = useState("");
   const [editTitle, setEditTitle] = useState(false)
   const [newTitle ,setNewTitle] = useState('')
   const [list, setList] = useState([...playlistObject]);
  
- console.log(playlistObject)
-
   const handleSubmit = e => {
     e.preventDefault();
     
@@ -53,8 +50,6 @@ const Playlist = ({ playlistObject, formValues, setFormValues, updatePlaylist, f
     updatePlaylist(copyListItems);
     console.log(copyListItems)
   }
-
-  
 
   const handleTrash = e => {
     e.preventDefault()

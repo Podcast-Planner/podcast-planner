@@ -9,6 +9,8 @@ const confirmDelete = withReactContent(Swal)
 
 
 const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) => {
+
+  console.log(playlistObject)
   const [playPodcast, setPlayPodcast] = useState("");
   const [editTitle, setEditTitle] = useState(false)
   const [newTitle ,setNewTitle] = useState('')

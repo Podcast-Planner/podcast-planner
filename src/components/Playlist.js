@@ -12,7 +12,9 @@ const Playlist = ({ playlistObject, formValues, setFormValues, updatePlaylist, f
   const [playPodcast, setPlayPodcast] = useState("");
   const [editTitle, setEditTitle] = useState(false)
   const [newTitle ,setNewTitle] = useState('')
+  // const [list, setList] = useState([...playlistObject]);
   const [list, setList] = useState([...playlistObject]);
+  console.log(playlistObject)
  
   const handleSubmit = e => {
     e.preventDefault();
@@ -48,11 +50,11 @@ const Playlist = ({ playlistObject, formValues, setFormValues, updatePlaylist, f
     dragItem.current = null;
     dragOverItem.current = null;
     setList(copyListItems);
-     updatePlaylist(copyListItems);
- 
+    updatePlaylist(copyListItems);
+    console.log(copyListItems)
   }
 
-    
+  
 
   const handleTrash = e => {
     e.preventDefault()
@@ -98,7 +100,7 @@ const Playlist = ({ playlistObject, formValues, setFormValues, updatePlaylist, f
           ({ audio, id, image, podcast_title_original, title_original }, index) => {
             return (
               <li className='podcastImage' key={id} 
-              draggable 
+              draggable={window.location.pathname !== '/playlists'}
               onDragStart={(e) => dragStart(e, index)}
               onDragEnter={(e) => dragEnter(e, index)}
               onDragEnd={drop}

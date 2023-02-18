@@ -23,6 +23,7 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
     : 0
     );
 
+    console.log(userOrderPlaylist);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -60,7 +61,10 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
     getPlaylist();
   }, [refresh]);
     
-  
+  const updatePlaylist = (newOrder) => {
+    !newOrder ? setUserOrderPlaylist(newPlaylist) : setUserOrderPlaylist(newOrder);
+    console.log(newOrder);
+  };
   
     const handleClick = () => {
     const database = getDatabase(firebase);
@@ -71,10 +75,7 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
   }
 
 
-  const updatePlaylist = (newOrder) => {
-    setUserOrderPlaylist(newOrder);
-    console.log(newOrder);
-  };
+  
 
   const handleRefresh = () => {
     refresh ? setRefresh(false) : setRefresh(true);

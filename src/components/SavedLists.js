@@ -13,7 +13,7 @@ const SavedLists = ({ savedPlaylists, newPlaylist, formValues, headerRef, setFor
             .reverse()
             .map((obj) => {
               return (
-                <ul key={obj.key}>
+                <ul key={obj.key} draggable="false">
                   <Playlist
                     playlistObject={obj.data.playlist}
                     formValues={obj.data.formValues}

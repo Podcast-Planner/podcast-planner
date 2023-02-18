@@ -5,6 +5,7 @@ const Genre = ({
   handleFormChange,
   handleBackClick,
   navigate,
+  genreSelections
 }) => {
   return (
     <SwipeRight>
@@ -30,7 +31,7 @@ const Genre = ({
           <button className="back" onClick={handleBackClick}>
             Back
           </button>
-          <button className="create" onClick={() => navigate("/new-playlist")}>
+          <button className='create' disabled={ genreSelections[0] ? false : true} onClick={() => navigate("/new-playlist")}>
             Create
           </button>
         </div>

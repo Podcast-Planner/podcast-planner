@@ -166,7 +166,7 @@ select {
 }
 
 .back:hover,
-.create:hover,
+.create:hover:enabled,
 .next:hover,
 .genre:hover,
 .back:focus,
@@ -189,4 +189,8 @@ select {
 .genre {
   background-image: linear-gradient(90deg, $primary 0%, $secondary 100%);
   box-shadow: 0 4px 10px 0 rgba($color: black, $alpha: 0.7);
+}
+
+.create:disabled{
+  cursor: not-allowed;
 }

@@ -13,8 +13,6 @@ const Playlist = ({ playlistObject, formValues, setFormValues, updatePlaylist, f
   const [editTitle, setEditTitle] = useState(false)
   const [newTitle ,setNewTitle] = useState('')
   const [list, setList] = useState([...playlistObject]);
-  console.log(list);
-  console.log(playlistObject);
  
   const handleSubmit = e => {
     e.preventDefault();

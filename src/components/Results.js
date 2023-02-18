@@ -110,8 +110,7 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
         </div>
         {newPlaylist.length === 0 ? (
           <h2>
-            Sorry, no podcasts were found in {formValues.genre} for the length
-            of {formValues.length} minutes
+            Sorry, there are no additional {formValues.title} podcasts.
           </h2>
         ) : (
           <div className='iconContainer'>

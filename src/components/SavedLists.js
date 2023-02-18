@@ -3,6 +3,8 @@ import ScrollToTop from "./ScrollToTop";
 import PageFade from "./PageFade";
 
 const SavedLists = ({ savedPlaylists, newPlaylist, formValues, headerRef, setFormValues, }) => {
+
+  console.log(savedPlaylists)
   return (
     <PageFade>
       <section className="savedLists">
@@ -11,6 +13,7 @@ const SavedLists = ({ savedPlaylists, newPlaylist, formValues, headerRef, setFor
           {savedPlaylists
             .slice(0)
             .reverse()
+            .filter((obj) => obj.data && obj.data.playlist)
             .map((obj) => {
               return (
                 <ul key={obj.key} draggable="false">

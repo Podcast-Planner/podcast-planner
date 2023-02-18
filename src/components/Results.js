@@ -23,7 +23,6 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
     : 0
     );
 
-    console.log(userOrderPlaylist);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -51,6 +50,7 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
           setNewPlaylist(res.data.results);
           localStorage.setItem('offset', offset)
           setOffset(res.data.next_offset);
+          console.log(res.data.next_offset)
           setLoading(false);
         })
         .catch((err) => {
@@ -63,7 +63,6 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
     
   const updatePlaylist = (newOrder) => {
     !newOrder ? setUserOrderPlaylist(newPlaylist) : setUserOrderPlaylist(newOrder);
-    console.log(newOrder);
   };
   
     const handleClick = () => {
@@ -105,7 +104,7 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
           </div>
           <div>
             <p>Save</p>
-            <button className='icon' onClick={handleClick}>
+            <button className='icon' onClick={handleClick} disabled={ newPlaylist.length < 1 ? true : false }>
               <HeartStraight size={40} color="#ffa62b" weight="fill" style={{ backgroundColor: '#001e31' }} />
             </button>
           </div>

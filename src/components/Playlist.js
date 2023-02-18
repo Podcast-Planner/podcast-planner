@@ -12,10 +12,10 @@ const Playlist = ({ playlistObject, formValues, setFormValues, updatePlaylist, f
   const [playPodcast, setPlayPodcast] = useState("");
   const [editTitle, setEditTitle] = useState(false)
   const [newTitle ,setNewTitle] = useState('')
-  // const [list, setList] = useState([...playlistObject]);
   const [list, setList] = useState([...playlistObject]);
-  console.log(playlistObject)
  
+ console.log(playlistObject)
+
   const handleSubmit = e => {
     e.preventDefault();
     

@@ -8,16 +8,20 @@ import ScrollToTop from "./ScrollToTop";
 import PageFade from "./PageFade";
 import Loader from "./Loader";
 import { Link } from "react-router-dom";
-import { ArrowsClockwise, HeartStraight, X } from "phosphor-react";
+import { ArrowLeft, ArrowsClockwise, HeartStraight } from "phosphor-react";
 
 const Results = ({ formValues, setFormValues, headerRef }) => {
   // Save playlist data from API call to stateful variable
   const [newPlaylist, setNewPlaylist] = useState([]);
-  const [offset, setOffset] = useState(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [refresh, setRefresh] = useState(false);
   const [userOrderPlaylist, setUserOrderPlaylist] = useState([]);
+  const [offset, setOffset] = useState(
+    localStorage.getItem('offset') 
+    ? localStorage.getItem('offset')
+    : 0
+    );
 
   const navigate = useNavigate();
 
@@ -44,6 +48,7 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
       })
         .then((res) => {
           setNewPlaylist(res.data.results);
+          localStorage.setItem('offset', offset)
           setOffset(res.data.next_offset);
           setLoading(false);
         })
@@ -55,7 +60,9 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
     getPlaylist();
   }, [refresh]);
     
-  const handleClick = () => {
+  
+  
+    const handleClick = () => {
     const database = getDatabase(firebase);
     const dbRef = ref(database);
     const firebaseObj = { playlist: userOrderPlaylist, formValues: formValues }
@@ -81,6 +88,26 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
     
     <PageFade>
       <div className="results">
+        <div className="playlistButtons">
+          <div>
+            <p>Back</p>
+            <Link to="/">
+              <ArrowLeft size={40} />
+            </Link>
+          </div>
+          <div>
+            <p>New Playlist</p>
+            <button className='icon' onClick={handleRefresh}>
+              <ArrowsClockwise size={40} color="#ffa62b" weight="fill" style={{ backgroundColor: '#001e31' }} />
+            </button>
+          </div>
+          <div>
+            <p>Save</p>
+            <button className='icon' onClick={handleClick}>
+              <HeartStraight size={40} color="#ffa62b" weight="fill" style={{ backgroundColor: '#001e31' }} />
+            </button>
+          </div>
+        </div>
         {newPlaylist.length === 0 ? (
           <h2>
             Sorry, no podcasts were found in {formValues.genre} for the length
@@ -94,18 +121,7 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
               setFormValues={setFormValues}
               updatePlaylist={updatePlaylist}
             />
-            <div className="playlistButtons">
-            <button className='icon' onClick={handleClick}>
-                <HeartStraight size={40} color="#ffa62b" weight="fill" style={{ backgroundColor:'#001e31'}} />
-              </button>
-            <button className='icon' onClick={handleRefresh}>
-                <ArrowsClockwise size={40} color="#ffa62b" weight="fill" style={{ backgroundColor: '#001e31' }} />
-              </button>
-              <Link to="/">
-                <X size={40} />
-              </Link>
             
-            </div>
           </div>
         )}
         <ScrollToTop headerRef={headerRef} />

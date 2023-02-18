@@ -18,11 +18,18 @@ import "./App.scss";
 
 function App() {
   // Store user inputs as values to be passed as arguments for 2nd API call.
-  const [formValues, setFormValues] = useState({
+  const [formValues, setFormValues] = useState(
+    localStorage.getItem('formValues')
+    ? JSON.parse(localStorage.getItem('formValues'))
+    : {
     length: 5,
     genreId: "",
     title: "",
-  });
+    });
+
+  useEffect(() => {
+    localStorage.setItem('formValues', JSON.stringify(formValues))
+  }, [formValues]);
 
   // All playlists saved by the user (pulled from firebase database)
   const [savedPlaylists, setSavedPlaylists] = useState([]);
@@ -46,7 +53,7 @@ function App() {
   return (
     <div className="body">
       <Header headerRef={headerRef} />
-      <div className='wrapper'>
+
       <Routes>
         <Route path="/about" element={<About />} />
         <Route
@@ -82,7 +89,6 @@ function App() {
         />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
-      </div>
       <Footer />
     </div>
   );

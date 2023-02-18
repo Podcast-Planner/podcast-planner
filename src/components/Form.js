@@ -42,6 +42,7 @@ const Form = ({ formValues, setFormValues, headerRef }) => {
       }
     };
     fetchGenre();
+    setFormValues({ ...formValues, length: 5 });
   }, []);
   if (loading) return <Loader />;
   if (error) return alert(`An error occurred: ${error.message}`);
@@ -92,6 +93,7 @@ const Form = ({ formValues, setFormValues, headerRef }) => {
           .name
       }${genreSelections.length > 1 ? " & More" : ""}`,
     });
+    localStorage.setItem('offset', 0);
   };
   //  Array.from
   const genresArray = genres.genres;

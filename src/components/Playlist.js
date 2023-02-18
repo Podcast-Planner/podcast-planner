@@ -72,6 +72,7 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
 
   return (
     <div className="playlistContainer">
+      
       {editTitle
         ? <form className='title' onSubmit={handleSubmit}>
             <label htmlFor='editTitle'></label>
@@ -81,12 +82,14 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
             <h3>
               {formValues.title}
             </h3>
-            <button className ='icon'onClick={() => setEditTitle(true)}><NotePencil size={40} color="#ffa62b" weight="fill"style={{backgroundColor:'#001e31'}} /></button>
-          {firebaseKey
-            ? <button className ='icon'onClick={handleTrash}><Trash size={40} color="#ffa62b" weight="fill"style={{ backgroundColor: '#001e31' }} /></button>
-            : null
-          }
+            <button className ='icon edit' onClick={() => setEditTitle(true)}><NotePencil size={40} color="#ffa62b" weight="fill"style={{backgroundColor:'#001e31'}} /></button>
+          
           </div>
+      }
+      
+      {firebaseKey
+        ? <button className='icon trash' onClick={handleTrash}><Trash size={40} color="#ffa62b" weight="fill" style={{ backgroundColor: '#001e31' }} /></button>
+        : null
       }
 
       <ul className="playlist">
@@ -130,6 +133,7 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
           }
         )}
       </ul>
+      
     </div>
   );
 };

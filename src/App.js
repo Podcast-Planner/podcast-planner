@@ -29,8 +29,7 @@ function App() {
 
   // Create a reference point for ScrollToTop.js functionality
   const headerRef = useRef(null);
-
-  // Pull data from firebase on component mount & change in database
+    // Pull data from firebase on component mount & change in database
   useEffect(() => {
     const database = getDatabase(firebase);
     const dbRef = ref(database);
@@ -47,18 +46,27 @@ function App() {
   return (
     <div className="body">
       <Header headerRef={headerRef} />
+      <div className='wrapper'>
       <Routes>
-        <Route path='/about' element={<About />} />
+        <Route path="/about" element={<About />} />
         <Route
           path="/"
           element={
-            <Form formValues={formValues} setFormValues={setFormValues} />
+            <Form
+              formValues={formValues}
+              setFormValues={setFormValues}
+              headerRef={headerRef}
+            />
           }
         />
         <Route
           path="/new-playlist"
           element={
-            <Results formValues={formValues} setFormValues={setFormValues} />
+            <Results
+              formValues={formValues}
+              setFormValues={setFormValues}
+              headerRef={headerRef}
+            />
           }
         />
         <Route
@@ -74,6 +82,7 @@ function App() {
         />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
+      </div>
       <Footer />
     </div>
   );

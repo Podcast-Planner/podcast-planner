@@ -67,9 +67,10 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
   };
   
     const handleClick = () => {
+    const saveToPlaylists = (userOrderPlaylist < 1 ? newPlaylist : userOrderPlaylist )
     const database = getDatabase(firebase);
     const dbRef = ref(database);
-    const firebaseObj = { playlist: userOrderPlaylist, formValues: formValues }
+    const firebaseObj = { playlist: saveToPlaylists, formValues: formValues }
     push(dbRef, firebaseObj);
     navigate('/playlists');
   }

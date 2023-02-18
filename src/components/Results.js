@@ -54,7 +54,8 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
     };
     getPlaylist();
   }, [refresh]);
-    const handleClick = () => {
+    
+  const handleClick = () => {
     const database = getDatabase(firebase);
     const dbRef = ref(database);
     const firebaseObj = { playlist: userOrderPlaylist, formValues: formValues }

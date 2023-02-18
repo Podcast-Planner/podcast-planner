@@ -12,7 +12,7 @@ const Genre = ({
         <h2 className="subHeading">Find your perfect podcast playlist.</h2>
         <legend htmlFor="podcastSelector">Select Your Genres:</legend>
         <ul className="genreContainer">
-          {genresArray &&
+          {
             genresArray.map((genreArray) => (
               <li key={genreArray.id} className="genre">
                 <input

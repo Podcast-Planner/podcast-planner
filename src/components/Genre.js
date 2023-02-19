@@ -10,7 +10,7 @@ const Genre = ({
   return (
     <SwipeRight>
       <div className="box" id="input">
-        <h2 className="subHeading">Find your perfect podcast playlist.</h2>
+        <h2 className="subHeading">Find your perfect podcast playlist</h2>
         <legend htmlFor="podcastSelector">Select Your Genres:</legend>
         <ul className="genreContainer">
           {genresArray &&

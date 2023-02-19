@@ -1,29 +1,36 @@
 @use "./variables" as *;
 
-html .about {
+.about {
     height: 100vh;
-    background-color: #001e31;
 }
 
+
 .backButton {
-    margin-top: 1em;
+    margin-top: 3em;
     color: $quaternary;
+    border: 0;
+    padding: 0;
+    height: 40px;
+    width: 40px;
+}
+
+h2.team {
+    margin-top: 0;
 }
 
 .team {
     text-align: center;
     letter-spacing: 1px;
     color: $tertiary;
-    font-size: 3rem;
-    // margin: 1.2em;
 }
 
 .devWrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 1em;
+    margin-bottom: 0.5em;
 }
 
 li.bioPic {
@@ -43,7 +50,7 @@ li.bioPic {
 .bio {
     color: $primary;
     font-size: 1rem;
-    min-height: 450px;
+    min-height: 550px;
     text-align: center;
 }
 
@@ -59,7 +66,7 @@ li.bioPic {
 
 .cardWrapper {
     width: 300px;
-    height: 900px;
+    height: 1000px;
     background: #FDFEFF;
     transition: background .6s ease;
     border-radius: 10px;
@@ -97,12 +104,12 @@ li.bioPic {
         }
     }
 
-    .social-icons {
+    .socialIcons {
         display: flex;
         margin-top: 1.2em;
         justify-content: space-around;
 
-        .icon {
+        .aboutIcon {
             display: flex;
             align-items: center;
             flex-direction: column;

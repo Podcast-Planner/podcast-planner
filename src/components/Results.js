@@ -16,6 +16,7 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [refresh, setRefresh] = useState(false);
+  const [userOrderPlaylist, setUserOrderPlaylist] = useState([]);
   const [offset, setOffset] = useState(
     localStorage.getItem('offset') 
     ? localStorage.getItem('offset')
@@ -49,6 +50,7 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
           setNewPlaylist(res.data.results);
           localStorage.setItem('offset', offset)
           setOffset(res.data.next_offset);
+          console.log(res.data.next_offset)
           setLoading(false);
         })
         .catch((err) => {
@@ -58,16 +60,23 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
     };
     getPlaylist();
   }, [refresh]);
+    
+  const updatePlaylist = (newOrder) => {
+    !newOrder ? setUserOrderPlaylist(newPlaylist) : setUserOrderPlaylist(newOrder);
+  };
   
     const handleClick = () => {
+    const saveToPlaylists = (userOrderPlaylist < 1 ? newPlaylist : userOrderPlaylist )
     const database = getDatabase(firebase);
     const dbRef = ref(database);
-    const firebaseObj = { playlist: newPlaylist, formValues: formValues };
+    const firebaseObj = { playlist: saveToPlaylists, formValues: formValues }
     push(dbRef, firebaseObj);
-    navigate("/playlists");
-  };
- 
+    navigate('/playlists');
+  }
+
+
   
+
   const handleRefresh = () => {
     refresh ? setRefresh(false) : setRefresh(true);
   };
@@ -95,15 +104,14 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
           </div>
           <div>
             <p>Save</p>
-            <button className='icon' onClick={handleClick}>
+            <button className='icon' onClick={handleClick} disabled={ newPlaylist.length < 1 ? true : false }>
               <HeartStraight size={40} color="#ffa62b" weight="fill" style={{ backgroundColor: '#001e31' }} />
             </button>
           </div>
         </div>
         {newPlaylist.length === 0 ? (
           <h2>
-            Sorry, no podcasts were found in {formValues.genre} for the length
-            of {formValues.length} minutes
+            Sorry, there are no additional {formValues.title} podcasts.
           </h2>
         ) : (
           <div className='iconContainer'>
@@ -111,6 +119,7 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
               playlistObject={newPlaylist}
               formValues={formValues}
               setFormValues={setFormValues}
+              updatePlaylist={updatePlaylist}
             />
             
           </div>

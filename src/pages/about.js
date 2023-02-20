@@ -17,7 +17,7 @@ const About = () => {
 
     <section className = 'about'>
         <div className='wrapper'> 
-            <button className='backButton' onClick={() => navigate(-1)}><ArrowLeft size={40} weight="fill" color='#ffa62b' style={{ backgroundColor: '#001e31' }} /></button>
+            <button className='icon backButton' onClick={() => navigate(-1)}><ArrowLeft size={40} weight="fill" color='#ffa62b' style={{ backgroundColor: '#001e31' }} /></button>
             <h2 className='team'>Meet The Team</h2> 
             <div className='devWrapper'>
                 <div className = 'cardWrapper'>

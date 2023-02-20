@@ -11,6 +11,14 @@ const Genre = ({
     <SwipeRight>
       <div className="box" id="input">
         <h2 className="subHeading">Find your perfect podcast playlist</h2>
+        <div className="buttons">
+          <button type="button" className="back" onClick={handleBackClick}>
+            Back
+          </button>
+          <button type="submit" className='create' disabled={genreSelections[0] ? false : true} onClick={() => navigate("/new-playlist")}>
+            Create
+          </button>
+        </div>
         <legend htmlFor="podcastSelector">Select Your Genres:</legend>
         <ul className="genreContainer">
           {
@@ -28,14 +36,7 @@ const Genre = ({
               </li>
             ))}
         </ul>
-        <div className="buttons">
-          <button type="button" className="back" onClick={handleBackClick}>
-            Back
-          </button>
-          <button type="submit" className='create' disabled={ genreSelections[0] ? false : true} onClick={() => navigate("/new-playlist")}>
-            Create
-          </button>
-        </div>
+        
       </div>
     </SwipeRight>
   );

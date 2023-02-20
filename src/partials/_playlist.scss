@@ -173,17 +173,19 @@ button.icon {
   position: relative;
 }
 
-.icon {
+.icon,
+.iconNav {
   border: 0;
   padding: 0;
   margin: 0;
   height: 40px;
   top: 0px;
+
   &:hover,
   &:focus {
-      color: #ffbb5c;
-      outline: none;
-    }
+    color: #ffbb5c;
+    outline: none;
+  }
 }
 
 .icon,
@@ -196,8 +198,8 @@ button.icon {
   border: none;
   height: 40px;
   width: 40px;
-}
 
+}
 
 .playlistButtons a svg,
 .playlistButtons button svg,
@@ -282,15 +284,9 @@ audio {
   right: 0;
 }
 
-
-
-
-
-
 .overlay:hover,
-.podcastImage:focus .overlay,
-.podcastImage:focus-within .overlay{
+.podcastImage:focus.overlay,
+.podcastImage:focus-within .overlay {
   opacity: 0.7;
   background-color: #001e31;
 }
-

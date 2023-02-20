@@ -28,7 +28,7 @@ header {
   object-fit: cover;
 }
 
-.flexImage img hover {
+.flexImage img :hover {
   background-color: rgba(14, 68, 79, 0.7);
 }
 
@@ -120,9 +120,14 @@ legend {
   top: 2px;
 }
 
-footer p {
-  text-align: center;
+a:hover {
+  opacity: 1;
+}
+
+footer {
+  display: flex;
   margin: 0;
   padding: 18px 0;
   background-color: $primary;
+  justify-content: space-around;
 }

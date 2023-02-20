@@ -5,14 +5,8 @@
     overflow-y: auto;
 }
 
-
-.backButton {
+.icon.backButton {
     margin-top: 3em;
-    color: $quaternary;
-    border: 0;
-    padding: 0;
-    height: 40px;
-    width: 40px;
 }
 
 h2.team {
@@ -44,7 +38,6 @@ li.bioPic {
 
 .bioPic {
     margin-top: 20px;
-
 }
 
 .bio {
@@ -102,6 +95,12 @@ li.bioPic {
         }
     }
 
+    .cardWrapper:hover,
+    .cardWrapper:focus,
+    .cardWrapper:focus-within {
+        background-color: red;
+    }
+
     .socialIcons {
         display: flex;
         margin-top: 1.2em;
@@ -126,6 +125,12 @@ li.bioPic {
                 text-align: center;
                 border-radius: 30px;
                 box-shadow: $shadow;
+            }
+
+            &:hover,
+            &:focus,
+            &:focus-within {
+                opacity: 0.5;
             }
 
             &:nth-of-type(1) {
@@ -160,3 +165,10 @@ li.bioPic {
         }
     }
 }
+
+
+
+// .aboutIcon a:focus,
+// .aboutIcon a:focus-within {
+//     opacity: 0.5;
+// }

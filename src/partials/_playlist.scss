@@ -38,13 +38,6 @@ img {
   width: 95%;
 }
 
-.playlistContainer {
-  ul {
-    width: 95%;
-    margin: 0 auto;
-  }
-}
-
 button.icon {
   display: flex;
 }
@@ -152,6 +145,11 @@ button.icon {
   margin: 0;
   height: 40px;
   top: 0px;
+  &:hover,
+  &:focus {
+      color: #ffbb5c;
+      outline: none;
+    }
 }
 
 .icon,
@@ -165,6 +163,7 @@ button.icon {
   height: 40px;
   width: 40px;
 }
+
 
 .playlistButtons a svg,
 .playlistButtons button svg,
@@ -229,6 +228,7 @@ button.icon {
     margin-top: 1em;
     padding: 10px;
     position: relative;
+    max-width: 100%;
 
     input {
       width: 100%;
@@ -253,7 +253,9 @@ audio {
 
 
 
-.overlay:hover {
+.overlay:hover,
+.podcastImage:focus .overlay,
+.podcastImage:focus-within .overlay{
   opacity: 0.7;
   background-color: #001e31;
 }

@@ -22,16 +22,17 @@ const Genre = ({
                   type="checkbox"
                   value={genreArray.id}
                   onChange={handleFormChange}
+                  aria-checked="false"
                 />
                 <label htmlFor={genreArray.id}>{genreArray.name}</label>
               </li>
             ))}
         </ul>
         <div className="buttons">
-          <button className="back" onClick={handleBackClick}>
+          <button type="button" className="back" onClick={handleBackClick}>
             Back
           </button>
-          <button className='create' disabled={ genreSelections[0] ? false : true} onClick={() => navigate("/new-playlist")}>
+          <button type="submit" className='create' disabled={ genreSelections[0] ? false : true} onClick={() => navigate("/new-playlist")}>
             Create
           </button>
         </div>

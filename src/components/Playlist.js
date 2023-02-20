@@ -7,8 +7,7 @@ import withReactContent from 'sweetalert2-react-content';
 
 const confirmDelete = withReactContent(Swal)
 
-
-const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) => {
+const Playlist = ({ playlistObject, formValues, setFormValues, updatePlaylist, firebaseKey }) => {
   const [playPodcast, setPlayPodcast] = useState("");
   const [editTitle, setEditTitle] = useState(false)
   const [newTitle ,setNewTitle] = useState('')
@@ -31,14 +30,13 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
 
   const dragItem = useRef();
   const dragOverItem = useRef();
-  
+
   const dragStart = (e, position) => {
     dragItem.current = position;
   }
 
   const dragEnter = (e, position) => {
     dragOverItem.current = position;
-
   }
 
   const drop = (e) => {
@@ -49,6 +47,8 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
     dragItem.current = null;
     dragOverItem.current = null;
     setList(copyListItems);
+    updatePlaylist(copyListItems);
+    console.log(copyListItems)
   }
 
   const handleTrash = e => {
@@ -65,8 +65,6 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
         remove(ref(database, firebaseKey));
       }
     })
-    
-    
   }
 
 
@@ -82,27 +80,29 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
             <h3>
               {formValues.title}
             </h3>
-            <button className ='icon edit' onClick={() => setEditTitle(true)}><NotePencil size={40} color="#ffa62b" weight="fill"style={{backgroundColor:'#001e31'}} /></button>
-          
+            <div className="savedListsIcons">
+              <button className ='icon edit' onClick={() => setEditTitle(true)}><NotePencil size={40} weight="fill"style={{backgroundColor:'#001e31'}} /></button>
+              {firebaseKey
+                ? <button className='icon trash' onClick={handleTrash}><Trash size={40} weight="fill" style={{ backgroundColor: '#001e31' }} /></button>
+                : null
+              }
+            </div>
           </div>
       }
       
-      {firebaseKey
-        ? <button className='icon trash' onClick={handleTrash}><Trash size={40} color="#ffa62b" weight="fill" style={{ backgroundColor: '#001e31' }} /></button>
-        : null
-      }
+      
 
       <ul className="playlist">
         {list.map(
           ({ audio, id, image, podcast_title_original, title_original }, index) => {
             return (
               <li className='podcastImage' key={id} 
-              draggable 
+              draggable={window.location.pathname !== '/playlists'}
               onDragStart={(e) => dragStart(e, index)}
               onDragEnter={(e) => dragEnter(e, index)}
               onDragEnd={drop}
               >
-                <button
+                <div
                   onClick={(e) => setPlayPodcast(e.currentTarget.id)}
                   className="mediaContainer"
                   id={id}
@@ -123,7 +123,7 @@ const Playlist = ({ playlistObject, formValues, setFormValues, firebaseKey }) =>
                     <audio src={audio} title={title_original}
                     controls></audio>
                   ) : undefined}
-                </button>
+                </div>
                 <div className="playlistInfo">
                   <h4>{title_original}</h4>
                   <h5>{podcast_title_original}</h5>

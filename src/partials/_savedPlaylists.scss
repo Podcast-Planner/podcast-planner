@@ -13,8 +13,8 @@
   // }
 
   .playlistContainer {
-    // height: 70vh;
-    // padding: 10px;
+    height: 70vh;
+    padding: 10px;
     // border-radius: 10px;
     // margin: 20px;
     background-color: $primary;
@@ -25,15 +25,12 @@
 
   }
 
-  // .playlist li {
-  //   width: 100%;
-  // }
 
-  // .playlist {
-  //   height: 75%;
-  //   overflow: auto;
-  //   border-radius: 10px;
-  // }
+  .playlist {
+    height: 75%;
+    overflow: auto;
+  }
+
 
   // .mediaContainer {
   //   width: 30vw;
@@ -42,6 +39,7 @@
 
   h3 {
     padding: 0 40px;
+    margin: 0;
   }
 
   h4,
@@ -50,37 +48,28 @@
   }
 
   .title {
-    // display: flex;
-    // justify-content: center;
-    // margin-top: 2em;
-    // padding: 10px;
-    // background-color: $secondary;
-    // border-radius: 10px;
-    // position: relative;
+    margin-top: 2em;
+    background-color: $secondary;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
-    background-color: $primary;
     align-items: center;
-    margin-top: 1em;
     padding: 10px;
     position: relative;
+    min-height: 100px;
   }
 
-
-  .edit {
+  .savedListsIcons{
     position: absolute;
-    right: 5px;
-    top: 0;
-    bottom: -3em;
-    margin: auto 0;
+    margin: 0 auto;
+    top:0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
-
-  .trash {
-    position: absolute;
-    right: 5px;
-    top: .5em;
-    margin: auto 0;
-  }
+  
 
   button {
     cursor: pointer;

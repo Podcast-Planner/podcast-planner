@@ -43,7 +43,6 @@ const Form = ({ formValues, setFormValues, headerRef }) => {
     };
     fetchGenre();
     setFormValues({ ...formValues, length: 5 });
-    setGenreSelections([]);
   }, []);
   if (loading) return <Loader />;
   if (error) return alert(`An error occurred: ${error.message}`);

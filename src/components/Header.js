@@ -10,20 +10,12 @@ const Header = ({ headerRef }) => {
         <Microphone size={32} className="iconNav" color='#ffa62b'/> Podcast Planner
       </h1>
       <nav>
-        <Link to={pathName === "/playlists" ? "/" : "/playlists"}>
-          <button className='icon'
-            aria-label={
-              pathName === "/playlists"
-                ? "Create New Playlist"
-                : "See My Playlists"
-            }
-          >
+        <Link className="icon" to={pathName === "/playlists" ? "/" : "/playlists"}>
             {pathName === "/playlists" ? (
-              <Plus size={40} className="iconNav" weight="fill" color='#ffa62b' style={{backgroundColor: '#001e31'}} />
+              <Plus size={40} className="iconNav" weight="fill" style={{backgroundColor: '#001e31'}} />
             ) : (
-                <Playlist size={40} className="iconNav" weight="fill" color='#ffa62b' style={{ backgroundColor: '#001e31' }} />
+                <Playlist size={40} className="iconNav" weight="fill" style={{ backgroundColor: '#001e31' }} />
             )}
-          </button>
         </Link>
       </nav>
     </header>

@@ -153,7 +153,8 @@
   gap: 10px;
 
   input[type="checkbox"] {
-    display: none;
+    opacity: 0;
+    position: absolute;
 
     &:checked+label {
       color: $quaternary;
@@ -164,6 +165,7 @@
 .genre {
   padding: 10px 20px;
   align-self: center;
+  position: relative;
 
   label {
     color: $tertiary;
@@ -214,7 +216,7 @@
 .back:focus,
 .create:focus,
 .next:focus,
-.genre:focus {
+.genre:focus-within {
   background-color: $quaternary;
   border: 1px $tertiary solid;
   color: $tertiary;

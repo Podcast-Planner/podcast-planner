@@ -92,20 +92,20 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
         <div className="playlistButtons">
           <div>
             <p>Back</p>
-            <Link to="/">
-              <ArrowLeft size={40} color="#ffa62b" weight="fill" style={{ backgroundColor: '#001e31' }} />
+            <Link className="icon" to="/">
+              <ArrowLeft size={40} weight="fill" style={{ backgroundColor: '#001e31' }} />
             </Link>
           </div>
           <div>
             <p>New Playlist</p>
             <button className='icon' onClick={handleRefresh}>
-              <ArrowsClockwise size={40} color="#ffa62b" weight="fill" style={{ backgroundColor: '#001e31' }} />
+              <ArrowsClockwise size={40} weight="fill" style={{ backgroundColor: '#001e31' }} />
             </button>
           </div>
           <div>
             <p>Save</p>
             <button className='icon' onClick={handleClick} disabled={ newPlaylist.length < 1 ? true : false }>
-              <HeartStraight size={40} color="#ffa62b" weight="fill" style={{ backgroundColor: '#001e31' }} />
+              <HeartStraight size={40} weight="fill" style={{ backgroundColor: '#001e31' }} />
             </button>
           </div>
         </div>

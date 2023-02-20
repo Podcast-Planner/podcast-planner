@@ -80,15 +80,17 @@ const Playlist = ({ playlistObject, formValues, setFormValues, updatePlaylist, f
             <h3>
               {formValues.title}
             </h3>
-            <button className ='icon edit' onClick={() => setEditTitle(true)}><NotePencil size={40} color="#ffa62b" weight="fill"style={{backgroundColor:'#001e31'}} /></button>
-          
+            <div className="savedListsIcons">
+              <button className ='icon edit' onClick={() => setEditTitle(true)}><NotePencil size={40} weight="fill"style={{backgroundColor:'#001e31'}} /></button>
+              {firebaseKey
+                ? <button className='icon trash' onClick={handleTrash}><Trash size={40} weight="fill" style={{ backgroundColor: '#001e31' }} /></button>
+                : null
+              }
+            </div>
           </div>
       }
       
-      {firebaseKey
-        ? <button className='icon trash' onClick={handleTrash}><Trash size={40} color="#ffa62b" weight="fill" style={{ backgroundColor: '#001e31' }} /></button>
-        : null
-      }
+      
 
       <ul className="playlist">
         {list.map(
@@ -100,7 +102,7 @@ const Playlist = ({ playlistObject, formValues, setFormValues, updatePlaylist, f
               onDragEnter={(e) => dragEnter(e, index)}
               onDragEnd={drop}
               >
-                <button
+                <div
                   onClick={(e) => setPlayPodcast(e.currentTarget.id)}
                   className="mediaContainer"
                   id={id}
@@ -121,7 +123,7 @@ const Playlist = ({ playlistObject, formValues, setFormValues, updatePlaylist, f
                     <audio src={audio} title={title_original}
                     controls></audio>
                   ) : undefined}
-                </button>
+                </div>
                 <div className="playlistInfo">
                   <h4>{title_original}</h4>
                   <h5>{podcast_title_original}</h5>

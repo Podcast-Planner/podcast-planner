@@ -1,26 +1,17 @@
 @use "variables" as *;
 
 @media (min-width:800px) {
-    .cardWrapper {
-        width: 85%;
-    }
-}
-
-@media (min-width:1000px) {
-    .devWrapper {
-        display: flex;
-        flex-direction: row;
-    }
-
-    .cardWrapper {
-        width: 90%;
-    }
-}
-
-@media (max-width:800px) {
 
     h3 {
         font-size: 1.1rem;
+    }
+
+    .form {
+        height: 100vh;
+    }
+
+    legend {
+        padding: 1em;
     }
 
     .playlist {
@@ -36,7 +27,7 @@
     .playlist li {
         // min-height: 545.656px;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
     }
 
@@ -46,36 +37,53 @@
     }
 
     .subHeading {
-        font-size: 1.6rem;
+        font-size: 2rem;
     }
 
     .back,
     .create,
     .next {
-        width: 144px;
-        height: 60px;
+        width: 160px;
+        height: 55px;
+        margin: 20px;
     }
 
     .mediaContainer {
         text-align: center;
+        width: 40vh;
+        height: 40vh;
     }
 
-    img {
-        height: 280px;
-        width: 280px;
+    .overlay {
+        height: 100%;
     }
-
-    .mediaContainer {
-        height: 300px;
-        width: 300px;
-    }
-
 
     .flexImage {
         display: flex;
         justify-content: center;
         align-items: center;
     }
+
+    .flexImage img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media (min-width:1000px) {
+    .about {
+        overflow-y: auto;
+    }
+
+    .devWrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cardWrapper {
+        width: 90%;
+    }
+
 
 
 }

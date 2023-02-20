@@ -4,7 +4,7 @@ const Length = ({ formValues, handleLengthInputChange, handleNextClick }) => {
   return (
     <SwipeLeft>
       <div className="box lengthContainer">
-        <h2 className="subHeading">Find your perfect podcast playlist.</h2>
+        <h2 className="subHeading">Find your perfect podcast playlist</h2>
         <legend>How long will your walk be?</legend>
         <label>{formValues.length} Minutes</label>
         <input

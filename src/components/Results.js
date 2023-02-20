@@ -93,7 +93,7 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
           <div>
             <p>Back</p>
             <Link to="/">
-              <ArrowLeft size={40} />
+              <ArrowLeft size={40} color="#ffa62b" weight="fill" style={{ backgroundColor: '#001e31' }} />
             </Link>
           </div>
           <div>

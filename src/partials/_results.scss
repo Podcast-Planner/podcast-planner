@@ -1,19 +1,8 @@
-// .playlistButtons{
-//     display: flex;
-//     justify-content: space-around;
-// }
-//styling the result selection
 @use "./variables" as *;
 
-ul {
-    list-style: none;
-    width: 95%;
-    padding: 0;
-    margin: 0 auto;
-}
-
 .results {
-
+    min-height: 100vh;
+    
     h3,
     h4,
     h5 {

@@ -46,36 +46,33 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
           safe_mode: 1,
         },
       })
-        .then((res) => {
+        .then(res => {
           setNewPlaylist(res.data.results);
-          localStorage.setItem('offset', offset)
+          localStorage.setItem('offset', offset);
           setOffset(res.data.next_offset);
-          console.log(res.data.next_offset)
           setLoading(false);
         })
-        .catch((err) => {
+        .catch(err => {
           setError(err);
           setLoading(false);
         });
     };
     getPlaylist();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [refresh]);
     
   const updatePlaylist = (newOrder) => {
     !newOrder ? setUserOrderPlaylist(newPlaylist) : setUserOrderPlaylist(newOrder);
   };
   
-    const handleClick = () => {
+  const handleClick = () => {
     const saveToPlaylists = (userOrderPlaylist < 1 ? newPlaylist : userOrderPlaylist )
     const database = getDatabase(firebase);
     const dbRef = ref(database);
     const firebaseObj = { playlist: saveToPlaylists, formValues: formValues }
     push(dbRef, firebaseObj);
     navigate('/playlists');
-  }
-
-
-  
+  };
 
   const handleRefresh = () => {
     refresh ? setRefresh(false) : setRefresh(true);
@@ -86,44 +83,41 @@ const Results = ({ formValues, setFormValues, headerRef }) => {
 
   
   return (
-    
     <PageFade>
       <div className="results">
         <div className="playlistButtons">
           <div>
             <p>Back</p>
             <Link className="icon" to="/">
-              <ArrowLeft size={40} weight="fill" style={{ backgroundColor: '#001e31' }} />
+              <ArrowLeft size={40} weight="fill" />
             </Link>
           </div>
           <div>
             <p>New Playlist</p>
             <button className='icon' onClick={handleRefresh}>
-              <ArrowsClockwise size={40} weight="fill" style={{ backgroundColor: '#001e31' }} />
+              <ArrowsClockwise size={40} weight="fill" />
             </button>
           </div>
           <div>
             <p>Save</p>
             <button className='icon' onClick={handleClick} disabled={ newPlaylist.length < 1 ? true : false }>
-              <HeartStraight size={40} weight="fill" style={{ backgroundColor: '#001e31' }} />
+              <HeartStraight size={40} weight="fill" />
             </button>
           </div>
         </div>
-        {newPlaylist.length === 0 ? (
-          <h2>
+        {newPlaylist.length === 0 
+        ? <h2>
             Sorry, there are no additional {formValues.title} podcasts.
           </h2>
-        ) : (
-          <div className='iconContainer'>
+        : <div className='iconContainer'>
             <Playlist
               playlistObject={newPlaylist}
               formValues={formValues}
               setFormValues={setFormValues}
               updatePlaylist={updatePlaylist}
             />
-            
           </div>
-        )}
+        }
         <ScrollToTop headerRef={headerRef} />
       </div>
     </PageFade>

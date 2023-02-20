@@ -33,28 +33,26 @@ const Form = ({ formValues, setFormValues, headerRef }) => {
             },
           }
         );
-        // console.log(response.data);
         setGenres(response.data);
       } catch (err) {
         setError(err);
       } finally {
         setLoading(false);
-      }
+      };
     };
     fetchGenre();
     setFormValues({ ...formValues, length: 5 });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   if (loading) return <Loader />;
   if (error) return alert(`An error occurred: ${error.message}`);
 
-  // console.log(error.message);
-
   //grabbing the value typed in by the user
-  const handleLengthInputChange = (e) => {
+  const handleLengthInputChange = e => {
     setFormValues({ ...formValues, length: parseInt(e.target.value) });
   };
 
-  const handleFormChange = (e) => {
+  const handleFormChange = e => {
     // Dupe of genreSelections array to update based on user selections, and pass in setGenreSelections
     let newArray = genreSelections;
     // Variable used to find selected ID in newArray and remove it if un-checked by user.
@@ -88,45 +86,39 @@ const Form = ({ formValues, setFormValues, headerRef }) => {
       // Change our array of user selections into a single comma-separated string to be read by the API
       genreId: genreSelections.toString(),
       // Go into our genre array and find the object that matches the first genreID in our user selection array. Once it is found, give us the name of the genre to be displayed in our title.
-      title: `${formValues.length} minutes of ${
-        genresArray.find((index) => index.id === parseInt(genreSelections[0]))
-          .name
-      }${genreSelections.length > 1 ? " & More" : ""}`,
+      title: `${formValues.length} minutes of 
+      ${genreSelections[0] ? genresArray.find(index => index.id === parseInt(genreSelections[0])).name : null}
+      ${genreSelections.length > 1 ? " & More" : ""}`,
     });
     localStorage.setItem('offset', 0);
   };
   //  Array.from
   const genresArray = genres.genres;
 
-  const handleBackClick = (e) => {
-    e.preventDefault();
+  const handleBackClick = e => {
     setNext(false);
     setFormValues({ ...formValues, length: 5 });
   };
 
-  const handleNextClick = (e) => {
-    e.preventDefault();
-    setNext(true);
-  };
+  const handleNextClick = e => setNext(true);
 
   return (
     <PageFade>
       <form className="form">
-        {next ? (
-          <Genre
+        {next 
+        ? <Genre
             genresArray={genresArray}
             handleFormChange={handleFormChange}
             handleBackClick={handleBackClick}
             navigate={navigate}
             genreSelections={genreSelections}
           />
-        ) : (
-          <Length
+        : <Length
             formValues={formValues}
             handleLengthInputChange={handleLengthInputChange}
             handleNextClick={handleNextClick}
           />
-        )}
+        }
       </form>
       <ScrollToTop headerRef={headerRef} />
     </PageFade>

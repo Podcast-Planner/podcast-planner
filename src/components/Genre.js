@@ -1,12 +1,6 @@
 import SwipeRight from "./SwipeRight";
 
-const Genre = ({
-  genresArray,
-  handleFormChange,
-  handleBackClick,
-  navigate,
-  genreSelections
-}) => {
+const Genre = ({genresArray, handleFormChange, handleBackClick, navigate, genreSelections}) => {
   return (
     <SwipeRight>
       <div className="box" id="input">
@@ -19,24 +13,22 @@ const Genre = ({
             Create
           </button>
         </div>
-        <legend htmlFor="podcastSelector">Select Your Genres:</legend>
+        <legend>Select Your Genres:</legend>
         <ul className="genreContainer">
-          {
-            genresArray.map((genreArray) => (
-              <li key={genreArray.id} className="genre">
-                <input
-                  id={genreArray.id}
-                  name={genreArray.name}
-                  type="checkbox"
-                  value={genreArray.id}
-                  onChange={handleFormChange}
-                  aria-checked="false"
-                />
-                <label htmlFor={genreArray.id}>{genreArray.name}</label>
-              </li>
-            ))}
-        </ul>
-        
+          {genresArray.map(genreArray => (
+            <li key={genreArray.id} className="genre">
+              <input
+                id={genreArray.id}
+                name={genreArray.name}
+                type="checkbox"
+                value={genreArray.id}
+                onChange={handleFormChange}
+                aria-checked="false"
+              />
+              <label htmlFor={genreArray.id}>{genreArray.name}</label>
+            </li>
+          ))}
+        </ul>     
       </div>
     </SwipeRight>
   );

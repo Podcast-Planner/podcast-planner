@@ -1,9 +1,12 @@
 
 .error {
-    height: 300vh;
+    padding-bottom: 50px;
+    min-height: 100vh;
+
     h2 {
         font-size: 3rem;
     }
+
     p,
     a {
         font-size: 2rem;

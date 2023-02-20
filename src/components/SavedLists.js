@@ -2,7 +2,7 @@ import Playlist from "./Playlist";
 import ScrollToTop from "./ScrollToTop";
 import PageFade from "./PageFade";
 
-const SavedLists = ({ savedPlaylists, newPlaylist, formValues, headerRef, setFormValues, }) => {
+const SavedLists = ({ savedPlaylists, headerRef, setFormValues }) => {
   return (
     <PageFade>
       <section className="savedLists">
@@ -11,8 +11,8 @@ const SavedLists = ({ savedPlaylists, newPlaylist, formValues, headerRef, setFor
           {savedPlaylists
             .slice(0)
             .reverse()
-            .filter((obj) => obj.data && obj.data.playlist)
-            .map((obj) => {
+            .filter(obj => obj.data && obj.data.playlist)
+            .map(obj => {
               return (
                 <ul key={obj.key} draggable="false">
                   <Playlist

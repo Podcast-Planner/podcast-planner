@@ -9,8 +9,8 @@ const confirmDelete = withReactContent(Swal)
 
 const Playlist = ({ playlistObject, formValues, setFormValues, updatePlaylist, firebaseKey }) => {
   const [playPodcast, setPlayPodcast] = useState("");
-  const [editTitle, setEditTitle] = useState(false)
-  const [newTitle ,setNewTitle] = useState('')
+  const [editTitle, setEditTitle] = useState(false);
+  const [newTitle ,setNewTitle] = useState('');
   const [list, setList] = useState([...playlistObject]);
  
   const handleSubmit = e => {
@@ -19,27 +19,26 @@ const Playlist = ({ playlistObject, formValues, setFormValues, updatePlaylist, f
     if(firebaseKey){
       const database = getDatabase(firebase);
       const childRef = ref(database, `${firebaseKey}/formValues`);
-      
       update(childRef, { ...formValues, title: newTitle });
       setEditTitle(false);
     } else { 
-      setFormValues({ ...formValues, title: newTitle })
+      setFormValues({ ...formValues, title: newTitle });
       setEditTitle(false);
-    }
-  }
+    };
+  };
 
   const dragItem = useRef();
   const dragOverItem = useRef();
 
   const dragStart = (e, position) => {
     dragItem.current = position;
-  }
+  };
 
   const dragEnter = (e, position) => {
     dragOverItem.current = position;
-  }
+  };
 
-  const drop = (e) => {
+  const drop = e => {
     const copyListItems = [...list];
     const dragItemContent = copyListItems[dragItem.current];
     copyListItems.splice(dragItem.current, 1);
@@ -49,7 +48,7 @@ const Playlist = ({ playlistObject, formValues, setFormValues, updatePlaylist, f
     setList(copyListItems);
     updatePlaylist(copyListItems);
     console.log(copyListItems)
-  }
+  };
 
   const handleTrash = e => {
     e.preventDefault()
@@ -63,9 +62,9 @@ const Playlist = ({ playlistObject, formValues, setFormValues, updatePlaylist, f
     }).then((result) => {
       if (result.isConfirmed) {
         remove(ref(database, firebaseKey));
-      }
-    })
-  }
+      };
+    });
+  };
 
 
   return (
@@ -90,8 +89,6 @@ const Playlist = ({ playlistObject, formValues, setFormValues, updatePlaylist, f
           </div>
       }
       
-      
-
       <ul className="playlist">
         {list.map(
           ({ audio, id, image, podcast_title_original, title_original }, index) => {
@@ -112,17 +109,14 @@ const Playlist = ({ playlistObject, formValues, setFormValues, updatePlaylist, f
                       src={`${image}`}
                       alt={`cover for ${podcast_title_original}`}
                     ></img>
-                  <div className='darkOverlay'></div>
                   </div>
-                  <button href="#" className="playIcon" title="Video Play">
-                    <Play size={40} weight="fill" color='#ffa62b' />
-                    </button>
-                   <div className="overlay">
-                   </div>
-                  {id === playPodcast ? (
-                    <audio src={audio} title={title_original}
+                  <div className="overlay"></div>
+                  {id === playPodcast 
+                  ? <audio src={audio} title={title_original}
                     controls></audio>
-                  ) : undefined}
+                  : <button href="#" className="playIcon" title="Video Play">
+                      <Play size={40} weight="fill" color='#ffa62b' />
+                    </button>}
                 </div>
                 <div className="playlistInfo">
                   <h4>{title_original}</h4>
@@ -133,7 +127,6 @@ const Playlist = ({ playlistObject, formValues, setFormValues, updatePlaylist, f
           }
         )}
       </ul>
-      
     </div>
   );
 };

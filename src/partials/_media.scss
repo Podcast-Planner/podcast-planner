@@ -21,10 +21,7 @@
     }
 
     .playlist li {
-        // min-height: 545.656px;
-        display: flex;
         flex-direction: row;
-        justify-content: center;
     }
 
     .box select {
@@ -46,8 +43,6 @@
 
     .mediaContainer {
         text-align: center;
-        // width: 40vh;
-        // height: 40vh;
         width: 100%;
         height: 100%;
     }
@@ -95,6 +90,4 @@
     .bio {
         min-height: 550px;
     }
-
-
 }

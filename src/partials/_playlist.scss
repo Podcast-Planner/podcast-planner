@@ -1,41 +1,10 @@
 @use "./variables" as *;
 
-//styling the playlist selections
-ul {
-  list-style: none;
-  width: 95%;
-  padding: 0;
-  margin: 0 auto;
-}
-
-//styling each podcast playlist item
-.playlist {
+//Styling the playlist section
+.iconContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
-
-  button {
-    padding: 0;
-  }
-}
-
-.playlist li {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 90%;
-}
-
-.mediaContainer {
-  height: 95%;
-  width: 95%;
-  cursor: pointer;
   position: relative;
-}
-
-img {
-  height: 95%;
-  width: 95%;
 }
 
 .playlistContainer {
@@ -43,127 +12,6 @@ img {
     width: 95%;
     margin: 0 auto;
   }
-}
-
-button.icon {
-  display: flex;
-}
-
-.playlistButtons a svg {
-  background-color: $tertiary;
-  border-radius: 10px;
-  border: 2px solid $tertiary;
-}
-
-//styling each podcast image
-.podcastImage {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  margin: 10px 0;
-  padding: 10px;
-  gap: 20px;
-  border-radius: 10px;
-  border: 1px solid $secondary;
-  background-color: $tertiary;
-  color: $primary;
-}
-
-
-
-//container for image
-.flexImage {
-  overflow: hidden;
-  position: relative;
-  transition: all 0.45s ease;
-}
-
-.flexImage {
-  position: relative;
-  width: 100%;
-  max-width: 450px;
-  margin: 0 auto;
-  display: flex;
-}
-
-.flexImage img {
-  border-radius: 10px;
-  height: 100%;
-  width: 100%;
-}
-
-//dark overlay on image container
-.flexImage::before,
-.flexImage::after {
-  background-color: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  transition: all 0.3s ease;
-}
-
-.overlay {
-  position: absolute;
-  border-radius: 10px;
-  // top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  // width: 100%;
-  background-color: $quinary;
-  opacity: 0.5;
-  transition: 0.3s ease;
-}
-
-//play icon on image
-.playIcon {
-  background: #fff;
-  border-radius: 50%;
-  border: 1px solid $primary;
-  // font-size: 2rem;
-  display: flex;
-  // justify-content: center;
-  // align-items: center;
-  padding: 10px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  cursor: pointer;
-  z-index: 2;
-}
-
-
-.playlistInfo {
-  flex-basis: 55%;
-  text-align: center;
-}
-
-.iconContainer {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-.icon {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  height: 40px;
-  top: 0px;
-}
-
-.icon,
-.icon a {
-  position: sticky;
-}
-
-.icon svg,
-.iconNav svg {
-  border: none;
-  height: 40px;
-  width: 40px;
 }
 
 .playlistButtons a svg,
@@ -193,50 +41,7 @@ button.icon {
   }
 }
 
-.results {
-
-  h3,
-  h4,
-  h5 {
-    margin: 10px;
-  }
-
-  h3 {
-    padding: 0 45px;
-  }
-
-  li {
-    border-radius: 10px;
-  }
-
-  button {
-    cursor: pointer;
-  }
-
-  .edit {
-    position: absolute;
-    margin: auto 0;
-    right: 5%;
-    top: 0;
-    bottom: 0;
-  }
-
-  .title {
-    display: flex;
-    justify-content: center;
-    background-color: $primary;
-    align-items: center;
-    margin-top: 1em;
-    padding: 10px;
-    position: relative;
-
-    input {
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
-
+//styling audio player
 audio {
   width: 100%;
   height: 100%;
@@ -248,12 +53,116 @@ audio {
   right: 0;
 }
 
+.playlistButtons a svg {
+  background-color: $tertiary;
+  border-radius: 10px;
+  border: 2px solid $tertiary;
+}
 
+//styling each podcast playlist item
+.playlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
+  button {
+    padding: 0;
+  }
+}
 
+.playlist li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+}
 
+.mediaContainer {
+  height: 95%;
+  width: 95%;
+  cursor: pointer;
+  position: relative;
+}
+
+.flexImage,
+.mediaContainer,
+.overlay {
+  max-width: 450px;
+}
+
+img {
+  height: 95%;
+  width: 95%;
+}
+
+button.icon {
+  display: flex;
+}
+
+//styling each podcast image
+.podcastImage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  padding: 10px;
+  gap: 20px;
+  border-radius: 10px;
+  border: 1px solid $secondary;
+  background-color: $tertiary;
+  color: $primary;
+}
+
+//styling image Container
+.flexImage {
+  overflow: hidden;
+  position: relative;
+  transition: all 0.45s ease;
+}
+
+.flexImage {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+}
+
+//styling the overlay
+.overlay {
+  position: absolute;
+  border-radius: 10px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-color: $quinary;
+  opacity: 0.5;
+  transition: 0.3s ease;
+}
 
 .overlay:hover {
   opacity: 0.7;
   background-color: #001e31;
+}
+
+//play icon on image
+.playIcon {
+  background: #fff;
+  border-radius: 50%;
+  border: 1px solid $primary;
+  display: flex;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 2;
+}
+
+.playlistInfo {
+  flex-basis: 55%;
+  text-align: center;
 }

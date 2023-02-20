@@ -7,6 +7,11 @@
     gap: 20px;
   }
 
+  // .savedLists {
+  //   margin: 0 auto;
+  //   width: 95%;
+  // }
+
   .playlistContainer {
     // height: 70vh;
     // padding: 10px;
@@ -14,11 +19,15 @@
     // margin: 20px;
     background-color: $primary;
     position: relative;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    width: 95%;
+
   }
 
-  .playlist li {
-    width: 100%;
-  }
+  // .playlist li {
+  //   width: 100%;
+  // }
 
   // .playlist {
   //   height: 75%;
@@ -41,12 +50,19 @@
   }
 
   .title {
+    // display: flex;
+    // justify-content: center;
+    // margin-top: 2em;
+    // padding: 10px;
+    // background-color: $secondary;
+    // border-radius: 10px;
+    // position: relative;
     display: flex;
     justify-content: center;
-    margin-top: 2em;
+    background-color: $primary;
+    align-items: center;
+    margin-top: 1em;
     padding: 10px;
-    background-color: $secondary;
-    border-radius: 10px;
     position: relative;
   }
 
@@ -55,14 +71,15 @@
     position: absolute;
     right: 5px;
     top: 0;
-    bottom: 0;
+    bottom: -3em;
     margin: auto 0;
   }
 
   .trash {
     position: absolute;
-    right: 44%;
-    top: -10px;
+    right: 5px;
+    top: .5em;
+    margin: auto 0;
   }
 
   button {

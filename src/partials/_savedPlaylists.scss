@@ -7,6 +7,11 @@
     gap: 20px;
   }
 
+  // .savedLists {
+  //   margin: 0 auto;
+  //   width: 95%;
+  // }
+
   .playlistContainer {
     height: 70vh;
     padding: 10px;
@@ -14,16 +19,18 @@
     // margin: 20px;
     background-color: $primary;
     position: relative;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    width: 95%;
+
   }
 
-  .playlist li {
-    width: 100%;
-  }
 
   .playlist {
     height: 75%;
     overflow: auto;
   }
+
 
   // .mediaContainer {
   //   width: 30vw;
@@ -41,12 +48,13 @@
   }
 
   .title {
+    margin-top: 2em;
+    background-color: $secondary;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
-    background-color: $secondary;
-    border-radius: 10px;
     position: relative;
     min-height: 100px;
   }

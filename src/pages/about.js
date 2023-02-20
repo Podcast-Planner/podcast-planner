@@ -99,10 +99,8 @@ const About = () => {
                     </ul>
                 </div>
             </div>
-                            
-            {/* </div> */}
-            </div>                  
-        </section>
+        </div>                  
+    </section>
      
 
             

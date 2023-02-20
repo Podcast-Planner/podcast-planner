@@ -1,11 +1,62 @@
 @use "./variables" as *;
 
-//styling the playlist selections
-ul {
-  list-style: none;
-  width: 95%;
-  padding: 0;
-  margin: 0 auto;
+//Styling the playlist section
+.iconContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.playlistContainer {
+  ul {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
+.playlistButtons a svg,
+.playlistButtons button svg,
+.icon svg,
+.backButton svg {
+  background-color: none;
+  border-radius: 10px;
+  border: 2px solid $tertiary;
+
+}
+
+.playlistButtons {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+  padding: 0 5%;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  p {
+    margin: 10px 0;
+  }
+}
+
+//styling audio player
+audio {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.playlistButtons a svg {
+  background-color: $tertiary;
+  border-radius: 10px;
+  border: 2px solid $tertiary;
 }
 
 //styling each podcast playlist item
@@ -33,6 +84,12 @@ ul {
   position: relative;
 }
 
+.flexImage,
+.mediaContainer,
+.overlay {
+  max-width: 450px;
+}
+
 img {
   height: 95%;
   width: 95%;
@@ -40,12 +97,6 @@ img {
 
 button.icon {
   display: flex;
-}
-
-.playlistButtons a svg {
-  background-color: $tertiary;
-  border-radius: 10px;
-  border: 2px solid $tertiary;
 }
 
 //styling each podcast image
@@ -63,9 +114,7 @@ button.icon {
   color: $primary;
 }
 
-
-
-//container for image
+//styling image Container
 .flexImage {
   overflow: hidden;
   position: relative;
@@ -75,37 +124,26 @@ button.icon {
 .flexImage {
   position: relative;
   width: 100%;
-  max-width: 450px;
   margin: 0 auto;
   display: flex;
 }
 
-.flexImage img {
-  border-radius: 10px;
-  height: 100%;
-  width: 100%;
-}
-
-//dark overlay on image container
-.flexImage::before,
-.flexImage::after {
-  background-color: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  transition: all 0.3s ease;
-}
-
+//styling the overlay
 .overlay {
   position: absolute;
   border-radius: 10px;
-  // top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   height: 100%;
-  // width: 100%;
   background-color: $quinary;
   opacity: 0.5;
   transition: 0.3s ease;
+}
+
+.overlay:hover {
+  opacity: 0.7;
+  background-color: #001e31;
 }
 
 //play icon on image
@@ -113,10 +151,7 @@ button.icon {
   background: #fff;
   border-radius: 50%;
   border: 1px solid $primary;
-  // font-size: 2rem;
   display: flex;
-  // justify-content: center;
-  // align-items: center;
   padding: 10px;
   position: absolute;
   top: 50%;
@@ -126,7 +161,6 @@ button.icon {
   cursor: pointer;
   z-index: 2;
 }
-
 
 .playlistInfo {
   flex-basis: 55%;
@@ -259,3 +293,4 @@ audio {
   opacity: 0.7;
   background-color: #001e31;
 }
+

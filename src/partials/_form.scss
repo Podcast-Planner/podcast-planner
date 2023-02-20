@@ -1,5 +1,20 @@
 @use "./variables" as *;
 
+//Styling Form
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #001e31;
+  height: 100vh;
+  overflow-y: auto;
+
+  div {
+    width: 100%;
+  }
+}
+
+//h2 heading
 .subHeading {
   font-size: 1.6rem;
   color: $tertiary;
@@ -12,39 +27,27 @@
   display: block;
 }
 
-.form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #001e31;
-  height: 100%;
-
-
-  div {
-    width: 100%;
-  }
-}
-
+//styling the input section
 .box select,
 .box input {
   padding: 10px;
   height: 75px;
-  border: none;
-  font-size: 1rem;
-  outline: none;
+  //   border: none;
+  //   font-size: 1rem;
+  //   outline: none;
   cursor: pointer;
-  overflow: hidden;
-  line-height: 3;
+  // overflow: hidden;
+  //   line-height: 3;
   margin-bottom: 1em;
 }
 
-select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  -webkit-border-radius: 0;
-  text-align: center;
-}
+// select {
+//   -moz-appearance: none;
+//   -webkit-appearance: none;
+//   appearance: none;
+//   -webkit-border-radius: 0;
+//   text-align: center;
+// }
 
 .buttons {
   display: flex;
@@ -70,6 +73,8 @@ select {
   height: 100%;
   width: 100%;
 
+
+  //styling the slider
   input[type=range] {
     width: 80%;
     padding: 0;
@@ -138,6 +143,7 @@ select {
   }
 }
 
+//styling the genre form
 .genreContainer {
   width: 95%;
   display: flex;
@@ -171,6 +177,7 @@ select {
   }
 }
 
+//styling for buttons
 .back,
 .create,
 .next {
@@ -203,7 +210,7 @@ select {
 }
 
 .back:hover,
-.create:hover:enabled,
+.create:hover,
 .next:hover,
 .genre:hover,
 .back:focus,

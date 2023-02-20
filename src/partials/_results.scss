@@ -2,3 +2,76 @@
 //     display: flex;
 //     justify-content: space-around;
 // }
+//styling the result selection
+@use "./variables" as *;
+
+ul {
+    list-style: none;
+    width: 95%;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.results {
+
+    h3,
+    h4,
+    h5 {
+        margin: 10px;
+    }
+
+    h3 {
+        padding: 0 45px;
+    }
+
+    li {
+        border-radius: 10px;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    .edit {
+        position: absolute;
+        margin: auto 0;
+        right: 5%;
+        top: 0;
+        bottom: 0;
+    }
+
+    .title {
+        display: flex;
+        justify-content: center;
+        background-color: $primary;
+        align-items: center;
+        margin-top: 1em;
+        padding: 10px;
+        position: relative;
+
+        input {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+//styling the icons
+.icon {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    height: 40px;
+    top: 0px;
+}
+
+.icon,
+.icon a {
+    position: sticky;
+}
+
+.icon svg,
+.iconNav svg {
+    height: 40px;
+    width: 40px;
+}

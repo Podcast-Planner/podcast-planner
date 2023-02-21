@@ -6,7 +6,7 @@ import bioThree from '../assets/bioThree.jpeg';
 import bioFour from '../assets/bioFour.jpeg';
 import { useNavigate } from 'react-router-dom';
 
-const About = () => {
+const about = () => {
     const navigate = useNavigate();
     return (
         <section className = 'about'>
@@ -95,4 +95,4 @@ const About = () => {
     );
 };
 
-export default About;
+export default about;

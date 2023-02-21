@@ -47,7 +47,6 @@ const Playlist = ({ playlistObject, formValues, setFormValues, updatePlaylist, f
     dragOverItem.current = null;
     setList(copyListItems);
     updatePlaylist(copyListItems);
-    console.log(copyListItems)
   };
 
   const handleTrash = e => {

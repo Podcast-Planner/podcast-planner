@@ -88,7 +88,7 @@ header {
   align-items: center;
   background-color: $primary;
 
-  div{
+  div {
     display: flex;
     padding: 10px;
   }
@@ -124,6 +124,14 @@ a:focus {
   color: #ffbb5c;
 }
 
+button,
+label,
+svg {
+  &:active {
+    color: $quinary !important;
+  }
+}
+
 footer {
   display: flex;
   margin: 0;
@@ -132,7 +140,7 @@ footer {
   flex-direction: column;
   align-items: center;
 
-  p{
+  p {
     margin: 0 0 10px 0;
   }
 }

@@ -1,6 +1,26 @@
 import SwipeRight from "./SwipeRight";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
-const Genre = ({genresArray, handleFormChange, handleBackClick, navigate, genreSelections}) => {
+const Genre = ({
+  genresArray,
+  handleFormChange,
+  handleBackClick,
+  navigate,
+  genreSelections,
+}) => {
+  const noGenre = withReactContent(Swal);
+
+  const handleNoGenre = (e) => {
+    e.preventDefault();
+    noGenre.fire({
+      title: <h3>Please Select a Genre</h3>,
+      icon: "warning",
+      confirmButtonColor: "#0e444f",
+      confirmButtonText: "Okay!",
+    });
+  };
+
   return (
     <SwipeRight>
       <div className="box" id="input">
@@ -9,13 +29,21 @@ const Genre = ({genresArray, handleFormChange, handleBackClick, navigate, genreS
           <button type="button" className="back" onClick={handleBackClick}>
             Back
           </button>
-          <button type="submit" className='create' disabled={genreSelections[0] ? false : true} onClick={() => navigate("/new-playlist")}>
+          <button
+            type="submit"
+            className="create"
+            onClick={
+              !genreSelections.length
+                ? (e) => handleNoGenre(e)
+                : () => navigate("/new-playlist")
+            }
+          >
             Create
           </button>
         </div>
         <legend>Select Your Genres:</legend>
         <ul className="genreContainer">
-          {genresArray.map(genreArray => (
+          {genresArray.map((genreArray) => (
             <li key={genreArray.id} className="genre">
               <input
                 id={genreArray.id}
@@ -28,7 +56,7 @@ const Genre = ({genresArray, handleFormChange, handleBackClick, navigate, genreS
               <label htmlFor={genreArray.id}>{genreArray.name}</label>
             </li>
           ))}
-        </ul>     
+        </ul>
       </div>
     </SwipeRight>
   );

@@ -61,9 +61,8 @@
   height: 100%;
   width: 100%;
 
-
   //styling the slider
-  input[type=range] {
+  input[type="range"] {
     width: 80%;
     padding: 0;
     appearance: none;
@@ -107,13 +106,12 @@
       transition: all 0.4s ease-in-out;
     }
 
-    input[type=range]:focus {
+    input[type="range"]:focus {
       outline: none;
     }
 
     &:hover,
     &:focus {
-
       &::-webkit-slider-thumb,
       &::-moz-range-thumb {
         background-color: $quaternary;
@@ -146,7 +144,7 @@
     opacity: 0;
     position: absolute;
 
-    &:checked+label {
+    &:checked + label {
       color: $quaternary;
     }
   }

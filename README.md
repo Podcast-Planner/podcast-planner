@@ -49,7 +49,7 @@ Thank you for your interest in Podcast Planner! We hope you find it useful and l
     * Fast forward and rewind slider
     * Volume and Mute controls
 
-<img src="./gitHubReadme/walkTime.png" alt="Enter Walking Time" style="margin: 0px 10px;">
+<img src="./gitHubReadme/WalkTime.png" alt="Enter Walking Time" style="margin: 0px 10px;">
 <img src="./gitHubReadme/genres.png" alt="Select Genres" style="margin: 0px 10px;">
 <img src="./gitHubReadme/results.png" alt="Playlist Results" style="margin: 0px 10px;">
 <img src="./gitHubReadme/savedPlaylists.png" alt="Saved Playlists" style="margin: 0px 10px;">    

@@ -1,6 +1,6 @@
 # Podcast Planner: Create your perfect podcast playlist for every walk    
 
-[Podcast Planner Live Link](https://podcastplannerdev.netlify.app/)
+[Podcast Planner Live Link](https://podcast-planner-app.netlify.app/)
 
 ## About
 
@@ -8,7 +8,7 @@ Welcome to Podcast Planner, a React application built at Juno College of Technol
 
 To get started, users can enter how long they would like to walk and choose one or more genres of the podcast they are interested in. The app will then generate a list of podcasts that will fill the length of the user's walk. Users can then name and save this list into a personal playlist, which is fully editable. Users can remove playlists they are not interested in, re-order the playlist, and select multiple genres to be included in the playlist.
 
-Podcast Planner is built using React by these members ofCohort #46, from Juno's Immersive Bootcamp. 
+Podcast Planner was built by these members of Cohort #46, from Juno's Immersive Bootcamp. 
 
 * [Haley Tibbitts](https://github.com/haleytibbitts)
 * [Renata Reinartz](https://github.com/renata1026)
@@ -25,11 +25,11 @@ Thank you for your interest in Podcast Planner! We hope you find it useful and l
 
 * Mobile first design
 * React library
-* Additiona libraries used in this project:
+* Additional libraries used in this project:
     * Sweet Alerts 2
     * Axios
     * Framer Motion
-* Sass css pre-compiler
+* SASS was used in CSS styling
 * Firebase is used to store saved podcast playlists
 * Content is generated using the Listen Notes API (https://www.listennotes.com/api/)
 
@@ -49,9 +49,19 @@ Thank you for your interest in Podcast Planner! We hope you find it useful and l
     * Fast forward and rewind slider
     * Volume and Mute controls
 
+
+## Screenshots
+
+Enter the length of your walk to fin podcasts wth the same duration
 <img src="./gitHubReadme/WalkTime.png" alt="Enter Walking Time" style="margin: 0px 10px;">
+
+Select the genre you are in the mood to listen to
 <img src="./gitHubReadme/genres.png" alt="Select Genres" style="margin: 0px 10px;">
+
+Scroll through the podcasts playlist generated from your search and begin playing your podcasts
 <img src="./gitHubReadme/results.png" alt="Playlist Results" style="margin: 0px 10px;">
+
+Save the podcast episodes to listen to later
 <img src="./gitHubReadme/savedPlaylists.png" alt="Saved Playlists" style="margin: 0px 10px;">    
 
 

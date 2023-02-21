@@ -183,3 +183,7 @@ button.icon {
   opacity: 0.7;
   background-color: $secondary;
 }
+
+.swal2-container.swal2-center>.swal2-popup {
+  background-color: $tertiary;
+}

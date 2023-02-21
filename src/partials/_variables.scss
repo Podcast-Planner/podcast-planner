@@ -1,0 +1,26 @@
+// Font Import
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap");
+
+// Font Families
+@mixin bold {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+@mixin light {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+}
+
+// Colour Palette
+$primary: #0e444f;
+$secondary: #001e31;
+$tertiary: #ede7e3;
+$quaternary: #ffa62b;
+$quinary: #489fb5;
+
+//Gradients
+$orange-gradient: linear-gradient(to bottom right, #c90a6d, $quaternary);
+$blue1-gradient: linear-gradient(to bottom right, $secondary, #489fb5);
+$blue2-gradient: linear-gradient(to bottom right, $primary, $secondary);
+$shadow: 0 13px 26px rgba(#000, 0.2), 0 3px 6px rgba(#000, 0.2);

@@ -1,0 +1,231 @@
+@use "./variables" as *;
+
+//Styling Form
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #001e31;
+  height: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+
+  div {
+    width: 100%;
+  }
+}
+
+//h2 heading
+.subHeading {
+  font-size: 1.6rem;
+  color: $tertiary;
+  margin-bottom: 1.5em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.newLine {
+  display: block;
+}
+
+//styling the input section
+.box select,
+.box input {
+  padding: 10px;
+  height: 75px;
+  cursor: pointer;
+  margin-bottom: 1em;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 1em;
+  width: 100%;
+  gap: 2em;
+}
+
+.buttons .back,
+.buttons .create {
+  margin-top: 1em;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+
+
+  //styling the slider
+  input[type=range] {
+    width: 80%;
+    padding: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    cursor: pointer;
+
+    &::-webkit-slider-runnable-track {
+      -webkit-appearance: none;
+      width: 300px;
+      height: 5px;
+      background: $quinary;
+      border: none;
+      border-radius: 3px;
+      box-shadow: 0 4px 10px 0 rgba($color: black, $alpha: 0.7);
+      border-radius: 2px;
+    }
+
+    &::-moz-range-track {
+      background-color: $quinary;
+      box-shadow: 0 4px 10px 0 rgba($color: black, $alpha: 0.7);
+      border-radius: 2px;
+    }
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 25px;
+      width: 25px;
+      border: none;
+      background: $quaternary;
+      margin-top: -8px;
+      border: 2px solid $primary;
+      transition: all 0.4s ease-in-out;
+      border-radius: 40%;
+    }
+
+    &::-moz-range-thumb {
+      appearance: none;
+      -webkit-appearance: none;
+      border: 3px solid $primary;
+      transition: all 0.4s ease-in-out;
+    }
+
+    input[type=range]:focus {
+      outline: none;
+    }
+
+    &:hover,
+    &:focus {
+
+      &::-webkit-slider-thumb,
+      &::-moz-range-thumb {
+        background-color: $quaternary;
+      }
+    }
+  }
+}
+
+.lengthContainer {
+  height: calc(100vh - 118px);
+
+  label {
+    font-size: 1.8rem;
+    @include light;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+}
+
+//styling the genre form
+.genreContainer {
+  width: 95%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px;
+  gap: 10px;
+
+  input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+
+    &:checked+label {
+      color: $quaternary;
+    }
+  }
+}
+
+.genre {
+  padding: 10px 20px;
+  align-self: center;
+  position: relative;
+
+  label {
+    color: $tertiary;
+    font-size: 0.8rem;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+  }
+}
+
+//styling for buttons
+.back,
+.create,
+.next {
+  color: #fff;
+  margin-bottom: 20px;
+  height: 60px;
+  width: 144px;
+}
+
+.back,
+.create,
+.next,
+.genre {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid transparent;
+  background-size: 110%;
+  background-position: center;
+  border-radius: 50px;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.back:hover,
+.create:hover,
+.next:hover,
+.genre:hover,
+.back:focus,
+.create:focus,
+.next:focus,
+.genre:focus-within {
+  background-color: $quaternary;
+  border: 1px $tertiary solid;
+  color: $tertiary;
+  box-shadow: 0 4px 10px 0 rgba($color: $quinary, $alpha: 0.7);
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.back,
+.create,
+.next {
+  background-image: linear-gradient(90deg, #167a7a 0%, $secondary 100%);
+  box-shadow: 0 4px 10px 0 rgba($color: black, $alpha: 0.7);
+}
+
+.genre {
+  background-image: linear-gradient(90deg, $primary 0%, $secondary 100%);
+  box-shadow: 0 4px 10px 0 rgba($color: black, $alpha: 0.7);
+}
+
+.create:disabled {
+  cursor: not-allowed;
+}

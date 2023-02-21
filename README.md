@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Podcast Planner: Create your perfect podcast playlist for every walk    
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Podcast Planner Live Link](https://podcast-planner-app.netlify.app/)
 
-## Available Scripts
+## About
 
-In the project directory, you can run:
+Welcome to Podcast Planner, a React application built at Juno College of Technology (formerly HackerYou), designed to help users optimize their walking time with their favorite podcasts. With Podcast Planner, users can easily fill their walking time with as many podcasts as possible, based on their preferred genres and walking time.
 
-### `npm start`
+To get started, users can enter how long they would like to walk and choose one or more genres of the podcast they are interested in. The app will then generate a list of podcasts that will fill the length of the user's walk. Users can then name and save this list into a personal playlist, which is fully editable. Users can remove playlists they are not interested in, re-order the playlist, and select multiple genres to be included in the playlist.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Podcast Planner was built by these members of Cohort #46, from Juno's Immersive Bootcamp. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* [Haley Tibbitts](https://github.com/haleytibbitts)
+* [Renata Reinartz](https://github.com/renata1026)
+* [Richard Tillo](https://github.com/richardJET)
+* [Scott Cheung](https://github.com/luckyNoodles)
 
-### `npm test`
+Thank you for your interest in Podcast Planner! We hope you find it useful and look forward to hearing from you.    
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Advanced Web Development tools used in this project
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**The Podcast Planner app is built with lots of love and also:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Mobile first design
+* React library
+* Additional libraries used in this project:
+    * Sweet Alerts 2
+    * Axios
+    * Framer Motion
+* SASS was used in CSS styling
+* Firebase is used to store saved podcast playlists
+* Content is generated using the Listen Notes API (https://www.listennotes.com/api/)
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Features
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* Customizable Walk Time: Users can enter their desired walking time.
+* Genre Selection: Users can choose one or more podcast genres that they are interested in.
+* Automatic Playlist Generation: The app generates a list of podcasts that will fill the length of the  user's walk based on their selected genres and walking time.
+* Personalized Playlists: Users can name and save their playlists as personal playlists.
+* Editable Playlists: Personal playlists are editable, so users can remove playlists they are not interested in.
+* Drag and Drop To Reorder Playlists: Users can reorder their personal playlists.
+* Multi-genre Selection: Users can include multiple podcast genres in their personal playlists.
+* Podcast Player: The app includes a podcast player with the following features:
+    * Play and Pause controls
+    * Fast forward and rewind slider
+    * Volume and Mute controls
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Screenshots
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+<table>
+  <tr>
+    <td><img src="./gitHubReadme/WalkTime.png" alt="Enter Walking Time"></td>
+    <td><img src="./gitHubReadme/genres.png" alt="Select Genres"></td>
+    <td><img src="./gitHubReadme/results.png" alt="Playlist Results"></td>
+    <td><img src="./gitHubReadme/savedPlaylists.png" alt="Saved Playlists"></td>
+  </tr>
+</table>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+ 
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

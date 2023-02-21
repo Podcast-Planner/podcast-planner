@@ -1,0 +1,138 @@
+@use "./variables" as *;
+
+//Main Styles
+html {
+  font-size: 125%;
+}
+
+header {
+  padding: 0 1em;
+}
+
+.body {
+  background-color: $secondary;
+  color: $tertiary;
+}
+
+.wrapper {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.flexImage img {
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.flexImage img :hover {
+  background-color: rgba(14, 68, 79, 0.7);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $quaternary;
+}
+
+h1,
+h2,
+h4 {
+  @include bold;
+}
+
+h3,
+h5,
+p {
+  @include light;
+}
+
+h2,
+h3 {
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  padding-left: 5px;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+h5,
+p {
+  font-size: 0.9rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $primary;
+
+  div{
+    display: flex;
+    padding: 10px;
+  }
+}
+
+.scrollButton {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  cursor: pointer;
+}
+
+button {
+  background-color: $tertiary;
+  border: 2px solid $secondary;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+legend {
+  padding: 0;
+}
+
+.icon {
+  color: $quaternary;
+  position: relative;
+  top: 2px;
+}
+
+a:hover,
+a:focus {
+  opacity: 1;
+  color: #ffbb5c;
+}
+
+footer {
+  display: flex;
+  margin: 0;
+  padding: 25px 0;
+  background-color: $primary;
+  flex-direction: column;
+  align-items: center;
+
+  p{
+    margin: 0 0 10px 0;
+  }
+}

@@ -35,8 +35,8 @@ const About = () => {
                     </div>
                     <div className='cardWrapper'>
                         <ul className='profile'>
-                            <li className='bioPic'><img src={bioFour} alt="Scott Cheong's Bio pic" /></li>
-                            <h3 className="name">Scott Cheong</h3>
+                            <li className='bioPic'><img src={bioFour} alt="Scott Cheung's Bio pic" /></li>
+                            <h3 className="name">Scott Cheung</h3>
                                     <li className='bio'>As a Web Developer, I strive to craft digital experiences that are not only technically sound, but also intuitive for users. I believe that a human-centered approach is key to creating truly impactful and delightful products. I am passionate about designing with the needs of the user in mind and am eager to be a part of a team that shares this philosophy and continuously pushes the boundaries of web development.</li>
                             <div className="socialIcons">
                                 <div className="aboutIcon">

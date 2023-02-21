@@ -52,17 +52,18 @@ Thank you for your interest in Podcast Planner! We hope you find it useful and l
 
 ## Screenshots
 
-Enter the length of your walk to fin podcasts wth the same duration
-<img src="./gitHubReadme/WalkTime.png" alt="Enter Walking Time" style="margin: 0px 10px;">
 
-Select the genre you are in the mood to listen to
-<img src="./gitHubReadme/genres.png" alt="Select Genres" style="margin: 0px 10px;">
 
-Scroll through the podcasts playlist generated from your search and begin playing your podcasts
-<img src="./gitHubReadme/results.png" alt="Playlist Results" style="margin: 0px 10px;">
+<table>
+  <tr>
+    <td><img src="./gitHubReadme/walkTime.png" alt="Enter Walking Time"></td>
+    <td><img src="./gitHubReadme/genres.png" alt="Select Genres"></td>
+    <td><img src="./gitHubReadme/results.png" alt="Playlist Results"></td>
+    <td><img src="./gitHubReadme/savedPlaylists.png" alt="Saved Playlists"></td>
+  </tr>
+</table>
 
-Save the podcast episodes to listen to later
-<img src="./gitHubReadme/savedPlaylists.png" alt="Saved Playlists" style="margin: 0px 10px;">    
+ 
 
 
 

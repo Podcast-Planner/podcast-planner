@@ -99,6 +99,7 @@ const Playlist = ({
             placeholder={formValues.title}
             onChange={(e) => setNewTitle(e.target.value)}
           ></input>
+          <button className='confirmEdit'>Save</button>
         </form>
       ) : (
         <div className="title">

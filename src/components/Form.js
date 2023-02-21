@@ -86,9 +86,7 @@ const Form = ({ formValues, setFormValues, headerRef }) => {
       // Change our array of user selections into a single comma-separated string to be read by the API
       genreId: genreSelections.toString(),
       // Go into our genre array and find the object that matches the first genreID in our user selection array. Once it is found, give us the name of the genre to be displayed in our title.
-      title: `${formValues.length} minutes of 
-      ${genreSelections[0] ? genresArray.find(index => index.id === parseInt(genreSelections[0])).name : null}
-      ${genreSelections.length > 1 ? " & More" : ""}`,
+      title: `${formValues.length} minutes of ${genreSelections[0] ? genresArray.find(index => index.id === parseInt(genreSelections[0])).name : null} ${genreSelections.length > 1 ? " & More" : ""}`,
     });
     localStorage.setItem('offset', 0);
   };

@@ -43,6 +43,7 @@
     position: relative;
     min-height: 100px;
     margin-bottom: 10px;
+    padding: 0 10px;
   }
 
   .savedListsIcons{
@@ -59,5 +60,6 @@
   input {
     width: 100%;
     height: 100%;
+    margin-right: 10px;
   }
 }

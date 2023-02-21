@@ -52,12 +52,15 @@ const Playlist = ({ playlistObject, formValues, setFormValues, updatePlaylist, f
   const handleTrash = e => {
     e.preventDefault()
     const database = getDatabase(firebase);
+   
     confirmDelete.fire({
       title: <h3>Are you sure you want to delete?</h3>,
       showCancelButton: true,
       confirmButtonColor: '#0e444f',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Yes, delete it!',
+      background: '#ede7e3'
+    
     }).then((result) => {
       if (result.isConfirmed) {
         remove(ref(database, firebaseKey));

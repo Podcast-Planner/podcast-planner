@@ -6,7 +6,7 @@ import { Routes, Route } from "react-router-dom";
 
 // Components
 import SavedLists from "./components/SavedLists";
-import about from "./pages/about";
+import About from "./pages/About";
 import Form from "./components/Form";
 import Results from "./components/Results";
 import Header from "./components/Header";
@@ -55,7 +55,7 @@ function App() {
       <Header headerRef={headerRef} />
 
       <Routes>
-        <Route path="/about" element={<about />} />
+        <Route path="/about" element={<About />} />
         <Route
           path="/"
           element={

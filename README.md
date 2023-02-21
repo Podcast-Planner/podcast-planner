@@ -56,7 +56,7 @@ Thank you for your interest in Podcast Planner! We hope you find it useful and l
 
 <table>
   <tr>
-    <td><img src="./gitHubReadme/walkTime.png" alt="Enter Walking Time"></td>
+    <td><img src="./gitHubReadme/WalkTime.png" alt="Enter Walking Time"></td>
     <td><img src="./gitHubReadme/genres.png" alt="Select Genres"></td>
     <td><img src="./gitHubReadme/results.png" alt="Playlist Results"></td>
     <td><img src="./gitHubReadme/savedPlaylists.png" alt="Saved Playlists"></td>

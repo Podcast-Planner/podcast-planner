@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-function ErrorPage () {
+const ErrorPage = () => {
    return (
        <div className="error" >
         <div className="wrapper">
@@ -23,11 +23,10 @@ function ErrorPage () {
                 lose some, and sometimes you end up on a 404 error page.
             </p>
             <Link to="/">Back...</Link>
-
         </div>
     </div>
-   )
-}
+   );
+};
 
 
 export default ErrorPage;

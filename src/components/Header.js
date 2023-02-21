@@ -6,16 +6,16 @@ const Header = ({ headerRef }) => {
 
   return (
     <header ref={headerRef}>
-      <h1>
-        <Microphone size={32} className="iconNav" color='#ffa62b'/> Podcast Planner
-      </h1>
+      <div>
+        <Microphone size={32} className="iconNav" color='#ffa62b' />
+        <h1>Podcast Planner</h1>
+      </div>
       <nav>
         <Link className="icon" to={pathName === "/playlists" ? "/" : "/playlists"}>
-            {pathName === "/playlists" ? (
-              <Plus size={40} className="iconNav" weight="fill" style={{backgroundColor: '#001e31'}} />
-            ) : (
-                <Playlist size={40} className="iconNav" weight="fill" style={{ backgroundColor: '#001e31' }} />
-            )}
+            {pathName === "/playlists" 
+            ? <Plus size={40} className="iconNav" weight="fill" />
+            : <Playlist size={40} className="iconNav" weight="fill" />
+            }
         </Link>
       </nav>
     </header>

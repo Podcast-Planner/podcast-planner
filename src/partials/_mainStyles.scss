@@ -37,10 +37,6 @@ ul {
   padding: 0;
 }
 
-li {
-  list-style: none;
-}
-
 a {
   text-decoration: none;
   color: $quaternary;
@@ -65,7 +61,8 @@ h3 {
 
 h1 {
   font-size: 1.2rem;
-  padding-left: 10px;
+  margin: 10px 0;
+  padding-left: 5px;
 }
 
 h2 {
@@ -91,9 +88,9 @@ header {
   align-items: center;
   background-color: $primary;
 
-  button {
-    margin: 10px;
-    cursor: pointer;
+  div{
+    display: flex;
+    padding: 10px;
   }
 }
 
@@ -108,6 +105,7 @@ button {
   background-color: $tertiary;
   border: 2px solid $secondary;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 legend {
@@ -120,14 +118,21 @@ legend {
   top: 2px;
 }
 
-a:hover {
+a:hover,
+a:focus {
   opacity: 1;
+  color: #ffbb5c;
 }
 
 footer {
   display: flex;
   margin: 0;
-  padding: 18px 0;
+  padding: 25px 0;
   background-color: $primary;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+
+  p{
+    margin: 0 0 10px 0;
+  }
 }

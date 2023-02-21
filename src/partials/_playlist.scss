@@ -18,10 +18,9 @@
 .playlistButtons button svg,
 .icon svg,
 .backButton svg {
-  background-color: none;
+  background-color: $secondary;
   border-radius: 10px;
   border: 2px solid $tertiary;
-
 }
 
 .playlistButtons {
@@ -53,12 +52,6 @@ audio {
   right: 0;
 }
 
-.playlistButtons a svg {
-  background-color: $tertiary;
-  border-radius: 10px;
-  border: 2px solid $tertiary;
-}
-
 //styling each podcast playlist item
 .playlist {
   display: flex;
@@ -68,13 +61,6 @@ audio {
   button {
     padding: 0;
   }
-}
-
-.playlist li {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 90%;
 }
 
 .mediaContainer {
@@ -103,7 +89,8 @@ button.icon {
 .podcastImage {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  width: 90%;
   align-items: center;
   margin: 10px 0;
   padding: 10px;
@@ -143,7 +130,7 @@ button.icon {
 
 .overlay:hover {
   opacity: 0.7;
-  background-color: #001e31;
+  background-color: $secondary;
 }
 
 //play icon on image
@@ -158,7 +145,6 @@ button.icon {
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  cursor: pointer;
   z-index: 2;
 }
 
@@ -175,11 +161,9 @@ button.icon {
 
 .icon,
 .iconNav {
-  border: 0;
   padding: 0;
   margin: 0;
   height: 40px;
-  top: 0px;
 
   &:hover,
   &:focus {
@@ -193,100 +177,9 @@ button.icon {
   position: sticky;
 }
 
-.icon svg,
-.iconNav svg {
-  border: none;
-  height: 40px;
-  width: 40px;
-
-}
-
-.playlistButtons a svg,
-.playlistButtons button svg,
-.icon svg,
-.backButton svg {
-  background-color: none;
-  border-radius: 10px;
-  border: 2px solid $tertiary;
-
-}
-
-.playlistButtons {
-  display: flex;
-  margin-top: 20px;
-  justify-content: space-between;
-  padding: 0 5%;
-
-  div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  p {
-    margin: 10px 0;
-  }
-}
-
-.results {
-
-  h3,
-  h4,
-  h5 {
-    margin: 10px;
-  }
-
-  h3 {
-    padding: 0 45px;
-  }
-
-  li {
-    border-radius: 10px;
-  }
-
-  button {
-    cursor: pointer;
-  }
-
-  .edit {
-    position: absolute;
-    margin: auto 0;
-    right: 5%;
-    top: 0;
-    bottom: 0;
-  }
-
-  .title {
-    display: flex;
-    justify-content: center;
-    background-color: $primary;
-    align-items: center;
-    margin-top: 1em;
-    padding: 10px;
-    position: relative;
-    max-width: 100%;
-
-    input {
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
-
-audio {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  border: none;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
 .overlay:hover,
 .podcastImage:focus.overlay,
 .podcastImage:focus-within .overlay {
   opacity: 0.7;
-  background-color: #001e31;
+  background-color: $secondary;
 }

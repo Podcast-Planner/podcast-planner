@@ -6,7 +6,7 @@ import { Routes, Route } from "react-router-dom";
 
 // Components
 import SavedLists from "./components/SavedLists";
-import About from "./pages/About"
+import About from "./components/About"
 import Form from "./components/Form";
 import Results from "./components/Results";
 import Header from "./components/Header";

@@ -5,8 +5,9 @@ import PageFade from "./PageFade";
 const SavedLists = ({ savedPlaylists, headerRef, setFormValues }) => {
   return (
     <PageFade>
+      
       <section className="savedLists">
-        <h2>Your Saved Playlists</h2>
+        {savedPlaylists[0] ? <h2>Your Saved Playlists</h2> : <h2>No Saved Playlists Found</h2>}
         <div className="playlists" draggable="false">
           {savedPlaylists
             .slice(0)

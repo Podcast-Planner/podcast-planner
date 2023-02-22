@@ -42,7 +42,7 @@ Thank you for your interest in Podcast Planner! We hope you find it useful and l
 * Automatic Playlist Generation: The app generates a list of podcasts that will fill the length of the  user's walk based on their selected genres and walking time.
 * Personalized Playlists: Users can name and save their playlists as personal playlists.
 * Editable Playlists: Personal playlists are editable, so users can remove playlists they are not interested in.
-* Drag and Drop To Reorder Playlists: Users can reorder their personal playlists.
+* Desktop Drag and drop to reorder playlists (Planned: Touch drag and drop)
 * Multi-genre Selection: Users can include multiple podcast genres in their personal playlists.
 * Podcast Player: The app includes a podcast player with the following features:
     * Play and Pause controls

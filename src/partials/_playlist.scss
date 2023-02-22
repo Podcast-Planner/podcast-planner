@@ -183,3 +183,28 @@ button.icon {
   opacity: 0.7;
   background-color: $secondary;
 }
+
+.swal2-container.swal2-center>.swal2-popup {
+  background-color: $tertiary;
+}
+
+.confirmEdit{
+  display: none;
+  background-color: $primary;
+  box-shadow: 0 4px 10px 0 rgba($color: black, $alpha: 0.7);
+  color: #fff;
+  padding: 10px 15px;
+  border: 1px transparent solid;
+  &:hover,
+  &:focus{
+    background-color: $quaternary;
+    border: 1px $tertiary solid;
+    color: $tertiary;
+    box-shadow: 0 4px 10px 0 rgba($color: $quinary, $alpha: 0.7);
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+  }
+}
+
